@@ -17,8 +17,8 @@ export class HomeView extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      lat: null,
-      lng: null
+      lat: '',
+      lng: ''
     }
 
     // this.debouncedGeoSearch = _.debounce(() => {
