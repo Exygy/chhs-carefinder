@@ -13,11 +13,14 @@ export const setFacilityGeoSearch = createAction('SET_FACILITY_GEO_SEARCH')
 export const getFacilities = () => thunkAPI(API_URL, '/resource/ubwb-3u3c.json', {
   onSuccess: facilitiesLoad,
   queryData: (state) => {
+    let where = 'facility_status != "CLOSED"'
     let geo = state.facilities.geoSearch
-    if (_.isEmpty(geo)) return {}
-    geo.distance = geo.distance || 30000 // 30 km
+    if (!_.isEmpty(geo)) {
+      geo.distance = geo.distance || 30000 // 30 km
+      where += `AND within_circle(location, ${geo.lat}, ${geo.lng}, ${geo.distance})`
+    }
     return {
-      $where: `within_circle(location, ${geo.lat}, ${geo.lng}, ${geo.distance})`
+      $where: where
     }
   }
 })
