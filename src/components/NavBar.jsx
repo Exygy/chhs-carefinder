@@ -14,16 +14,19 @@ export class NavBar extends React.Component {
   }
 
   get menuBar () {
+    let searchFacilitiesLink = (
+      <li role='menuitem'><a href='search' tabIndex='0'>Search Facilities</a></li>
+    )
     let loggedOutNavLinks = (
       <ul className='menu' role='menubar'>
-        <li role='menuitem'><a href='#' tabIndex='0'>Search Facilities</a></li>
+        {searchFacilitiesLink}
         <li role='menuitem'><a href='#'>Sign Up</a></li>
         <li role='menuitem'><a onClick={this.loadFakeUser} href='#'>Sign In</a></li>
       </ul>
     )
     let loggedInNavLinks = (
       <ul className='menu' role='menubar'>
-        <li role='menuitem'><a href='#' tabIndex='0'>Search Facilities</a></li>
+        {searchFacilitiesLink}
         <li role='menuitem'><a onClick={this.unloadFakeUser} href='#'>Logout</a></li>
       </ul>
     )
