@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
 export class NavBar extends React.Component {
   static propTypes = {
@@ -8,17 +8,13 @@ export class NavBar extends React.Component {
     return (
       <nav className='top-bar'>
         <div className='top-bar-left'>
-          <ul className='dropdown menu' role='menubar'>
-            <li className='menu-text' role='menuitem'>Site Title</li>
-            <li role='menuitem'><a href='#' tabIndex='0'>One</a></li>
-            <li role='menuitem'><a href='#'>Two</a></li>
-            <li role='menuitem'><a href='#'>Three</a></li>
-          </ul>
+          Logo
         </div>
         <div className='top-bar-right'>
-          <ul className='menu'>
-            <li><input type='search' placeholder='Search' /></li>
-            <li><button type='button' className='button'>Search</button></li>
+          <ul className='menu' role='menubar'>
+            <li role='menuitem'><a href='#' tabIndex='0'>Search Facilities</a></li>
+            <li role='menuitem'><a href='#'>Sign Up</a></li>
+            <li role='menuitem'><a href='#'>Sign In</a></li>
           </ul>
         </div>
       </nav>
