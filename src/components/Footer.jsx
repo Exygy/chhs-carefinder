@@ -6,21 +6,18 @@ export class Footer extends React.Component {
 
   render () {
     return (
-      <footer className='footer'>
+      <footer className='footer stuck'>
         <div className='row'>
-          <div className='small-12 columns'>
-            <p className='footer-slogan'>
-              {"Finger lickin' good"}
-            </p>
+          <div className='medium-4 columns'>
+            <p className='footer-copywrite'>Copywrite not copypwrite © 2015</p>
+          </div>
+          <div className='medium-4 columns'>
             <p className='footer-links'>
-              <a href='#' className='footer-link'>Home</a>
-              <a href='#' className='footer-link'>Blog</a>
-              <a href='#' className='footer-link'>Pricing</a>
-              <a href='#' className='footer-link'>About</a>
-              <a href='#' className='footer-link'>Faq</a>
-              <a href='#' className='footer-link'>Contact</a>
+              <a href='#' className='footer-link'>Privacy Policy</a>
             </p>
-            <p className='footer-copywrite'>Copyright &copy; 2016</p>
+          </div>
+          <div className='medium-4 columns'>
+            <p className='footer-contact'>1(800)-Kids</p>
           </div>
         </div>
       </footer>
