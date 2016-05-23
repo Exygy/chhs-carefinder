@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react'
+import NavBar from 'components/NavBar'
+import Footer from 'components/Footer'
 
 // Note: Stateless/function components *will not* hot reload!
 // react-transform *only* works on component classes.
@@ -11,10 +13,10 @@ import React, { PropTypes } from 'react'
 // define it with a plain javascript function...
 function CoreLayout ({ children }) {
   return (
-    <div className='row'>
-      <div className='medium-10 small-centered columns'>
-        {children}
-      </div>
+    <div>
+      <NavBar />
+      {children}
+      <Footer />
     </div>
   )
 }

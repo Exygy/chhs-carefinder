@@ -2,6 +2,7 @@ import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/facilities'
+import Hero from 'components/Hero'
 
 const mapStateToProps = (state) => ({
   facilities: state.facilities.results
@@ -63,30 +64,44 @@ export class HomeView extends React.Component {
   render () {
     return (
       <div>
-        <h1>Welcome to CHHS CareFinder</h1>
-        <div className='row'>
-          <div className='medium-3 columns'>
-            <input
-              onChange={this.updateGeoLat}
-              value={this.state.lat}
-              type='text'
-              placeholder='Lat'
-              />
-          </div>
-          <div className='medium-3 columns'>
-            <input
-              onChange={this.updateGeoLng}
-              value={this.state.lng}
-              type='text'
-              placeholder='Lng'
-              />
-          </div>
-          <div className='medium-4 columns'>
-            <button type='button' className='success button' onClick={this.geoSearch}>Go</button>
-          </div>
-        </div>
+        <Hero />
+        <div className='content'>
+          <section className='row padding-top--2x padding-bottom--2x'>
+            <div className='card'>
+              <div className='card-divider'>
+                This is a header
+              </div>
+              <div className='card-section'>
+                <h4>Look at This Swag Card</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi iusto reprehenderit voluptatem odio deleniti provident aliquam qui magnam aspernatur necessitatibus.</p>
+              </div>
+            </div>
 
-        {this.facilityList}
+            <div className='row'>
+              <div className='medium-3 columns'>
+                <input
+                  onChange={this.updateGeoLat}
+                  value={this.state.lat}
+                  type='text'
+                  placeholder='Lat'
+                  />
+              </div>
+              <div className='medium-3 columns'>
+                <input
+                  onChange={this.updateGeoLng}
+                  value={this.state.lng}
+                  type='text'
+                  placeholder='Lng'
+                  />
+              </div>
+              <div className='medium-4 columns'>
+                <button type='button' className='success button' onClick={this.geoSearch}>Go</button>
+              </div>
+            </div>
+
+            {this.facilityList}
+          </section>
+        </div>
       </div>
     )
   }
