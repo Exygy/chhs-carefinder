@@ -20,14 +20,17 @@ export class NavBar extends React.Component {
     let loggedOutNavLinks = (
       <ul className='menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><a href='#'>Sign Up</a></li>
-        <li role='menuitem'><a onClick={this.loadFakeUser} href='#'>Sign In</a></li>
+        <li role='menuitem'><a href='signin'>Sign Up</a></li>
+        <li role='menuitem'><a href='signin'>Sign In</a></li>
       </ul>
     )
     let loggedInNavLinks = (
       <ul className='menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><a onClick={this.unloadFakeUser} href='#'>Logout</a></li>
+        <li role='menuitem'><a href='search'>My Facilities</a></li>
+        <li role='menuitem'><a href='profile'>My Profile</a></li>
+        <li role='menuitem'><a href='messages'>My Messages</a></li>
+        <li role='menuitem'><a href='/'>Logout</a></li>
       </ul>
     )
     if (_.isEmpty(this.props.loggedInUser)) {
@@ -37,19 +40,11 @@ export class NavBar extends React.Component {
     }
   }
 
-  loadFakeUser = () => {
-    this.props.userLoad({name: 'Matt'})
-  }
-
-  unloadFakeUser = () => {
-    this.props.userLoad({})
-  }
-
   render () {
     return (
       <nav className='top-bar'>
         <div className='top-bar-left'>
-          Logo
+          <a href='/'>Logo</a>
         </div>
         <div className='top-bar-right'>
           {this.menuBar}
