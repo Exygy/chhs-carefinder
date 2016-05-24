@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/user'
+import { Link } from 'react-router'
 
 const mapStateToProps = (state) => ({
   userLoad: state.facilities.filterByFavorites
@@ -21,7 +22,7 @@ export class AuthView extends React.Component {
   render () {
     return (
       <div>
-        <a onClick={this.loadFakeUser} href='#'>Sign in</a>
+        <Link onClick={this.loadFakeUser} to='/'>Sign in</Link>
       </div>
     )
   }
