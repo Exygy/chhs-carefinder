@@ -12,7 +12,9 @@ export default (store) => (
     <IndexRoute component={HomeView} />
     <Route path='messages' component={MessagesView} />
     <Route path='profile' component={ProfileView} />
-    <Route path='search' component={SearchView} />
+    <Route path='search' component={SearchView}>
+      <Route path='favorites' component={SearchView} />
+    </Route>
     <Route path='signin' component={AuthView} />
   </Route>
 )

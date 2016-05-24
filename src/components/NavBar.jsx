@@ -1,5 +1,6 @@
 import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/user'
 
@@ -15,22 +16,22 @@ export class NavBar extends React.Component {
 
   get menuBar () {
     let searchFacilitiesLink = (
-      <li role='menuitem'><a href='search' tabIndex='0'>Search Facilities</a></li>
+      <li role='menuitem'><Link to='/search'>Search Facilities</Link></li>
     )
     let loggedOutNavLinks = (
       <ul className='menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><a href='signin'>Sign Up</a></li>
-        <li role='menuitem'><a href='signin'>Sign In</a></li>
+        <li role='menuitem'><Link to='/signin'>Sign Up</Link></li>
+        <li role='menuitem'><Link onClick={this.filterByFavorites} to='/signin'>Sign In</Link></li>
       </ul>
     )
     let loggedInNavLinks = (
       <ul className='menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><a href='search'>My Facilities</a></li>
-        <li role='menuitem'><a href='profile'>My Profile</a></li>
-        <li role='menuitem'><a href='messages'>My Messages</a></li>
-        <li role='menuitem'><a href='/'>Logout</a></li>
+        <li role='menuitem'><Link to='/search/favorites'>My Facilities</Link></li>
+        <li role='menuitem'><Link to='/profile'>My Profile</Link></li>
+        <li role='menuitem'><Link to='/messages'>My Messages</Link></li>
+        <li role='menuitem'><Link onClick={this.logOut} to='/'>Logout</Link></li>
       </ul>
     )
     if (_.isEmpty(this.props.loggedInUser)) {
@@ -40,11 +41,15 @@ export class NavBar extends React.Component {
     }
   }
 
+  logOut = () => {
+    this.props.userLoad({})
+  }
+
   render () {
     return (
       <nav className='top-bar'>
         <div className='top-bar-left'>
-          <a href='/'>Logo</a>
+          <Link to='/'>Logo</Link>
         </div>
         <div className='top-bar-right'>
           {this.menuBar}
