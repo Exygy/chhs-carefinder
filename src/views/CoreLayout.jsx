@@ -15,7 +15,9 @@ function CoreLayout ({ children }) {
   return (
     <div>
       <NavBar />
-      {children}
+      <div className='main-content'>
+        {children}
+      </div>
       <Footer />
     </div>
   )
