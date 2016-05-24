@@ -28,7 +28,7 @@ export class NavBar extends React.Component {
     let loggedInNavLinks = (
       <ul className='menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><Link to='/search/favorites'>My Facilities</Link></li>
+        <li role='menuitem'><Link to={{ pathname: '/search', query: { favorites: true } }}>My Facilities</Link></li>
         <li role='menuitem'><Link to='/profile'>My Profile</Link></li>
         <li role='menuitem'><Link to='/messages'>My Messages</Link></li>
         <li role='menuitem'><Link onClick={this.logOut} to='/'>Logout</Link></li>
