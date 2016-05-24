@@ -47,7 +47,7 @@ export class NavBar extends React.Component {
 
   render () {
     return (
-      <nav className='top-bar'>
+      <nav className='top-bar sticky is-stuck is-at-top column'>
         <div className='top-bar-left'>
           <Link to='/'>Logo</Link>
         </div>
