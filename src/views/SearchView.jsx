@@ -70,7 +70,9 @@ export class SearchView extends React.Component {
             </section>
 
             <section className='row padding-top padding-bottom'>
-              {this.resultCount}
+              <div className='columns'>
+                {this.resultCount}
+              </div>
             </section>
           </Sticky>
 
