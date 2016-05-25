@@ -62,7 +62,7 @@ export class SearchView extends React.Component {
     return (
       <StickyContainer>
         <div className='content'>
-          <Sticky style={{paddingTop: '50px'}}>
+          <Sticky style={{paddingTop: '50px', backgroundColor: 'white', zIndex: 1}}>
             <section className='row padding-top--2x padding-bottom'>
               <div className='large-12 columns'>
                 <FacilitySearchBox onSubmit={this.props.getFacilities} />
