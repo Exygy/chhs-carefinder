@@ -4,7 +4,6 @@ import { actions } from 'redux/modules/facilities'
 import Geosuggest from 'react-geosuggest'
 
 const mapStateToProps = (state) => ({
-  facilities: state.facilities.results,
   searchQuery: state.facilities.searchQuery,
   licensed: state.facilities.licensed
 })
