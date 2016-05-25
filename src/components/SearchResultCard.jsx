@@ -35,12 +35,15 @@ export class SearchResultCard extends React.Component {
     )
   }
 
-  get license () {
-    let license = this.props.facility.licensee
+  get licenseFirstDate () {
     if (this.props.facility.facility_status === 'LICENSED') {
-      license += ' ' + new Date(this.props.facility.license_first_date)
+      let firstDate = this.props.facility.license_first_date
+      return (
+        <p>
+          Licensed {firstDate}
+        </p>
+      )
     }
-    return license
   }
 
   render () {
@@ -59,8 +62,9 @@ export class SearchResultCard extends React.Component {
             {facility.facility_telephone_number}
           </address>
           <p>
-            {this.license}
+            {facility.licensee}
           </p>
+          {this.licenseFirstDate}
         </div>
         <div className='search-card-meta'>
           <a href='#' className='search-card-fave'>
