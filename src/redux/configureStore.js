@@ -1,14 +1,37 @@
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
+import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import rootReducer from './rootReducer'
-import { routerMiddleware } from 'react-router-redux'
 
-export default function configureStore (initialState = {}, history) {
-  // Compose final middleware and use devtools in debug environment
-  let middleware = applyMiddleware(thunk, routerMiddleware(history))
+export default (initialState = {}, history) => {
+  // ======================================================
+  // Middleware Configuration
+  // ======================================================
+  const middleware = [thunk, routerMiddleware(history)]
 
-  // Create final store and subscribe router in debug env ie. for devtools
-  const store = createStore(rootReducer, initialState, middleware)
+  // ======================================================
+  // Store Enhancers
+  // ======================================================
+  const enhancers = []
+  if (__DEBUG__) {
+    const devToolsExtension = window.devToolsExtension
+    if (typeof devToolsExtension === 'function') {
+      enhancers.push(devToolsExtension())
+    }
+  }
+
+  // ======================================================
+  // Store Instantiation and HMR Setup
+  // ======================================================
+  const store = createStore(
+    rootReducer,
+    initialState,
+    compose(
+      applyMiddleware(...middleware),
+      ...enhancers
+    )
+  )
+  store.asyncReducers = {}
 
   if (module.hot) {
     module.hot.accept('./rootReducer', () => {
@@ -17,5 +40,6 @@ export default function configureStore (initialState = {}, history) {
       store.replaceReducer(nextRootReducer)
     })
   }
+
   return store
 }
