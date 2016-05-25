@@ -5,7 +5,8 @@ import Geosuggest from 'react-geosuggest'
 
 const mapStateToProps = (state) => ({
   facilities: state.facilities.results,
-  searchQuery: state.facilities.searchQuery
+  searchQuery: state.facilities.searchQuery,
+  licensed: state.facilities.licensed
 })
 
 export class FacilitySearchBox extends React.Component {
@@ -14,7 +15,9 @@ export class FacilitySearchBox extends React.Component {
     getFacilities: PropTypes.func.isRequired,
     setFacilityGeoSearch: PropTypes.func.isRequired,
     setFacilitySearchQuery: PropTypes.func.isRequired,
-    searchQuery: PropTypes.string.isRequired
+    setFacilityLicensed: PropTypes.func.isRequired,
+    searchQuery: PropTypes.string.isRequired,
+    licensed: PropTypes.bool.isRequired
   }
 
   onSubmit = (e) => {
@@ -25,6 +28,10 @@ export class FacilitySearchBox extends React.Component {
       this.props.setFacilitySearchQuery(this.refs.geosuggest.state.userInput)
     }
     this.props.onSubmit()
+  }
+
+  updateLicensed = (e) => {
+    this.props.setFacilityLicensed(!this.props.licensed)
   }
 
   handleSuggestSelect = (suggest) => {
@@ -67,6 +74,16 @@ export class FacilitySearchBox extends React.Component {
                 className='search-button button'
                 defaultValue='Search' />
             </div>
+          </div>
+
+          <div>
+            <input
+              type='checkbox'
+              checked={this.props.licensed}
+              onChange={this.updateLicensed} />
+            <label>
+              Licensed
+            </label>
           </div>
         </form>
       </div>
