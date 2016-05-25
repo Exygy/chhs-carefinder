@@ -56,33 +56,37 @@ export class FacilitySearchBox extends React.Component {
           or permanent placements for children who require intensive care.
         </p>
         <form onSubmit={this.onSubmit}>
-          <div className='search-input-group input-group'>
-            <Geosuggest
-              inputClassName='search-input input-group-field'
-              country='us'
-              types={['(regions)']}
-              initialValue={this.props.searchQuery}
-              placeholder='Enter a city or zipcode'
-              onSuggestSelect={this.handleSuggestSelect}
-              autoActivateFirstSuggest
-              ref='geosuggest'
-            />
-            <div className='input-group-button'>
-              <input
-                type='submit'
-                className='search-button button'
-                defaultValue='Search' />
+          <div className='row'>
+            <div className='large-9 columns'>
+              <div className='search-input-group input-group large-9'>
+                <Geosuggest
+                  inputClassName='search-input input-group-field'
+                  country='us'
+                  types={['(regions)']}
+                  initialValue={this.props.searchQuery}
+                  placeholder='Enter a city or zipcode'
+                  onSuggestSelect={this.handleSuggestSelect}
+                  autoActivateFirstSuggest
+                  ref='geosuggest'
+                />
+                <div className='input-group-button'>
+                  <input
+                    type='submit'
+                    className='search-button button'
+                    defaultValue='Search' />
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div>
-            <input
-              type='checkbox'
-              checked={this.props.licensed}
-              onChange={this.updateLicensed} />
-            <label>
-              Licensed
-            </label>
+            <div className='large-3 columns'>
+              <input
+                id='licensed'
+                type='checkbox'
+                checked={this.props.licensed}
+                onChange={this.updateLicensed} />
+              <label htmlFor='licensed'>
+                Licensed
+              </label>
+            </div>
           </div>
         </form>
       </div>
