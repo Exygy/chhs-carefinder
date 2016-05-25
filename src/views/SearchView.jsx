@@ -36,7 +36,11 @@ export class SearchView extends React.Component {
   get resultCount () {
     let facilityCount = this.props.facilities.length
     if (facilityCount) {
-      return facilityCount + ' agencies matching ' + this.props.searchQuery
+      let resultCount = facilityCount + ' agencies'
+      if (!_.isEmpty(this.props.searchQuery)) {
+        resultCount += ' matching ' + this.props.searchQuery
+      }
+      return resultCount
     } else {
       return 'No results match your search'
     }
