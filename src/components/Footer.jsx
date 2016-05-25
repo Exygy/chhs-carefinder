@@ -9,9 +9,16 @@ export class Footer extends React.Component {
       <footer className='footer stuck sticky is-stuck is-at-bottom'>
         <div className='row'>
           <div className='medium-4 columns'>
-            <p className='footer-copywrite'>
-              Copyright &copy; 2016 State of CA
-            </p>
+            <div className='row'>
+              <div className='medium-2 columns'>
+                <p>Logo</p>
+              </div>
+              <div className='medium-10 columns'>
+                <p className='footer-copywrite'>
+                  Copyright &copy; 2016 State of CA
+                </p>
+              </div>
+            </div>
           </div>
           <div className='medium-4 columns'>
             <p className='footer-links'>
