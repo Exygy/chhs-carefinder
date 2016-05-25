@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/facilities'
 import FacilitySearchBox from 'components/FacilitySearchBox'
+import SearchResultCard from 'components/SearchResultCard'
 
 const mapStateToProps = (state) => ({
   facilities: state.facilities.results
@@ -35,13 +36,9 @@ export class SearchView extends React.Component {
       let list = facilities.map((facility) => {
         i++
         return (
-          <li key={i}>
-            {_.retitleize(facility.facility_name)}
-            {' - '}
-            {_.retitleize(facility.county_name)}, {facility.facility_zip}
-            <br />
-            {facility.range_in_miles}
-          </li>
+          <div className='large-6 columns' key={i}>
+            <SearchResultCard facility={facility} />
+          </div>
         )
       })
       return list
@@ -57,6 +54,8 @@ export class SearchView extends React.Component {
           <div className='large-12 columns'>
             <FacilitySearchBox onSubmit={this.props.getFacilities} />
           </div>
+        </section>
+        <section className='row padding-bottom--2x'>
           {this.facilityList}
         </section>
       </div>

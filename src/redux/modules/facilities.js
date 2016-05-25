@@ -20,7 +20,8 @@ export const getFacilities = () => thunkAPI(API_URL, '/resource/mffa-c6z5.json',
   onSuccess: facilitiesLoad,
   queryData: (state) => {
     let search = {
-      $where: 'facility_status != "CLOSED"'
+      $where: 'facility_status != "CLOSED" AND facility_type != "ADOPTION AGENCY"',
+      $limit: 50
     }
     let geo = state.facilities.geoSearch
     let query = state.facilities.searchQuery
@@ -29,7 +30,7 @@ export const getFacilities = () => thunkAPI(API_URL, '/resource/mffa-c6z5.json',
       search.$where += ` AND within_circle(location, ${geo.lat}, ${geo.lng}, ${geo.distance})`
       let distance = `distance_in_meters(location, 'POINT (${geo.lng} ${geo.lat})')`
       search.$order = distance
-      search.$select = `*, ${distance} * ${metersToMiles} AS range_in_miles`
+      search.$select = `*, ${distance} * ${metersToMiles} AS distance_in_miles`
     } else if (query) {
       search.$q = query
     }
