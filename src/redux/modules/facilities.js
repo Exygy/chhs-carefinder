@@ -38,6 +38,10 @@ export const getFacilities = () => thunkAPI(API_URL, '/resource/mffa-c6z5.json',
     if (!_.isEmpty(zipcode)) {
       search.$where += ` AND ${facilityZipParamKey} = "${zipcode}"`
     }
+
+    if (state.facilities.licensed) {
+      search.$where += ' AND facility_status == "LICENSED"'
+    }
     return search
   }
 })
@@ -56,7 +60,8 @@ export const INITIAL_STATE = {
   filterByFavorites: false,
   geoSearch: {},
   results: [],
-  searchQuery: ''
+  searchQuery: '',
+  licensed: true
 }
 export default handleActions({
   FACILITIES_LOAD: (state, action) => {
