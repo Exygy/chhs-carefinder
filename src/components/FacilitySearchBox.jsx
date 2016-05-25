@@ -40,13 +40,13 @@ export class FacilitySearchBox extends React.Component {
   render () {
     return (
       <div className='callout large bg-light-gray'>
+        <h2 className='t-serif t-gamma'>
+          Find Foster Family Agencies in Your Area
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Sed libero ligula, mattis eu justo at, pulvinar efficitur lectus.
         </p>
-        <h2 className='t-serif t-gamma'>
-          Find Residential Facilities in Your Area
-        </h2>
         <form onSubmit={this.onSubmit}>
           <div className='search-input-group input-group'>
             <Geosuggest
