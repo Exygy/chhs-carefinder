@@ -2,6 +2,7 @@ import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/facilities'
+import Equalizer from 'components/vendor/Equalizer'
 import FacilitySearchBox from 'components/FacilitySearchBox'
 import SearchResultCard from 'components/SearchResultCard'
 
@@ -43,7 +44,11 @@ export class SearchView extends React.Component {
       })
       return list
     } else {
-      return 'No facilities found.'
+      return (
+        <div>
+          No facilities found.
+        </div>
+      )
     }
   }
 
@@ -56,7 +61,9 @@ export class SearchView extends React.Component {
           </div>
         </section>
         <section className='row padding-bottom--2x'>
-          {this.facilityList}
+          <Equalizer>
+            {this.facilityList}
+          </Equalizer>
         </section>
       </div>
     )

@@ -5,3 +5,4 @@ dist/**
 *.spec.js
 src/index.html
 Gruntfile.js
+src/components/vendor/**
