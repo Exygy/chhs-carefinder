@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
   // Define our Pattern Library and Application Assets paths
-  applicationAssetsPath: 'src/styles',
+  applicationAssetsPath: 'src',
   patternLibraryPath: '../exygy-patterns-standards',
 
   // Delete the old toolkit.css
@@ -18,7 +18,13 @@ module.exports = function(grunt) {
       files: [
         {
           src: '<%= patternLibraryPath %>/dist/assets/toolkit/styles/toolkit.css',
-          dest: '<%= applicationAssetsPath %>/toolkit.css'
+          dest: '<%= applicationAssetsPath %>/styles/toolkit.css'
+        },
+        {
+          expand: true,
+          cwd: '<%= patternLibraryPath %>/dist/assets/toolkit/images/',
+          src: ['**'],
+          dest: '<%= applicationAssetsPath %>/images/',
         }
       ],
     },
@@ -39,8 +45,8 @@ module.exports = function(grunt) {
       files: [
         {
           expand: true, flatten: true,
-          src: ['<%= applicationAssetsPath %>/toolkit.css'],
-          dest: '<%= applicationAssetsPath %>/'
+          src: ['<%= applicationAssetsPath %>/styles/toolkit.css'],
+          dest: '<%= applicationAssetsPath %>/styles/'
         }
       ]
     }
