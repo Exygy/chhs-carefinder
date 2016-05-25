@@ -7,7 +7,8 @@ import FacilitySearchBox from 'components/FacilitySearchBox'
 import SearchResultCard from 'components/SearchResultCard'
 
 const mapStateToProps = (state) => ({
-  facilities: state.facilities.results
+  facilities: state.facilities.results,
+  searchQuery: state.facilities.searchQuery
 })
 
 export class SearchView extends React.Component {
@@ -15,7 +16,8 @@ export class SearchView extends React.Component {
   static propTypes = {
     routes: PropTypes.array,
     facilities: PropTypes.array.isRequired,
-    getFacilities: PropTypes.func.isRequired
+    getFacilities: PropTypes.func.isRequired,
+    searchQuery: PropTypes.string.isRequired
   }
 
   componentWillMount () {
@@ -27,6 +29,15 @@ export class SearchView extends React.Component {
       return 'Search Favorites'
     } else {
       return 'Search'
+    }
+  }
+
+  get resultCount () {
+    let facilityCount = this.props.facilities.length
+    if (facilityCount) {
+      return facilityCount + ' agencies matching ' + this.props.searchQuery
+    } else {
+      return 'No results match your search'
     }
   }
 
@@ -43,12 +54,6 @@ export class SearchView extends React.Component {
         )
       })
       return list
-    } else {
-      return (
-        <div>
-          No facilities found.
-        </div>
-      )
     }
   }
 
@@ -60,6 +65,11 @@ export class SearchView extends React.Component {
             <FacilitySearchBox onSubmit={this.props.getFacilities} />
           </div>
         </section>
+
+        <section className='row'>
+          {this.resultCount}
+        </section>
+
         <section className='row padding-bottom--2x'>
           <Equalizer>
             {this.facilityList}

@@ -21,17 +21,18 @@ export class NavBar extends React.Component {
     let loggedOutNavLinks = (
       <ul className='menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><Link to='/signin'>Sign Up</Link></li>
-        <li role='menuitem'><Link onClick={this.filterByFavorites} to='/signin'>Sign In</Link></li>
+        <li role='menuitem'><Link to='/signin'>Sign In or Sign Up</Link></li>
       </ul>
     )
     let loggedInNavLinks = (
       <ul className='menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><Link to={{ pathname: '/search', query: { favorites: true } }}>My Facilities</Link></li>
+        // <li role='menuitem'><Link to={{ pathname: '/search', query: { favorites: true } }}>My Facilities</Link></li>
         <li role='menuitem'><Link to='/profile'>My Profile</Link></li>
         <li role='menuitem'><Link to='/messages'>My Messages</Link></li>
-        <li role='menuitem'><Link onClick={this.logOut} to='/'>Logout</Link></li>
+        <li role='menuitem'>
+          <Link onClick={this.logOut} to='/'>Sign Out</Link>
+        </li>
       </ul>
     )
     if (_.isEmpty(this.props.loggedInUser)) {

@@ -6,6 +6,11 @@ export class SearchResultCard extends React.Component {
     facility: PropTypes.object.isRequired
   }
 
+  get googleSearchLink () {
+    let facility = this.props.facility
+    return 'https://www.google.com#q=' + encodeURI(facility.facility_name) + '+california'
+  }
+
   get distance () {
     let d = this.props.facility.distance_in_miles
     if (d) {
@@ -30,6 +35,18 @@ export class SearchResultCard extends React.Component {
     )
   }
 
+  get licenseFirstDate () {
+    if (this.props.facility.facility_status === 'LICENSED') {
+      var firstDate = new Date(this.props.facility.license_first_date)
+      var year = firstDate.getFullYear()
+      return (
+        <p>
+          Licensed {year}
+        </p>
+      )
+    }
+  }
+
   render () {
     let facility = this.props.facility
     return (
@@ -37,15 +54,18 @@ export class SearchResultCard extends React.Component {
         <div className='card-section'>
           <address>
             <h4 className='t-serif t-epsilon'>
-              {facility.facility_name}
+              <a href={this.googleSearchLink} target='_blank'>
+                {facility.facility_name}
+              </a>
             </h4>
             {this.address}
             <br />
             {facility.facility_telephone_number}
           </address>
           <p>
-            Licensed {facility.license_first_date}
+            {facility.licensee}
           </p>
+          {this.licenseFirstDate}
         </div>
         <div className='search-card-meta'>
           <a href='#' className='search-card-fave'>

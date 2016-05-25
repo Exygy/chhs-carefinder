@@ -8,14 +8,19 @@ export class AdditionalResourcesCallout extends React.Component {
           Learn About Foster Care
         </h2>
         <p>
-          Vehicula taciti bibendum a sed a tincidunt tincidunt enim lectus sem nisi sem a
-          a eget sociis condimentum hac feugiat. Dis suspendisse mattis vestibulum felis cubilia blandit
-          odio at lobortis a lacus tempus netus vestibulum dignissim. Quam at fusce
-          interdum commodo nam aptent eget amet elementum a natoque sed nascetur sociis ac rhoncus
-          nascetur porta parturient a ullamcorper.
+          Foster Family Agencies offer services to support foster children,
+          such as certifying and training foster parents, providing professional
+          support to foster parents, and finding temporary or permanent
+          placements for children who require intensive care.
+          Foster parents play an essential role in providing temporary, safe,
+          and nurturing homes to children who don't have parents that are able
+          to care for them. The mission of the Office of Children and Family
+          Services is to aid and protect needy and vulnerable children and
+          adults in ways that strengthen and preserve families, encourage
+          personal responsibility, and foster independence.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          To that end, here is further information about foster care:
         </p>
         <ul className='no-bullet'>
           <li>

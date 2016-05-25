@@ -11,6 +11,7 @@ const API_URL = 'https://chhs.data.ca.gov'
 export const facilitiesLoad = createAction('FACILITIES_LOAD')
 export const setFacilityGeoSearch = createAction('SET_FACILITY_GEO_SEARCH')
 export const setFacilitySearchQuery = createAction('SET_FACILITY_SEARCH_QUERY')
+export const setFacilityLicensed = createAction('SET_FACILITY_LICENSED')
 export const setFilterByFavorites = createAction('SET_FILTER_BY_FAVORITES')
 
 const facilityZipParamKey = 'facility_zip'
@@ -38,6 +39,10 @@ export const getFacilities = () => thunkAPI(API_URL, '/resource/mffa-c6z5.json',
     if (!_.isEmpty(zipcode)) {
       search.$where += ` AND ${facilityZipParamKey} = "${zipcode}"`
     }
+
+    if (state.facilities.licensed) {
+      search.$where += ' AND facility_status == "LICENSED"'
+    }
     return search
   }
 })
@@ -46,6 +51,7 @@ export const actions = {
   getFacilities,
   setFacilityGeoSearch,
   setFacilitySearchQuery,
+  setFacilityLicensed,
   setFilterByFavorites
 }
 
@@ -56,7 +62,8 @@ export const INITIAL_STATE = {
   filterByFavorites: false,
   geoSearch: {},
   results: [],
-  searchQuery: ''
+  searchQuery: '',
+  licensed: true
 }
 export default handleActions({
   FACILITIES_LOAD: (state, action) => {
@@ -67,6 +74,9 @@ export default handleActions({
   },
   SET_FACILITY_SEARCH_QUERY: (state, action) => {
     return Object.assign({}, state, { searchQuery: action.payload })
+  },
+  SET_FACILITY_LICENSED: (state, action) => {
+    return Object.assign({}, state, { licensed: action.payload })
   },
   SET_FILTER_BY_FAVORITES: (state, action) => {
     return Object.assign({}, state, { filterByFavorites: action.payload })
