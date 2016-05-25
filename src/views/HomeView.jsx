@@ -4,6 +4,7 @@ import { push } from 'react-router-redux'
 import Hero from 'components/Hero'
 import FacilitySearchBox from 'components/FacilitySearchBox'
 import AdditionalResourcesCallout from 'components/AdditionalResourcesCallout'
+import ContactUsCallout from 'components/ContactUsCallout'
 
 export class HomeView extends React.Component {
   static propTypes = {
@@ -22,8 +23,15 @@ export class HomeView extends React.Component {
           <div className='large-12 columns'>
             <FacilitySearchBox onSubmit={this.goToSearchView} />
           </div>
+        </section>
+        <section className='row padding-bottom'>
           <div className='large-12 columns'>
             <AdditionalResourcesCallout />
+          </div>
+        </section>
+        <section className='row padding-bottom--2x'>
+          <div className='large-12 columns'>
+            <ContactUsCallout />
           </div>
         </section>
       </div>

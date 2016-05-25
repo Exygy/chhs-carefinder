@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
-import { Router } from 'react-router'
+import { applyRouterMiddleware, Router } from 'react-router'
+// react-router-scroll allows it to auto scrollToTop after any route transition
+import useScroll from 'react-router-scroll'
 import 'styles/core.scss'
 
 export default class Root extends React.Component {
@@ -12,7 +14,7 @@ export default class Root extends React.Component {
 
   get content () {
     return (
-      <Router history={this.props.history}>
+      <Router history={this.props.history} render={applyRouterMiddleware(useScroll())}>
         {this.props.routes}
       </Router>
     )

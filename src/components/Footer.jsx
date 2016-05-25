@@ -9,15 +9,21 @@ export class Footer extends React.Component {
       <footer className='footer stuck is-at-bottom'>
         <div className='row'>
           <div className='medium-4 columns'>
-            <p className='footer-copywrite'>Copywrite not copypwrite © 2015</p>
-          </div>
-          <div className='medium-4 columns'>
-            <p className='footer-links'>
-              <a href='#' className='footer-link'>Privacy Policy</a>
+            <p className='footer-copywrite'>
+              Copyright &copy; 2016 State of CA
             </p>
           </div>
           <div className='medium-4 columns'>
-            <p className='footer-contact'>1(800)-Kids</p>
+            <p className='footer-links'>
+              <a href='http://www.cdss.ca.gov/cdssweb/privacy.htm' target='_blank' className='footer-link'>
+                Privacy Policy
+              </a>
+            </p>
+          </div>
+          <div className='medium-4 columns'>
+            <p className='footer-contact'>
+              1-800-KIDS-4-US (1-800-543-7487)
+            </p>
           </div>
         </div>
       </footer>

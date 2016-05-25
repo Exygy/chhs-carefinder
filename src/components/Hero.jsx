@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
 export class Hero extends React.Component {
   static propTypes = {
@@ -9,7 +9,7 @@ export class Hero extends React.Component {
     return (
       <div className='hero tb-table'>
         <div className='hero-inner tb-vert-align'>
-          <a href='' className='hero-logo'>
+          <a className='hero-logo'>
             <img src={img} alt='Logo Image' />
           </a>
           <div className='hero-copy'>

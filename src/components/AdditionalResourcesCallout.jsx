@@ -1,9 +1,6 @@
 import React from 'react'
 
 export class AdditionalResourcesCallout extends React.Component {
-  static propTypes = {
-  }
-
   render () {
     return (
       <div className='callout large'>
@@ -48,7 +45,6 @@ export class AdditionalResourcesCallout extends React.Component {
           </li>
         </ul>
       </div>
-
     )
   }
 }
