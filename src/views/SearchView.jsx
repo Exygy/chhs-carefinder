@@ -30,6 +30,15 @@ export class SearchView extends React.Component {
     }
   }
 
+  get resultCount () {
+    let facilityCount = this.props.facilities.length
+    if (facilityCount) {
+      return facilityCount + ' results found'
+    } else {
+      return 'No results match your search'
+    }
+  }
+
   get facilityList () {
     let facilities = this.props.facilities
     if (this.props.facilities.length) {
@@ -43,12 +52,6 @@ export class SearchView extends React.Component {
         )
       })
       return list
-    } else {
-      return (
-        <div>
-          No facilities found.
-        </div>
-      )
     }
   }
 
@@ -60,6 +63,11 @@ export class SearchView extends React.Component {
             <FacilitySearchBox onSubmit={this.props.getFacilities} />
           </div>
         </section>
+
+        <section className='row'>
+          {this.resultCount}
+        </section>
+
         <section className='row padding-bottom--2x'>
           <Equalizer>
             {this.facilityList}
