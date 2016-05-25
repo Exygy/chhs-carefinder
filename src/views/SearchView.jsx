@@ -2,6 +2,7 @@ import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/facilities'
+import { StickyContainer, Sticky } from 'react-sticky'
 import Equalizer from 'components/vendor/Equalizer'
 import FacilitySearchBox from 'components/FacilitySearchBox'
 import SearchResultCard from 'components/SearchResultCard'
@@ -59,23 +60,27 @@ export class SearchView extends React.Component {
 
   render () {
     return (
-      <div className='content with-sticky-header'>
-        <section className='row padding-top--2x padding-bottom'>
-          <div className='large-12 columns'>
-            <FacilitySearchBox onSubmit={this.props.getFacilities} />
-          </div>
-        </section>
+      <StickyContainer>
+        <div className='content'>
+          <Sticky style={{paddingTop: '50px'}}>
+            <section className='row padding-top--2x padding-bottom'>
+              <div className='large-12 columns'>
+                <FacilitySearchBox onSubmit={this.props.getFacilities} />
+              </div>
+            </section>
 
-        <section className='row'>
-          {this.resultCount}
-        </section>
+            <section className='row padding-top padding-bottom'>
+              {this.resultCount}
+            </section>
+          </Sticky>
 
-        <section className='row padding-bottom--2x'>
-          <Equalizer>
-            {this.facilityList}
-          </Equalizer>
-        </section>
-      </div>
+          <section className='row padding-bottom--2x'>
+            <Equalizer>
+              {this.facilityList}
+            </Equalizer>
+          </section>
+        </div>
+      </StickyContainer>
     )
   }
 }
