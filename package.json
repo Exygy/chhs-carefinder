@@ -132,6 +132,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.0.0-beta.6",
+    "babel-polyfill": "^6.9.0",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.1.0",
     "chai-enzyme": "^0.4.0",
