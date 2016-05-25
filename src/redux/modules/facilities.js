@@ -10,34 +10,41 @@ const API_URL = 'https://chhs.data.ca.gov'
 // ------------------------------------
 export const facilitiesLoad = createAction('FACILITIES_LOAD')
 export const setFacilityGeoSearch = createAction('SET_FACILITY_GEO_SEARCH')
-export const setFacilityZipcode = createAction('SET_FACILITY_ZIPCODE')
+export const setFacilitySearchQuery = createAction('SET_FACILITY_SEARCH_QUERY')
 export const setFilterByFavorites = createAction('SET_FILTER_BY_FAVORITES')
 
 const facilityZipParamKey = 'facility_zip'
+const metersToMiles = 0.000621371
 
-export const getFacilities = () => thunkAPI(API_URL, '/resource/ubwb-3u3c.json', {
+export const getFacilities = () => thunkAPI(API_URL, '/resource/mffa-c6z5.json', {
   onSuccess: facilitiesLoad,
   queryData: (state) => {
-    let where = 'facility_status != "CLOSED"'
+    let search = {
+      $where: 'facility_status != "CLOSED"'
+    }
     let geo = state.facilities.geoSearch
+    let query = state.facilities.searchQuery
     if (!_.isEmpty(geo)) {
-      geo.distance = geo.distance || 30000 // 30 km
-      where += `AND within_circle(location, ${geo.lat}, ${geo.lng}, ${geo.distance})`
+      geo.distance = geo.distance || (20 / metersToMiles) // 20 miles
+      search.$where += ` AND within_circle(location, ${geo.lat}, ${geo.lng}, ${geo.distance})`
+      let distance = `distance_in_meters(location, 'POINT (${geo.lng} ${geo.lat})')`
+      search.$order = distance
+      search.$select = `*, ${distance} * ${metersToMiles} AS range_in_miles`
+    } else if (query) {
+      search.$q = query
     }
     let zipcode = state.facilities.zipcodeSearch
     if (!_.isEmpty(zipcode)) {
-      where += ` AND ${facilityZipParamKey} = "${zipcode}"`
+      search.$where += ` AND ${facilityZipParamKey} = "${zipcode}"`
     }
-    return {
-      $where: where
-    }
+    return search
   }
 })
 
 export const actions = {
   getFacilities,
   setFacilityGeoSearch,
-  setFacilityZipcode,
+  setFacilitySearchQuery,
   setFilterByFavorites
 }
 
@@ -48,7 +55,7 @@ const INITIAL_STATE = {
   filterByFavorites: false,
   geoSearch: {},
   results: [],
-  zipcodeSearch: ''
+  searchQuery: ''
 }
 export default handleActions({
   FACILITIES_LOAD: (state, action) => {
@@ -57,8 +64,8 @@ export default handleActions({
   SET_FACILITY_GEO_SEARCH: (state, action) => {
     return Object.assign({}, state, { geoSearch: action.payload })
   },
-  SET_FACILITY_ZIPCODE: (state, action) => {
-    return Object.assign({}, state, { zipcodeSearch: action.payload })
+  SET_FACILITY_SEARCH_QUERY: (state, action) => {
+    return Object.assign({}, state, { searchQuery: action.payload })
   },
   SET_FILTER_BY_FAVORITES: (state, action) => {
     return Object.assign({}, state, { filterByFavorites: action.payload })

@@ -21,7 +21,7 @@ export class AuthView extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='content with-sticky-header'>
         <Link onClick={this.loadFakeUser} to='/'>Sign in</Link>
       </div>
     )

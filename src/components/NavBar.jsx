@@ -49,7 +49,11 @@ export class NavBar extends React.Component {
     return (
       <nav className='top-bar sticky is-stuck is-at-top column'>
         <div className='top-bar-left'>
-          <Link to='/'>Logo</Link>
+          <ul className='menu' role='menubar'>
+            <li>
+              <Link to='/'>Logo</Link>
+            </li>
+          </ul>
         </div>
         <div className='top-bar-right'>
           {this.menuBar}

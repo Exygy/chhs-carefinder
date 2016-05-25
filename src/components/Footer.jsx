@@ -6,7 +6,7 @@ export class Footer extends React.Component {
 
   render () {
     return (
-      <footer className='footer sticky is-stuck column is-at-bottom'>
+      <footer className='footer stuck is-at-bottom'>
         <div className='row'>
           <div className='medium-4 columns'>
             <p className='footer-copywrite'>Copywrite not copypwrite © 2015</p>
