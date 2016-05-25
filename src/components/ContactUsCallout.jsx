@@ -8,7 +8,7 @@ export class ContactUsCallout extends React.Component {
           Contact Us
         </h2>
         <p>
-          For additional information, call us toll-free at 1-800-KIDS-4-US (1-800-543-7487)
+          For additional information, call us toll-free at 1-800-KIDS-4-US (1-800-543-7487).
         </p>
       </div>
     )

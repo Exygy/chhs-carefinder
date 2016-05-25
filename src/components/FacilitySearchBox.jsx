@@ -41,11 +41,13 @@ export class FacilitySearchBox extends React.Component {
     return (
       <div className='callout large bg-light-gray'>
         <h2 className='t-serif t-gamma'>
-          Find Foster Family Agencies in Your Area
+          Find Foster Family Agencies In Your Area
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Sed libero ligula, mattis eu justo at, pulvinar efficitur lectus.
+          Foster Family Agencies offer services to support foster children,
+          such as certified and training foster parents, providing
+          professional support to foster parents, and finding temporary
+          or permanent placements for children who require intensive care.
         </p>
         <form onSubmit={this.onSubmit}>
           <div className='search-input-group input-group'>
