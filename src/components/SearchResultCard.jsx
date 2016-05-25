@@ -37,10 +37,11 @@ export class SearchResultCard extends React.Component {
 
   get licenseFirstDate () {
     if (this.props.facility.facility_status === 'LICENSED') {
-      let firstDate = this.props.facility.license_first_date
+      var firstDate = new Date(this.props.facility.license_first_date)
+      var year = firstDate.getFullYear()
       return (
         <p>
-          Licensed {firstDate}
+          Licensed {year}
         </p>
       )
     }
