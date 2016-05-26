@@ -1,6 +1,9 @@
+# ignore everything
+*
 .git
 .gitignore
 .editorconfig
-node_modules
-*.log
-*.md
+
+# only keep dist folders
+!dist
+!dist/*
