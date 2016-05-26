@@ -21,7 +21,9 @@ export class HomeView extends React.Component {
         <Hero />
         <section className='row padding-top--2x padding-bottom'>
           <div className='large-12 columns'>
-            <FacilitySearchBox onSubmit={this.goToSearchView} />
+            <FacilitySearchBox
+              showLicensedCheckbox={false}
+              onSubmit={this.goToSearchView} />
           </div>
         </section>
         <section className='row padding-bottom'>

@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 
 export class FacilitySearchBox extends React.Component {
   static propTypes = {
+    showLicensedCheckbox: PropTypes.bool,
     onSubmit: PropTypes.func.isRequired,
     getFacilities: PropTypes.func.isRequired,
     setFacilityGeoSearch: PropTypes.func.isRequired,
@@ -31,6 +32,7 @@ export class FacilitySearchBox extends React.Component {
 
   updateLicensed = (e) => {
     this.props.setFacilityLicensed(!this.props.licensed)
+    this.props.onSubmit()
   }
 
   handleSuggestSelect = (suggest) => {
@@ -41,6 +43,22 @@ export class FacilitySearchBox extends React.Component {
     this.props.setFacilityGeoSearch(location)
     this.props.setFacilitySearchQuery(suggest.label)
     this.props.onSubmit()
+  }
+
+  get licensedCheckbox () {
+    if (!this.props.showLicensedCheckbox) return ''
+    return (
+      <div className='large-4 columns'>
+        <input
+          id='licensed'
+          type='checkbox'
+          checked={this.props.licensed}
+          onChange={this.updateLicensed} />
+        <label className='t-small' htmlFor='licensed'>
+          Show only licensed facilities
+        </label>
+      </div>
+    )
   }
 
   render () {
@@ -57,7 +75,7 @@ export class FacilitySearchBox extends React.Component {
         </p>
         <form onSubmit={this.onSubmit}>
           <div className='row'>
-            <div className='large-9 columns'>
+            <div className='large-8 columns'>
               <div className='search-input-group input-group large-9'>
                 <Geosuggest
                   inputClassName='search-input input-group-field'
@@ -77,21 +95,14 @@ export class FacilitySearchBox extends React.Component {
                 </div>
               </div>
             </div>
-            <div className='large-3 columns'>
-              <input
-                id='licensed'
-                type='checkbox'
-                checked={this.props.licensed}
-                onChange={this.updateLicensed} />
-              <label htmlFor='licensed'>
-                Licensed
-              </label>
-            </div>
+            {this.licensedCheckbox}
           </div>
         </form>
       </div>
     )
   }
 }
+
+FacilitySearchBox.defaultProps = { showLicensedCheckbox: true }
 
 export default connect(mapStateToProps, actions)(FacilitySearchBox)
