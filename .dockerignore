@@ -1,9 +1,5 @@
 # ignore everything
 *
-.git
-.gitignore
-.editorconfig
-
 # only keep dist folders
 !dist
 !dist/*
