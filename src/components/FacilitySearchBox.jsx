@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 
 export class FacilitySearchBox extends React.Component {
   static propTypes = {
+    children: PropTypes.object,
     showLicensedCheckbox: PropTypes.bool,
     onSubmit: PropTypes.func.isRequired,
     getFacilities: PropTypes.func.isRequired,
@@ -67,12 +68,7 @@ export class FacilitySearchBox extends React.Component {
         <h2 className='t-serif t-gamma'>
           Find Foster Family Agencies In Your Area
         </h2>
-        <p>
-          Foster Family Agencies offer services to support foster children,
-          such as certified and training foster parents, providing
-          professional support to foster parents, and finding temporary
-          or permanent placements for children who require intensive care.
-        </p>
+        {this.props.children}
         <form onSubmit={this.onSubmit}>
           <div className='row'>
             <div className='large-8 columns'>
