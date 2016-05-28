@@ -40,3 +40,4 @@ git remote add $app https://git.heroku.com/$app.git
 git add .
 git commit -am 'Deploying latest CHHS App to heroku'
 git push --force $app master
+rm -rf .git
