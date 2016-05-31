@@ -40,7 +40,7 @@ export class NavBar extends React.Component {
         <NavItem to='/messages' className='top-bar-menu-item' activeClassName='active'>
           My Messages
         </NavItem>
-        <NavItem onClick={this.logOut} to='/' className='top-bar-menu-item' activeClassName='active'>
+        <NavItem onClick={this.logOut} to='/' className='top-bar-menu-item' activeClassName=''>
           Sign Out
         </NavItem>
       </ul>
