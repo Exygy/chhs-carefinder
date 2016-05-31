@@ -35,9 +35,10 @@ echo '{
     "platform-dev": []
 }' > composer.lock
 echo 'web: vendor/bin/heroku-php-nginx' > Procfile
-echo 'vendor' > .gitignore
 git remote add $app https://git.heroku.com/$app.git
 git add .
 git commit -am 'Deploying latest CHHS App to heroku'
 git push --force $app master
+rm composer.*
+rm Procfile
 rm -rf .git

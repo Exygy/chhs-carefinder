@@ -48,9 +48,10 @@ export class SearchView extends React.Component {
 
   get facilityList () {
     let facilities = this.props.facilities
+    let list = <div />
     if (this.props.facilities.length) {
       let i = 0
-      let list = facilities.map((facility) => {
+      list = facilities.map((facility) => {
         i++
         return (
           <div className='large-6 columns end' key={i}>
@@ -58,8 +59,8 @@ export class SearchView extends React.Component {
           </div>
         )
       })
-      return <Equalizer>{list}</Equalizer>
     }
+    return <Equalizer>{list}</Equalizer>
   }
 
   render () {
