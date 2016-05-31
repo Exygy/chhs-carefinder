@@ -12,6 +12,7 @@ export class FacilitySearchBox extends React.Component {
   static propTypes = {
     children: PropTypes.object,
     showLicensedCheckbox: PropTypes.bool,
+    resultCount: PropTypes.string,
     onSubmit: PropTypes.func.isRequired,
     getFacilities: PropTypes.func.isRequired,
     setFacilityGeoSearch: PropTypes.func.isRequired,
@@ -64,8 +65,8 @@ export class FacilitySearchBox extends React.Component {
 
   render () {
     return (
-      <div className='callout large bg-light-gray'>
-        <h2 className='t-serif t-gamma'>
+      <div className='callout large'>
+        <h2 className='t-serif t-delta'>
           Find Foster Family Agencies In Your Area
         </h2>
         {this.props.children}
@@ -94,6 +95,7 @@ export class FacilitySearchBox extends React.Component {
             {this.licensedCheckbox}
           </div>
         </form>
+        {this.props.resultCount}
       </div>
     )
   }

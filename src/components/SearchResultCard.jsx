@@ -47,7 +47,7 @@ export class SearchResultCard extends React.Component {
   render () {
     let facility = this.props.facility
     return (
-      <div className='search-card card' style={{minHeight: '220px'}}>
+      <div className='search-card card' style={{minHeight: '175px'}}>
         <div className='card-section'>
           <address>
             <h4 className='t-serif t-epsilon'>

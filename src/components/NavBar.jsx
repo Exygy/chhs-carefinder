@@ -1,6 +1,7 @@
 import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
-import { Link } from 'react-router'
+import { IndexLink } from 'react-router'
+import activeComponent from 'react-router-active-component'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/user'
 
@@ -15,23 +16,33 @@ export class NavBar extends React.Component {
   }
 
   get menuBar () {
+    var NavItem = activeComponent('li', { linkClassName: 'top-bar-menu-link' })
+
     let searchFacilitiesLink = (
-      <li role='menuitem'><Link to='/search'>Search Facilities</Link></li>
+      <NavItem to='/search' className='top-bar-menu-item' activeClassName='active'>
+        Search Facilities
+      </NavItem>
     )
     let loggedOutNavLinks = (
-      <ul className='menu' role='menubar'>
+      <ul className='top-bar-menu menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><Link to='/signin'>Sign In or Sign Up</Link></li>
+        <NavItem to='/signin' className='top-bar-menu-item' activeClassName='active'>
+          Sign In or Sign Up
+        </NavItem>
       </ul>
     )
     let loggedInNavLinks = (
-      <ul className='menu' role='menubar'>
+      <ul className='top-bar-menu menu' role='menubar'>
         {searchFacilitiesLink}
-        <li role='menuitem'><Link to='/profile'>My Profile</Link></li>
-        <li role='menuitem'><Link to='/messages'>My Messages</Link></li>
-        <li role='menuitem'>
-          <Link onClick={this.logOut} to='/'>Sign Out</Link>
-        </li>
+        <NavItem to='/profile' className='top-bar-menu-item' activeClassName='active'>
+          My Profile
+        </NavItem>
+        <NavItem to='/messages' className='top-bar-menu-item' activeClassName='active'>
+          My Messages
+        </NavItem>
+        <NavItem onClick={this.logOut} to='/' className='top-bar-menu-item' activeClassName='active'>
+          Sign Out
+        </NavItem>
       </ul>
     )
     if (_.isEmpty(this.props.loggedInUser)) {
@@ -48,15 +59,22 @@ export class NavBar extends React.Component {
   render () {
     return (
       <nav className='top-bar sticky is-stuck is-at-top column'>
-        <div className='top-bar-left'>
-          <ul className='menu' role='menubar'>
-            <li>
-              <Link to='/'>Logo</Link>
-            </li>
-          </ul>
-        </div>
-        <div className='top-bar-right'>
-          {this.menuBar}
+        <div className='row'>
+          <div className='medium-4 columns'>
+            <IndexLink to='/'>
+              <div className='top-bar-logo'>
+                <svg className='logo-svg'>
+                  <use xlinkHref='#i-care' />
+                </svg>
+                <span className='logo-name'>
+                  Care Finder
+                </span>
+              </div>
+            </IndexLink>
+          </div>
+          <div className='top-bar-right'>
+            {this.menuBar}
+          </div>
         </div>
       </nav>
     )

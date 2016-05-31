@@ -38,11 +38,11 @@ export class SearchView extends React.Component {
     if (facilityCount) {
       let resultCount = facilityCount + ' agencies'
       if (!_.isEmpty(this.props.searchQuery)) {
-        resultCount += ' matching "' + this.props.searchQuery + '"'
+        resultCount += ` matching "${this.props.searchQuery}"`
       }
       return resultCount
     } else {
-      return 'No results match your search'
+      return `No results matching "${this.props.searchQuery}"`
     }
   }
 
@@ -53,41 +53,32 @@ export class SearchView extends React.Component {
       let list = facilities.map((facility) => {
         i++
         return (
-          <div className='large-6 columns' key={i}>
+          <div className='large-6 columns end' key={i}>
             <SearchResultCard facility={facility} />
           </div>
         )
       })
-      return list
+      return <Equalizer>{list}</Equalizer>
     }
   }
 
   render () {
     return (
-      <StickyContainer>
-        <div className='content'>
-          <Sticky style={{paddingTop: '50px', backgroundColor: 'white', zIndex: 1}}>
-            <section className='row padding-top--2x padding-bottom'>
-              <div className='large-12 columns'>
-                <FacilitySearchBox
-                  showLicensedCheckbox
-                  onSubmit={this.props.getFacilities} />
-              </div>
-            </section>
-
-            <section className='row padding-top padding-bottom'>
-              <div className='columns'>
-                {this.resultCount}
-              </div>
-            </section>
-          </Sticky>
-
-          <section className='row padding-bottom--2x'>
-            <Equalizer>
-              {this.facilityList}
-            </Equalizer>
+      <StickyContainer className='content with-sticky-header'>
+        <Sticky style={{paddingTop: '10px', zIndex: 1}}>
+          <section className='row padding-top--2x padding-bottom'>
+            <div className='large-12 columns'>
+              <FacilitySearchBox
+                showLicensedCheckbox
+                resultCount={this.resultCount}
+                onSubmit={this.props.getFacilities} />
+            </div>
           </section>
-        </div>
+        </Sticky>
+
+        <section className='row padding-bottom--2x'>
+          {this.facilityList}
+        </section>
       </StickyContainer>
     )
   }

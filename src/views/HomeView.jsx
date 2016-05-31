@@ -17,7 +17,7 @@ export class HomeView extends React.Component {
 
   render () {
     return (
-      <div className='content with-hero'>
+      <div className='content with-sticky-header with-hero'>
         <Hero />
         <section className='row padding-top--2x padding-bottom'>
           <div className='large-12 columns'>
