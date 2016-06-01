@@ -2,8 +2,10 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/user'
 import ContactInfoBox from 'components/profile/ContactInfoBox'
-import FosterChildBox from 'components/profile/FosterChildBox'
+import FosterChildrenContainer from 'components/profile/FosterChildrenContainer'
+import HouseholdDetailsBox from 'components/profile/HouseholdDetailsBox'
 import ProfileInfoBox from 'components/profile/ProfileInfoBox'
+import ProfileNotification from 'components/profile/ProfileNotification'
 import ProfilePhotoBox from 'components/profile/ProfilePhotoBox'
 
 const mapStateToProps = (state) => ({
@@ -23,8 +25,17 @@ export class ProfileView extends React.Component {
       name: 'Mateo',
       caseId: '5234',
       birthday: 'May 31, 2001',
-      fosterStartDate: 'May 31, 2004'
+      fosterStartDate: 'May 31, 2005'
     }
+
+    let exampleFosterChild2 = {
+      name: 'Mateosh',
+      caseId: '5234',
+      birthday: 'May 31, 2001',
+      fosterStartDate: 'May 31, 2003'
+    }
+
+    let exampleFosterChildren = [exampleFosterChild, exampleFosterChild2]
 
     return (
       <div className='padding-top--2x'>
@@ -38,62 +49,19 @@ export class ProfileView extends React.Component {
               race='Native American'
               religion='Bábism' />
 
-            <section className='content-block block bg-white'>
-              <header className='block-header'>
-                <h3 className='block-title t-base'>Foster Children</h3>
-                <span className='block-edit'>
-                  <a href='#' className='a-alert'>Edit</a>
-                </span>
-              </header>
+            <FosterChildrenContainer fosterChildren={exampleFosterChildren} />
 
-              <FosterChildBox fosterChild={exampleFosterChild} />
-
-              <FosterChildBox fosterChild={exampleFosterChild} />
-
-            </section>
           </div>
           <div className='medium-8 columns'>
-            <section className='block primary'>
-              <p className='has-icon'>
-                <span className='ui-icon i-base i-white'>
-                  <svg>
-                    <use xlinkHref='#i-mail' />
-                  </svg>
-                </span>
-              JAMES MIDDLEDITCH
-              </p>
-            </section>
+
+            <ProfileNotification />
 
             <ContactInfoBox email='nothing@ha.com' phone='1238790' preferredContactMode='Email' />
 
             <ProfileInfoBox user={this.props.loggedInUser} />
 
-            <section className='content-block block bg-white'>
-              <header className='block-header'>
-                <h3 className='block-title t-base'>Household Details</h3>
-                <span className='block-edit'>
-                  <a href='#' className='a-alert'>Edit</a>
-                </span>
-              </header>
+            <HouseholdDetailsBox user={this.props.loggedInUser} />
 
-              <div className='row'>
-                <div className='large-6 columns'>
-                  <ul className='meta-list tall icon-list no-bullet'>
-                    <li className='meta-list-item'>Gender: Male</li>
-                    <li className='meta-list-item'>Marital Status: Widower</li>
-                    <li className='meta-list-item'>Religion: Bábism</li>
-                    <li className='meta-list-item'>Race: Native American</li>
-                    <li className='meta-list-item'>Employment Status: Full Time</li>
-                    <li className='meta-list-item'>Ocupation: Software Engineer</li>
-                    <li className='meta-list-item'>Annual Income: $100,000</li>
-                  </ul>
-                </div>
-
-                <div className='large-6 columns'>
-                  {this.medicalHistoryList}
-                </div>
-              </div>
-            </section>
           </div>
         </section>
       </div>
