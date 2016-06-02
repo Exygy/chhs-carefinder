@@ -3,13 +3,12 @@ import React, { PropTypes } from 'react'
 export class ConversationHeader extends React.Component {
   static propTypes = {
     conversation: PropTypes.object.isRequired,
-    conversationSelected: PropTypes.func.isRequired,
+    onConversationSelected: PropTypes.func.isRequired,
     selected: PropTypes.bool.isRequired
   }
 
   itemSelected () {
-    let { key } = this.props.conversation
-    this.props.conversationSelected(key)
+    this.props.onConversationSelected(this.props.conversation)
   }
 
   constructor () {
