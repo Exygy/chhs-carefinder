@@ -16,11 +16,11 @@ export class ConversationHeaderContainer extends React.Component {
       return <ul className='messages-tabs tabs vertical block-margins'
         id='example-vert-tabs'
         data-tabs='2dqsvw-tabs'>
-      {this.props.conversations.map(function (object, _) {
-        return <ConversationHeader conversation={object}
+      {this.props.conversations.map(function (conversation, _) {
+        return <ConversationHeader conversation={conversation}
           onConversationSelected={this.props.onConversationSelected}
-          key={object.id}
-          selected={object.id === this.props.selectedConversation.id} />
+          key={conversation.id}
+          selected={conversation.id === this.props.selectedConversation.id} />
       }.bind(this))}
       </ul>
     }
