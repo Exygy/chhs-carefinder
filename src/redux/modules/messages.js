@@ -57,13 +57,25 @@ let exampleConversationStubs = [
     id: 1,
     mostRecentMessageDate: 'June 1, 2016 8:00PM',
     sender: 'Mateo',
-    subject: 'Mateo\'s time'
+    subject: 'Re: Child 1'
   },
   {
     id: 2,
     mostRecentMessageDate: 'January 1, 2016 8:00PM',
     sender: 'Mateosh',
-    subject: 'Mateosh\'s time'
+    subject: 'Re: Child 2'
+  },
+  {
+    id: 3,
+    mostRecentMessageDate: 'January 1, 2016 8:00PM',
+    sender: 'Mateosh',
+    subject: 'Re: Child 3'
+  },
+  {
+    id: 4,
+    mostRecentMessageDate: 'January 1, 2016 8:00PM',
+    sender: 'Mateosh',
+    subject: 'General'
   }
 ]
 
@@ -85,7 +97,7 @@ let exampleMessages1 = [
       image: 'http://placehold.it/83x111',
       name: 'little mateo'
     },
-    text: 'my reply!',
+    text: 'my reply! I\'m going to improvise. Listen, there\'s something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.',
     time: 'June 1, 2016 8:00PM'
   }
 ]
