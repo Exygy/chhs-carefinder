@@ -6,7 +6,7 @@ import { createAction, handleActions } from 'redux-actions'
 export const userLoad = createAction('USER_LOAD')
 export const login = () => {
   return (dispatch, getState) => {
-    dispatch(userLoad({firstName: 'Matt', lastName: 'Matty'}))
+    dispatch(userLoad({id: 100, firstName: 'Matt', lastName: 'Matty'}))
   }
 }
 

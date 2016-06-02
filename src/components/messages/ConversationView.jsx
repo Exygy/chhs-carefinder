@@ -1,40 +1,35 @@
 import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { actions } from 'redux/modules/user'
 import ComposeMessageView from 'components/messages/ComposeMessageView'
 import ReceivedMessageView from 'components/messages/ReceivedMessageView'
 import SentMessageView from 'components/messages/SentMessageView'
 
-const mapStateToProps = (state) => ({
-  loggedInUser: state.user.loggedInUser
-})
-
 export class ConversationView extends React.Component {
   static propTypes = {
-    conversation: PropTypes.object.isRequired
+    loggedInUser: PropTypes.object.isRequired,
+    selectedConversationStub: PropTypes.object.isRequired,
+    messages: PropTypes.array.isRequired
   }
 
   get messageList () {
-    let messages = this.props.conversation.messages
+    let messages = this.props.messages
     if (_.isEmpty(messages)) {
       return <p>Empty Conversation</p>
     } else {
       return <section className='message-feed'>
         {messages.map(function (message, _) {
-          if (message.sender === this.loggedInUser) {
-            <SentMessageView message={message} />
+          if (message.sender.id === this.props.loggedInUser.id) {
+            return <SentMessageView key={message.id} message={message} />
           } else {
-            <ReceivedMessageView message={message} />
+            return <ReceivedMessageView key={message.id} message={message} />
           }
-        })}
+        }.bind(this))}
       </section>
     }
   }
 
   render () {
-    let { subject } = this.props.conversation
-    // let { m, text, time } = this.props.message
+    let { mostRecentMessageDate, subject } = this.props.selectedConversationStub
     return (
       <div className='medium-8 columns p-relative'>
         <div className='message-content tabs-content vertical block-margins' data-tabs-content='example-vert-tabs'>
@@ -45,7 +40,7 @@ export class ConversationView extends React.Component {
             id='panel1v'>
             <header className='message-subect'>
               <h1 className='message-title'>{subject}</h1>
-              <span className='message-date'>Apr 13, 2016</span>
+              <span className='message-date'>{mostRecentMessageDate}</span>
             </header>
 
             {this.messageList}
@@ -59,4 +54,4 @@ export class ConversationView extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, actions)(ConversationView)
+export default ConversationView

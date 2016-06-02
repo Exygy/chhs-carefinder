@@ -1,53 +1,50 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { actions } from 'redux/modules/user'
+import { actions } from 'redux/modules/messages'
 import ConversationHeaderContainer from 'components/messages/ConversationHeaderContainer'
 import ConversationView from 'components/messages/ConversationView'
 
 const mapStateToProps = (state) => ({
-  loggedInUser: state.user.loggedInUser
+  conversationStubs: state.messages.conversationStubs,
+  loggedInUser: state.user.loggedInUser,
+  messages: state.messages.messages,
+  selectedConversationStub: state.messages.selectedConversationStub
 })
 
 export class MessagesView extends React.Component {
 
   static propTypes = {
-    loggedInUser: PropTypes.object.isRequired
+    conversationStubs: PropTypes.array.isRequired,
+    getConversationStubs: PropTypes.func.isRequired,
+    getMessages: PropTypes.func.isRequired,
+    loggedInUser: PropTypes.object.isRequired,
+    messages: PropTypes.array.isRequired,
+    selectConversationStub: PropTypes.func.isRequired,
+    selectedConversationStub: PropTypes.object.isRequired
   }
 
   componentWillMount () {
-    this.setState({ selectedConversation: {} })
+    this.props.getConversationStubs()
   }
 
-  constructor () {
-    super()
-    this.onConversationSelected = this.onConversationSelected.bind(this)
-  }
-
-  onConversationSelected (conversation) {
-    this.setState({ selectedConversation: conversation })
+  onConversationSelected = (conversation) => {
+    this.props.selectConversationStub(conversation)
+    this.props.getMessages()
   }
 
   render () {
-    let conversation1 = {
-      id: 1,
-      sender: 'Mateo',
-      subject: 'Mateo\'s time'
-    }
-    let conversation2 = {
-      id: 2,
-      sender: 'Mateosh',
-      subject: 'Mateosh\'s time'
-    }
-    let conversations = [conversation1, conversation2]
     return (
       <div className='content with-sticky-header'>
         <div className='row collapse margin-top--2x margin-bottom--2x'>
           <ConversationHeaderContainer
-            conversations={conversations}
+            conversationStubs={this.props.conversationStubs}
             onConversationSelected={this.onConversationSelected}
-            selectedConversation={this.state.selectedConversation} />
+            selectedConversationStub={this.props.selectedConversationStub} />
 
-          <ConversationView conversation={this.state.selectedConversation} />
+          <ConversationView
+            loggedInUser={this.props.loggedInUser}
+            messages={this.props.messages}
+            selectedConversationStub={this.props.selectedConversationStub} />
         </div>
       </div>
     )
