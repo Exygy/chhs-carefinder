@@ -2,17 +2,31 @@ import React, { PropTypes } from 'react'
 
 export class ConversationHeader extends React.Component {
   static propTypes = {
-    conversation: PropTypes.object.isRequired
+    conversation: PropTypes.object.isRequired,
+    conversationSelected: PropTypes.func.isRequired,
+    selected: PropTypes.bool.isRequired
+  }
+
+  itemSelected () {
+    let { key } = this.props.conversation
+    this.props.conversationSelected(key)
+  }
+
+  constructor () {
+    super()
+    this.itemSelected = this.itemSelected.bind(this)
   }
 
   render () {
     let { sender, subject } = this.props.conversation
     return (
-      <li role='presentation' className='messages-title tabs-title is-active'>
+      <li role='presentation'
+        className='messages-title tabs-title is-active'
+        onClick={this.itemSelected}>
         <a id='panel1v-label'
           aria-controls='panel1v'
           role='tab' href='#panel1v'
-          aria-selected='true'>
+          aria-selected={this.props.selected}>
           <h3 className='messages-from t-base'>From: {sender}</h3>
           <p>{subject}</p>
         </a>

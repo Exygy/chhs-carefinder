@@ -4,7 +4,9 @@ import ConversationHeader from 'components/messages/ConversationHeader'
 
 export class ConversationHeaderContainer extends React.Component {
   static propTypes = {
-    conversations: PropTypes.array.isRequired
+    conversations: PropTypes.array.isRequired,
+    conversationSelected: PropTypes.func.isRequired,
+    selectedConversationId: PropTypes.number.isRequired
   }
 
   get conversationList () {
@@ -15,8 +17,11 @@ export class ConversationHeaderContainer extends React.Component {
         id='example-vert-tabs'
         data-tabs='2dqsvw-tabs'>
       {this.props.conversations.map(function (object, _) {
-        return <ConversationHeader conversation={object} />
-      })}
+        return <ConversationHeader conversation={object}
+          conversationSelected={this.props.conversationSelected}
+          key={object.key}
+          selected={object.key === this.props.selectedConversationId} />
+      }.bind(this))}
       </ul>
     }
   }

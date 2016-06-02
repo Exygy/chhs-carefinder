@@ -13,16 +13,38 @@ export class MessagesView extends React.Component {
     loggedInUser: PropTypes.object.isRequired
   }
 
+  componentWillMount () {
+    this.setState({ selectedConversationId: 0 })
+  }
+
+  constructor () {
+    super()
+    this.conversationSelected = this.conversationSelected.bind(this)
+  }
+
+  conversationSelected (conversationId) {
+    this.setState({ selectedConversationId: conversationId })
+  }
+
   render () {
-    let conversation = {
+    let conversation1 = {
+      key: 1,
       sender: 'Mateo',
       subject: 'Mateo\'s time'
     }
-    let conversations = [conversation, conversation]
+    let conversation2 = {
+      key: 2,
+      sender: 'Mateosh',
+      subject: 'Mateosh\'s time'
+    }
+    let conversations = [conversation1, conversation2]
     return (
       <div className='content with-sticky-header'>
         <div className='row collapse margin-top--2x margin-bottom--2x'>
-          <ConversationHeaderContainer conversations={conversations} />
+          <ConversationHeaderContainer
+            conversations={conversations}
+            conversationSelected={this.conversationSelected}
+            selectedConversationId={this.state.selectedConversationId} />
           <div className='medium-8 columns p-relative'>
             <div className='message-content tabs-content vertical block-margins' data-tabs-content='example-vert-tabs'>
               <div aria-labelledby='panel1v-label'
