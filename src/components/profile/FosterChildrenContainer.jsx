@@ -11,8 +11,8 @@ export class FosterChildrenContainer extends React.Component {
     if (_.isEmpty(this.props.fosterChildren)) {
       return <p>No Foster Children</p>
     } else {
-      return <div>{this.props.fosterChildren.map(function (object, _) {
-        return <FosterChildBox fosterChild={object} />
+      return <div>{this.props.fosterChildren.map(function (object, index) {
+        return <FosterChildBox fosterChild={object} key={index} />
       })}
       </div>
     }

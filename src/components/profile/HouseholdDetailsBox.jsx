@@ -6,6 +6,7 @@ export class HouseholdDetailsBox extends React.Component {
   }
 
   render () {
+    let { address, household } = this.props.user
     return (
       <section className='content-block block bg-white'>
         <header className='block-header'>
@@ -15,23 +16,56 @@ export class HouseholdDetailsBox extends React.Component {
           </span>
         </header>
 
-        <div className='row'>
-          <div className='large-6 columns'>
-            <ul className='meta-list tall icon-list no-bullet'>
-              <li className='meta-list-item'>Gender: Male</li>
-              <li className='meta-list-item'>Marital Status: Widower</li>
-              <li className='meta-list-item'>Religion: Bábism</li>
-              <li className='meta-list-item'>Race: Native American</li>
-              <li className='meta-list-item'>Employment Status: Full Time</li>
-              <li className='meta-list-item'>Ocupation: Software Engineer</li>
-              <li className='meta-list-item'>Annual Income: $100,000</li>
+        <section className='block attention'>
+          <p className='has-icon'>
+            <span className='ui-icon i-base i-white'>
+              <svg>
+                <use xlinkHref='#i-mail' />
+              </svg>
+            </span>
+          If you make changes to any of the following information, your parenting status will undergo review.
+          </p>
+        </section>
+
+        <section className='row collapse padding-top--2x padding-bottom'>
+          <div className='medium-4 columns'>
+            <ul className='meta-list tall'>
+              <li className='meta-list-item'>
+                <span className='ui-icon i-base i-primary'>
+                  <svg>
+                    <use xlinkHref='#i-time' />
+                  </svg>
+                </span>
+                Address:
+              </li>
+              <li className='meta-list-item'>
+                {address.street}
+              </li>
+              <li className='meta-list-item'>
+                {address.city}, {address.state}
+              </li>
+              <li className='meta-list-item'>
+                {address.zipcode}
+              </li>
             </ul>
           </div>
-
-          <div className='large-6 columns'>
-            {this.medicalHistoryList}
+          <div className='medium-4 columns'>
+            <ul className='meta-list tall'>
+              <li className='meta-list-item'>
+                Home Size: {household.homeSize.value} {household.homeSize.unit}
+              </li>
+              <li className='meta-list-item'>
+                Bedrooms: {household.bedrooms}
+              </li>
+              <li className='meta-list-item'>
+                Adults at Home: {household.adultsAtHome}
+              </li>
+              <li className='meta-list-item'>
+                Children at Home: {household.childrenAtHome}
+              </li>
+            </ul>
           </div>
-        </div>
+        </section>
       </section>
     )
   }
