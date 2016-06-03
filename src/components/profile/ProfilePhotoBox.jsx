@@ -6,17 +6,18 @@ export class ProfilePhotoBox extends React.Component {
   }
 
   render () {
-    let { firstName, gender, image, maritalStatus, religion, race } = this.props.user
+    let { dateOfBirth, firstName, id, image, lastName, ssn } = this.props.user
     return (
       <figure className='caption-overlay image-block'>
         <img src={image} className='full-image' />
         <figcaption className='caption-overlay-text'>
           <ul className='meta-list icon-list no-bullet'>
-            <li className='meta-list-item t-caps'>{firstName}</li>
-            <li className='meta-list-item'>Gender: {gender}</li>
-            <li className='meta-list-item'>Marital Status: {maritalStatus}</li>
-            <li className='meta-list-item'>Religion: {religion}</li>
-            <li className='meta-list-item'>Race: {race}</li>
+            <li className='meta-list-item t-caps'>{firstName} {lastName}</li>
+            <li className='meta-list-item'>Member ID: {id}</li>
+            <li className='meta-list-item'>
+              SSN: xxx-xx-{ssn.slice(-4)}
+            </li>
+            <li className='meta-list-item'>Birthdate: {dateOfBirth}</li>
           </ul>
         </figcaption>
       </figure>
