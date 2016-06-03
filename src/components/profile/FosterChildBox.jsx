@@ -6,16 +6,16 @@ export class FosterChildBox extends React.Component {
   }
 
   render () {
-    let { birthday, caseId, fosterStartDate, name } = this.props.fosterChild
+    let { birthday, caseId, firstName, fosterStartDate, image, lastName } = this.props.fosterChild
     return (
       <div className='media-object'>
         <div className='media-object-section'>
-          <img src='http://placehold.it/81x111' />
+          <img src={image} />
         </div>
 
         <div className='media-object-section'>
           <ul className='meta-list no-bullet'>
-            <li className='meta-list-item t-caps'>{name}</li>
+            <li className='meta-list-item t-caps'>{firstName} {lastName}</li>
             <li className='meta-list-item'>Case ID: {caseId}</li>
             <li className='meta-list-item'>Birthday: {birthday}</li>
             <li className='meta-list-item'>Fostering Since: {fosterStartDate}</li>
