@@ -25,9 +25,8 @@ export class ProfileInfoBox extends React.Component {
             <a href='#' className='a-alert'>Edit</a>
           </span>
         </header>
-
         <div className='row collapse'>
-          <div className='large-6 columns'>
+          <div className='medium-4 columns'>
             <ul className='meta-list tall'>
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
@@ -84,13 +83,17 @@ export class ProfileInfoBox extends React.Component {
                 </span>
               Annual Income: ${annualIncome}
               </li>
+            </ul>
+          </div>
+          <div className='medium-4 columns'>
+            <ul className='meta-list tall'>
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
                   <svg>
                     <use xlinkHref='#i-care' />
                   </svg>
                 </span>
-              Medical History: {medicalHistory}
+                Medical History: {medicalHistory}
               </li>
             </ul>
           </div>
