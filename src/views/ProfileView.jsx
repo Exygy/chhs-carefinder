@@ -18,45 +18,31 @@ export class ProfileView extends React.Component {
     loggedInUser: PropTypes.object.isRequired
   }
 
+  get notificationBox () {
+    console.log(this.props.loggedInUser.status)
+    if (this.props.loggedInUser.status === 'approved') {
+      return <div />
+    } else {
+      return <ProfileNotification />
+    }
+  }
+
   render () {
-    // let { firstName } = this.props.loggedInUser
-
-    let exampleFosterChild = {
-      name: 'Mateo',
-      caseId: '5234',
-      birthday: 'May 31, 2001',
-      fosterStartDate: 'May 31, 2005'
-    }
-
-    let exampleFosterChild2 = {
-      name: 'Mateosh',
-      caseId: '5234',
-      birthday: 'May 31, 2001',
-      fosterStartDate: 'May 31, 2003'
-    }
-
-    let exampleFosterChildren = [exampleFosterChild, exampleFosterChild2]
-
     return (
       <div className='padding-top--2x'>
         <section className='row collapse padding-top--2x padding-bottom'>
           <div className='medium-4 columns'>
 
-            <ProfilePhotoBox
-              firstName='Testman'
-              gender='Male'
-              maritalStatus='Widowed'
-              race='Native American'
-              religion='Bábism' />
+            <ProfilePhotoBox user={this.props.loggedInUser} />
 
-            <FosterChildrenContainer fosterChildren={exampleFosterChildren} />
+            <FosterChildrenContainer fosterChildren={this.props.loggedInUser.fosterChildren} />
 
           </div>
           <div className='medium-8 columns'>
 
-            <ProfileNotification />
+            {this.notificationBox}
 
-            <ContactInfoBox email='nothing@ha.com' phone='1238790' preferredContactMode='Email' />
+            <ContactInfoBox user={this.props.loggedInUser} />
 
             <ProfileInfoBox user={this.props.loggedInUser} />
 

@@ -6,35 +6,11 @@ export class ProfileInfoBox extends React.Component {
     user: PropTypes.object.isRequired
   }
 
-  get medicalHistoryList () {
-    let medicalHistory = this.props.user.medicalHistory
-    if (_.isEmpty(medicalHistory)) {
-      return <div />
-    } else {
-      return <div className='large-6 columns'>
-        <ul className='meta-list icon-list no-bullet'>
-          <li className='meta-list-item'>
-            <span className='ui-icon i-base i-primary'>
-              <svg>
-                <use xlinkHref='#i-care' />
-              </svg>
-            </span>
-          Medical History:
-            <ul className='meta-list nested no-bullet'>
-              {medicalHistory.map(function (object, _) {
-                return <li className='meta-list-item'>{object}</li>
-              })}
-            </ul>
-          </li>
-        </ul>
-      </div>
-    }
-  }
-
   render () {
     let {
       gender,
       maritalStatus,
+      medicalHistory,
       religion,
       race,
       employmentStatus,
@@ -108,11 +84,16 @@ export class ProfileInfoBox extends React.Component {
                 </span>
               Annual Income: ${annualIncome}
               </li>
+              <li className='meta-list-item'>
+                <span className='ui-icon i-base i-primary'>
+                  <svg>
+                    <use xlinkHref='#i-care' />
+                  </svg>
+                </span>
+              Medical History: {medicalHistory}
+              </li>
             </ul>
           </div>
-
-          {this.medicalHistoryList}
-
         </div>
       </section>
     )
