@@ -73,28 +73,28 @@ export default handleActions({
 let exampleConversationStubs = [
   {
     id: 1,
-    mostRecentMessageDate: 'January 1, 2016 8:00PM',
+    mostRecentMessageDate: 'Jan 1, 2016',
     sender: 'Mateosh',
     subject: 'General',
     unread: true
   },
   {
     id: 2,
-    mostRecentMessageDate: 'June 1, 2016 8:00PM',
+    mostRecentMessageDate: 'Jun 1, 2016',
     sender: 'Mateo',
     subject: 'Re: Current Child 1',
     unread: true
   },
   {
     id: 3,
-    mostRecentMessageDate: 'January 1, 2016 8:00PM',
+    mostRecentMessageDate: 'Jan 1, 2016',
     sender: 'Mateosh',
     subject: 'Re: Upcoming Child 2',
     unread: true
   },
   {
     id: 4,
-    mostRecentMessageDate: 'January 1, 2016 8:00PM',
+    mostRecentMessageDate: 'Jan 1, 2016',
     sender: 'Mateosh',
     subject: 'Re: Past Child 3',
     unread: true
@@ -105,12 +105,12 @@ let exampleMessages1 = [
   {
     id: 10,
     sender: {
-      id: 100,
+      id: 1083597,
       image: 'http://placehold.it/83x111',
-      name: 'Matt'
+      name: 'Mark'
     },
     text: 'my message!',
-    time: 'June 1, 2016 7:00PM'
+    time: '7:00PM'
   },
   {
     id: 11,
@@ -120,7 +120,7 @@ let exampleMessages1 = [
       name: 'little mateo'
     },
     text: 'my reply! I\'m going to improvise. Listen, there\'s something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.',
-    time: 'June 1, 2016 8:00PM'
+    time: '8:00PM'
   }
 ]
 
@@ -133,17 +133,17 @@ let exampleMessages2 = [
       name: 'big mateosh'
     },
     text: 'my message, hi!',
-    time: 'January 1, 2016 7:00PM'
+    time: '7:00PM'
   },
   {
     id: 21,
     sender: {
-      id: 100,
+      id: 1083597,
       image: 'http://placehold.it/83x111',
-      name: 'little mateosh'
+      name: 'Mark'
     },
     text: 'my reply, hi!',
-    time: 'January 1, 2016 8:00PM'
+    time: '8:00PM'
   }
 ]
 let exampleMessages3 = [
@@ -155,17 +155,17 @@ let exampleMessages3 = [
       name: 'little mateosh'
     },
     text: 'my message, hola!',
-    time: 'January 5, 2016 7:00PM'
+    time: '7:00PM'
   },
   {
     id: 21,
     sender: {
-      id: 100,
+      id: 1083597,
       image: 'http://placehold.it/83x111',
-      name: 'little mateosh'
+      name: 'Mark'
     },
     text: 'my reply, hi!',
-    time: 'January 1, 2016 8:00PM'
+    time: '8:00PM'
   }
 ]
 let exampleMessages4 = [
@@ -177,16 +177,16 @@ let exampleMessages4 = [
       name: 'dude'
     },
     text: 'nice to meet you!',
-    time: 'January 1, 2016 7:00PM'
+    time: '7:00PM'
   },
   {
     id: 21,
     sender: {
-      id: 100,
+      id: 1083597,
       image: 'http://placehold.it/83x111',
-      name: 'little mateosh'
+      name: 'Mark'
     },
     text: 'my reply, hi!',
-    time: 'January 1, 2016 8:00PM'
+    time: '8:00PM'
   }
 ]
