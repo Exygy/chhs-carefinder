@@ -20,6 +20,12 @@ export const getMessages = () => {
       case 2:
         dispatch(messagesLoad(exampleMessages2))
         break
+      case 3:
+        dispatch(messagesLoad(exampleMessages1))
+        break
+      case 4:
+        dispatch(messagesLoad(exampleMessages1))
+        break
       default:
         dispatch(messagesLoad([]))
         break
@@ -54,28 +60,28 @@ export default handleActions({
 
 let exampleConversationStubs = [
   {
+    id: 4,
+    mostRecentMessageDate: 'January 1, 2016 8:00PM',
+    sender: 'Mateosh',
+    subject: 'General'
+  },
+  {
     id: 1,
     mostRecentMessageDate: 'June 1, 2016 8:00PM',
     sender: 'Mateo',
-    subject: 'Re: Child 1'
+    subject: 'Re: Current Child 1'
   },
   {
     id: 2,
     mostRecentMessageDate: 'January 1, 2016 8:00PM',
     sender: 'Mateosh',
-    subject: 'Re: Child 2'
+    subject: 'Re: Upcoming Child 2'
   },
   {
     id: 3,
     mostRecentMessageDate: 'January 1, 2016 8:00PM',
     sender: 'Mateosh',
-    subject: 'Re: Child 3'
-  },
-  {
-    id: 4,
-    mostRecentMessageDate: 'January 1, 2016 8:00PM',
-    sender: 'Mateosh',
-    subject: 'General'
+    subject: 'Re: Past Child 3'
   }
 ]
 

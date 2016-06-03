@@ -12,7 +12,7 @@ export class ConversationHeader extends React.Component {
   }
 
   render () {
-    let { sender, subject } = this.props.conversationStub
+    let { mostRecentMessageDate, sender, subject } = this.props.conversationStub
     return (
       <li role='presentation'
         className='messages-title tabs-title is-active'
@@ -23,6 +23,7 @@ export class ConversationHeader extends React.Component {
           aria-selected={this.props.selected}>
           <h3 className='messages-from t-base'>From: {sender}</h3>
           <p>{subject}</p>
+          {mostRecentMessageDate}
         </a>
       </li>
     )
