@@ -1,3 +1,4 @@
+import _ from 'utils/lodash'
 import { createAction, handleActions } from 'redux-actions'
 
 // ------------------------------------
@@ -5,7 +6,18 @@ import { createAction, handleActions } from 'redux-actions'
 // ------------------------------------
 const conversationStubsLoad = createAction('CONVERSATION_STUBS_LOAD')
 const messagesLoad = createAction('MESSAGES_LOAD')
-const selectConversationStub = createAction('SELECT_CONVERSATION_STUB')
+const setSelectedConversationStub = createAction('SET_SELECTED_CONVERSATION_STUB')
+const selectConversationStub = (selected) => {
+  return (dispatch, getState) => {
+    dispatch(setSelectedConversationStub(selected))
+    var index = _.indexOf(exampleConversationStubs, _.find(exampleConversationStubs, (stub) => stub.id === selected.id))
+    exampleConversationStubs.splice(index, 1, Object.assign({}, selected, { unread: false }))
+    exampleConversationStubs = exampleConversationStubs.slice()
+    dispatch(getConversationStubs())
+    dispatch(getMessages())
+  }
+}
+
 export const getConversationStubs = () => {
   return (dispatch, getState) => {
     dispatch(conversationStubsLoad(exampleConversationStubs))
@@ -21,10 +33,10 @@ export const getMessages = () => {
         dispatch(messagesLoad(exampleMessages2))
         break
       case 3:
-        dispatch(messagesLoad(exampleMessages1))
+        dispatch(messagesLoad(exampleMessages3))
         break
       case 4:
-        dispatch(messagesLoad(exampleMessages1))
+        dispatch(messagesLoad(exampleMessages4))
         break
       default:
         dispatch(messagesLoad([]))
@@ -51,7 +63,7 @@ export default handleActions({
   MESSAGES_LOAD: (state, action) => {
     return Object.assign({}, state, { messages: action.payload })
   },
-  SELECT_CONVERSATION_STUB: (state, action) => {
+  SET_SELECTED_CONVERSATION_STUB: (state, action) => {
     return Object.assign({}, state, { selectedConversationStub: action.payload })
   }
 }, INITIAL_STATE)
@@ -60,28 +72,32 @@ export default handleActions({
 
 let exampleConversationStubs = [
   {
-    id: 4,
+    id: 1,
     mostRecentMessageDate: 'January 1, 2016 8:00PM',
     sender: 'Mateosh',
-    subject: 'General'
-  },
-  {
-    id: 1,
-    mostRecentMessageDate: 'June 1, 2016 8:00PM',
-    sender: 'Mateo',
-    subject: 'Re: Current Child 1'
+    subject: 'General',
+    unread: true
   },
   {
     id: 2,
-    mostRecentMessageDate: 'January 1, 2016 8:00PM',
-    sender: 'Mateosh',
-    subject: 'Re: Upcoming Child 2'
+    mostRecentMessageDate: 'June 1, 2016 8:00PM',
+    sender: 'Mateo',
+    subject: 'Re: Current Child 1',
+    unread: true
   },
   {
     id: 3,
     mostRecentMessageDate: 'January 1, 2016 8:00PM',
     sender: 'Mateosh',
-    subject: 'Re: Past Child 3'
+    subject: 'Re: Upcoming Child 2',
+    unread: true
+  },
+  {
+    id: 4,
+    mostRecentMessageDate: 'January 1, 2016 8:00PM',
+    sender: 'Mateosh',
+    subject: 'Re: Past Child 3',
+    unread: true
   }
 ]
 
@@ -117,6 +133,50 @@ let exampleMessages2 = [
       name: 'big mateosh'
     },
     text: 'my message, hi!',
+    time: 'January 1, 2016 7:00PM'
+  },
+  {
+    id: 21,
+    sender: {
+      id: 100,
+      image: 'http://placehold.it/83x111',
+      name: 'little mateosh'
+    },
+    text: 'my reply, hi!',
+    time: 'January 1, 2016 8:00PM'
+  }
+]
+let exampleMessages3 = [
+  {
+    id: 30,
+    sender: {
+      id: 3,
+      image: 'http://placehold.it/83x111',
+      name: 'little mateosh'
+    },
+    text: 'my message, hola!',
+    time: 'January 5, 2016 7:00PM'
+  },
+  {
+    id: 21,
+    sender: {
+      id: 100,
+      image: 'http://placehold.it/83x111',
+      name: 'little mateosh'
+    },
+    text: 'my reply, hi!',
+    time: 'January 1, 2016 8:00PM'
+  }
+]
+let exampleMessages4 = [
+  {
+    id: 40,
+    sender: {
+      id: 3,
+      image: 'http://placehold.it/83x111',
+      name: 'dude'
+    },
+    text: 'nice to meet you!',
     time: 'January 1, 2016 7:00PM'
   },
   {

@@ -6,13 +6,25 @@ import { connect } from 'react-redux'
 import { actions } from 'redux/modules/user'
 
 const mapStateToProps = (state) => ({
-  loggedInUser: state.user.loggedInUser
+  loggedInUser: state.user.loggedInUser,
+  conversationStubs: state.messages.conversationStubs
 })
 
 export class NavBar extends React.Component {
   static propTypes = {
     loggedInUser: PropTypes.object.isRequired,
-    userLoad: PropTypes.func.isRequired
+    userLoad: PropTypes.func.isRequired,
+    conversationStubs: PropTypes.array.isRequired
+  }
+
+  get notifications () {
+    let unread = _.filter(this.props.conversationStubs, (stub) => stub.unread)
+    let unreadCount = unread.length
+    if (unreadCount > 0) {
+      return <span className='top-bar-badge badge alert'>{unreadCount}</span>
+    } else {
+      return ''
+    }
   }
 
   get menuBar () {
@@ -38,7 +50,7 @@ export class NavBar extends React.Component {
           My Profile
         </NavItem>
         <NavItem to='/messages' className='top-bar-menu-item' activeClassName='active'>
-          My Messages
+          My Messages {this.notifications}
         </NavItem>
         <NavItem onClick={this.logOut} to='/' className='top-bar-menu-item' activeClassName=''>
           Sign Out

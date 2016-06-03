@@ -1,3 +1,4 @@
+import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/messages'
@@ -24,12 +25,13 @@ export class MessagesView extends React.Component {
   }
 
   componentWillMount () {
-    this.props.getConversationStubs()
+    if (_.isEmpty(this.props.selectedConversationStub) && this.props.conversationStubs.length) {
+      this.props.selectConversationStub(this.props.conversationStubs[0])
+    }
   }
 
   onConversationSelected = (conversation) => {
     this.props.selectConversationStub(conversation)
-    this.props.getMessages()
   }
 
   render () {

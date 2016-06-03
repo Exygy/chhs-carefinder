@@ -10,6 +10,11 @@ export class ConversationHeader extends React.Component {
   itemSelected = () => {
     this.props.onConversationSelected(this.props.conversationStub)
   }
+  get unreadLabel () {
+    if (this.props.conversationStub.unread) {
+      return <span className='label small alert float-right'>New</span>
+    }
+  }
 
   render () {
     let { mostRecentMessageDate, sender, subject } = this.props.conversationStub
@@ -22,7 +27,7 @@ export class ConversationHeader extends React.Component {
           role='tab'
           aria-selected={this.props.selected}>
           <h3 className='messages-from t-base'>From: {sender}</h3>
-          <p>{subject}</p>
+          <p>{subject} {this.unreadLabel}</p>
           {mostRecentMessageDate}
         </a>
       </li>

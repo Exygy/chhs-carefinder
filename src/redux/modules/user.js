@@ -1,4 +1,5 @@
 import { createAction, handleActions } from 'redux-actions'
+import { getConversationStubs } from 'redux/modules/messages'
 
 // ------------------------------------
 // Actions
@@ -7,6 +8,7 @@ export const userLoad = createAction('USER_LOAD')
 export const login = () => {
   return (dispatch, getState) => {
     dispatch(userLoad({id: 100, firstName: 'Matt', lastName: 'Matty'}))
+    dispatch(getConversationStubs())
   }
 }
 
