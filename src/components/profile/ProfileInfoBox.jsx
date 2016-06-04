@@ -1,9 +1,27 @@
-import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
 
 export class ProfileInfoBox extends React.Component {
   static propTypes = {
     user: PropTypes.object.isRequired
+  }
+
+  get incomeString () {
+    let annualIncome = this.props.user.annualIncome.toString()
+
+    let numberOfCommasNeeded = Math.floor((annualIncome.length - 1) / 3)
+
+    var incomeString = ''
+
+    for (var i = 0; i < numberOfCommasNeeded; i++) {
+      let end = -(numberOfCommasNeeded - i) * 3
+      let newSegment = annualIncome.slice(0, end) + ','
+      incomeString += newSegment
+      annualIncome = annualIncome.slice(newSegment.length - 1)
+    }
+
+    incomeString += annualIncome.slice(-3)
+
+    return incomeString
   }
 
   render () {
@@ -14,8 +32,7 @@ export class ProfileInfoBox extends React.Component {
       religion,
       race,
       employmentStatus,
-      occupation,
-      annualIncome
+      occupation
     } = this.props.user
     return (
       <section className='block'>
@@ -81,7 +98,7 @@ export class ProfileInfoBox extends React.Component {
                     <use xlinkHref='#i-money' />
                   </svg>
                 </span>
-              Annual Income: ${annualIncome}
+              Annual Income: ${this.incomeString}
               </li>
             </ul>
           </div>
