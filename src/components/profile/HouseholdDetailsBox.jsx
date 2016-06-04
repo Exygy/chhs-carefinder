@@ -16,26 +16,16 @@ export class HouseholdDetailsBox extends React.Component {
           </span>
         </header>
 
-        <section className='block attention'>
+        <div className='block primary'>
           <p className='has-icon'>
-            <span className='ui-icon i-base i-white'>
-              <svg>
-                <use xlinkHref='#i-mail' />
-              </svg>
-            </span>
           If you make changes to any of the following information, your parenting status will undergo review.
           </p>
-        </section>
+        </div>
 
         <section className='row collapse padding-top--2x padding-bottom'>
           <div className='medium-4 columns'>
             <ul className='meta-list tall'>
               <li className='meta-list-item'>
-                <span className='ui-icon i-base i-primary'>
-                  <svg>
-                    <use xlinkHref='#i-time' />
-                  </svg>
-                </span>
                 Address:
               </li>
               <li className='meta-list-item'>
