@@ -91,30 +91,30 @@ export default handleActions({
 let exampleConversationStubs = [
   {
     id: 1,
-    mostRecentMessageDate: 'Jan 1, 2016',
+    mostRecentMessageDate: 'Jan 1',
     sender: 'Mateosh',
-    subject: 'General',
+    subject: 'Foster Parent Liaison',
     unread: true
   },
   {
     id: 2,
-    mostRecentMessageDate: 'Jun 1, 2016',
+    mostRecentMessageDate: 'Jun 1',
     sender: 'Mateo',
-    subject: 'Re: Current Child 1',
+    subject: 'Current Child 1',
     unread: true
   },
   {
     id: 3,
-    mostRecentMessageDate: 'Jan 1, 2016',
+    mostRecentMessageDate: 'Jan 1',
     sender: 'Mateosh',
-    subject: 'Re: Upcoming Child 2',
+    subject: 'Upcoming Child 2',
     unread: true
   },
   {
     id: 4,
-    mostRecentMessageDate: 'Jan 1, 2016',
+    mostRecentMessageDate: 'Jan 1',
     sender: 'Mateosh',
-    subject: 'Re: Past Child 3',
+    subject: 'Past Child 3',
     unread: true
   }
 ]

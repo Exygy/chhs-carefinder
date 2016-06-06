@@ -21,21 +21,21 @@ export class HomeView extends React.Component {
         <Hero />
         <section className='row padding-top--2x padding-bottom'>
           <div className='large-12 columns'>
+            <AdditionalResourcesCallout />
+          </div>
+        </section>
+        <section className='row padding-bottom'>
+          <div className='large-12 columns'>
             <FacilitySearchBox
               showLicensedCheckbox={false}
               onSubmit={this.goToSearchView}>
               <p>
                 Foster Family Agencies offer services to support foster children,
-                such as certified and training foster parents, providing
+                such as certifying and training foster parents, providing
                 professional support to foster parents, and finding temporary
                 or permanent placements for children who require intensive care.
               </p>
             </FacilitySearchBox>
-          </div>
-        </section>
-        <section className='row padding-bottom'>
-          <div className='large-12 columns'>
-            <AdditionalResourcesCallout />
           </div>
         </section>
         <section className='row padding-bottom--2x'>
