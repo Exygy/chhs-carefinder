@@ -8,16 +8,11 @@ export class AdditionalResourcesCallout extends React.Component {
           Learn About Foster Care
         </h2>
         <p>
-          Foster Family Agencies offer services to support foster children,
-          such as certifying and training foster parents, providing professional
-          support to foster parents, and finding temporary or permanent
-          placements for children who require intensive care.
           Foster parents play an essential role in providing temporary, safe,
-          and nurturing homes to children who don't have parents that are able
-          to care for them. The mission of the Office of Children and Family
-          Services is to aid and protect needy and vulnerable children and
-          adults in ways that strengthen and preserve families, encourage
-          personal responsibility, and foster independence.
+          and nurturing homes to children who don't have parents that are
+          able to care for them. CHHS Care Finder aids needy and vulnerable
+          children and adults in ways that strengthen and preserve families,
+          encourage personal responsibility, and foster independence.
         </p>
         <p>
           To that end, here is further information about foster care:
