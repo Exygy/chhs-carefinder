@@ -45,10 +45,28 @@ export const getMessages = () => {
   }
 }
 
+export const sendMessage = (text) => {
+  return (dispatch, getState) => {
+    var msg = {
+      id: Math.floor(Math.random() * 100),
+      sender: {
+        id: getState().user.loggedInUser.id,
+        // not using image directly from user because that image is too big
+        image: 'http://placehold.it/83x111',
+        name: getState().user.loggedInUser.firstName
+      },
+      text: text,
+      time: '2:00PM'
+    }
+    dispatch(messagesLoad(_.concat(getState().messages.messages, msg)))
+  }
+}
+
 export const actions = {
   getConversationStubs,
   getMessages,
-  selectConversationStub
+  selectConversationStub,
+  sendMessage
 }
 
 const INITIAL_STATE = {
