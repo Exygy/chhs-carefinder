@@ -13,8 +13,19 @@ export class ConversationView extends React.Component {
 
   get messageList () {
     let messages = this.props.messages
+    let stub = this.props.selectedConversationStub
     if (_.isEmpty(messages)) {
-      return <p>Empty Conversation</p>
+      if (_.isEmpty(stub)) {
+        return <p>No conversation selected</p>
+      } else {
+        return <div className='message-object media-object'>
+          <div className='media-object-section'>
+            <div className='message-bubble right'>
+              You can start a message here about {stub.subject}.
+            </div>
+          </div>
+        </div>
+      }
     } else {
       return <section className='message-feed'>
         {messages.map(function (message, _) {

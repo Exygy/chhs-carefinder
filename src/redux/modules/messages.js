@@ -38,6 +38,9 @@ export const getMessages = () => {
       case 4:
         dispatch(messagesLoad(exampleMessages4))
         break
+      case 5:
+        dispatch(messagesLoad(exampleMessages5))
+        break
       default:
         dispatch(messagesLoad([]))
         break
@@ -47,7 +50,8 @@ export const getMessages = () => {
 
 export const sendMessage = (text) => {
   return (dispatch, getState) => {
-    var msg = {
+    // create the message
+    let msg = {
       id: Math.floor(Math.random() * 100),
       sender: {
         id: getState().user.loggedInUser.id,
@@ -58,7 +62,33 @@ export const sendMessage = (text) => {
       text: text,
       time: '2:00PM'
     }
-    dispatch(messagesLoad(_.concat(getState().messages.messages, msg)))
+
+    // locate the active messages and add the new message to them
+    switch (getState().messages.selectedConversationStub.id) {
+      case 1:
+        exampleMessages1 = _.concat(exampleMessages1, msg)
+        dispatch(messagesLoad(exampleMessages1))
+        break
+      case 2:
+        exampleMessages2 = _.concat(exampleMessages2, msg)
+        dispatch(messagesLoad(exampleMessages2))
+        break
+      case 3:
+        exampleMessages3 = _.concat(exampleMessages3, msg)
+        dispatch(messagesLoad(exampleMessages3))
+        break
+      case 4:
+        exampleMessages4 = _.concat(exampleMessages4, msg)
+        dispatch(messagesLoad(exampleMessages4))
+        break
+      case 5:
+        exampleMessages5 = _.concat(exampleMessages5, msg)
+        dispatch(messagesLoad(exampleMessages5))
+        break
+      default:
+        dispatch(messagesLoad([msg]))
+        break
+    }
   }
 }
 
@@ -116,6 +146,13 @@ let exampleConversationStubs = [
     sender: 'Mateosh',
     subject: 'Past Child 3',
     unread: true
+  },
+  {
+    id: 5,
+    mostRecentMessageDate: 'Jun 5',
+    sender: 'You',
+    subject: 'Stephanie Lang',
+    unread: false
   }
 ]
 
@@ -208,3 +245,4 @@ let exampleMessages4 = [
     time: '8:00PM'
   }
 ]
+let exampleMessages5 = []
