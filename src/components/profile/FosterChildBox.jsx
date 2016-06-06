@@ -9,9 +9,9 @@ export class FosterChildBox extends React.Component {
     let { fosterEndDate, fosterStartDate } = this.props.fosterChild
 
     if (fosterEndDate.length > 0) {
-      return <li className='meta-list-item'>Fostered Until: {fosterEndDate}</li>
+      return <li className='meta-list-item'><strong>Fostered Until</strong>: {fosterEndDate}</li>
     } else {
-      return <li className='meta-list-item'>Fostering Since: {fosterStartDate}</li>
+      return <li className='meta-list-item'><strong>Fostering Since</strong>: {fosterStartDate}</li>
     }
   }
 
@@ -26,8 +26,8 @@ export class FosterChildBox extends React.Component {
         <div className='media-object-section'>
           <ul className='meta-list no-bullet'>
             <li className='meta-list-item t-caps'>{firstName} {lastName}</li>
-            <li className='meta-list-item'>Case ID: {caseId}</li>
-            <li className='meta-list-item'>Birthday: {birthday}</li>
+            <li className='meta-list-item'><strong>Case ID</strong>: {caseId}</li>
+            <li className='meta-list-item'><strong>Birthday</strong>: {birthday}</li>
             {this.fosterDate}
           </ul>
         </div>
