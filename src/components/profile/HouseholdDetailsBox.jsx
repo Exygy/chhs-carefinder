@@ -26,7 +26,7 @@ export class HouseholdDetailsBox extends React.Component {
           <div className='medium-4 columns'>
             <ul className='meta-list tall'>
               <li className='meta-list-item'>
-                Address:
+                <strong>Address</strong>:
               </li>
               <li className='meta-list-item'>
                 {address.street}
@@ -42,16 +42,16 @@ export class HouseholdDetailsBox extends React.Component {
           <div className='medium-4 columns'>
             <ul className='meta-list tall'>
               <li className='meta-list-item'>
-                Home Size: {household.homeSize.value} {household.homeSize.unit}
+                <strong>Home Size</strong>: {household.homeSize.value} {household.homeSize.unit}
               </li>
               <li className='meta-list-item'>
-                Bedrooms: {household.bedrooms}
+                <strong>Bedrooms</strong>: {household.bedrooms}
               </li>
               <li className='meta-list-item'>
-                Adults at Home: {household.adultsAtHome}
+                <strong>Adults at Home</strong>: {household.adultsAtHome}
               </li>
               <li className='meta-list-item'>
-                Children at Home: {household.childrenAtHome}
+                <strong>Children at Home</strong>: {household.childrenAtHome}
               </li>
             </ul>
           </div>

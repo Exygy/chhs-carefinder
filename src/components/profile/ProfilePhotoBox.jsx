@@ -12,7 +12,7 @@ export class ProfilePhotoBox extends React.Component {
         <img src={image} className='full-image' />
         <figcaption className='caption-overlay-text'>
           <ul className='meta-list icon-list no-bullet'>
-            <li className='meta-list-item t-caps'>{firstName} {lastName}</li>
+            <li className='meta-list-item t-caps'><strong>{firstName} {lastName}</strong></li>
             <li className='meta-list-item'>Member ID: {id}</li>
             <li className='meta-list-item'>
               SSN: xxx-xx-{ssn.slice(-4)}

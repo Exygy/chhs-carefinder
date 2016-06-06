@@ -28,7 +28,7 @@ export class ContactInfoBox extends React.Component {
           {phone}
           </li>
           <li className='meta-list-item'>
-            Preferred Mode of Contact: {preferredModeOfContact}
+            <strong>Preferred Mode of Contact</strong>: {preferredModeOfContact}
           </li>
         </ul>
       </section>

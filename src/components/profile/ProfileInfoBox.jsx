@@ -51,7 +51,7 @@ export class ProfileInfoBox extends React.Component {
                     <use xlinkHref='#i-gender' />
                   </svg>
                 </span>
-              Gender: {gender}
+              <strong>Gender</strong>: {gender}
               </li>
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
@@ -59,7 +59,7 @@ export class ProfileInfoBox extends React.Component {
                     <use xlinkHref='#i-love' />
                   </svg>
                 </span>
-              Marital Status: {maritalStatus}
+              <strong>Marital Status</strong>: {maritalStatus}
               </li>
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
@@ -67,14 +67,15 @@ export class ProfileInfoBox extends React.Component {
                     <use xlinkHref='#i-love' />
                   </svg>
                 </span>
-              Religion: {religion}
+              <strong>Religion</strong>: {religion}
               </li>
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
                   <svg>
                     <use xlinkHref='#i-religion' />
                   </svg>
-                </span> Race: {race}
+                </span>
+              <strong>Race</strong>: {race}
               </li>
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
@@ -82,7 +83,7 @@ export class ProfileInfoBox extends React.Component {
                     <use xlinkHref='#i-job' />
                   </svg>
                 </span>
-              Employment Status: {employmentStatus}
+              <strong>Employment Status</strong>: {employmentStatus}
               </li>
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
@@ -90,7 +91,7 @@ export class ProfileInfoBox extends React.Component {
                     <use xlinkHref='#i-time' />
                   </svg>
                 </span>
-              Occupation: {occupation}
+              <strong>Occupation</strong>: {occupation}
               </li>
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
@@ -98,7 +99,7 @@ export class ProfileInfoBox extends React.Component {
                     <use xlinkHref='#i-money' />
                   </svg>
                 </span>
-              Annual Income: ${this.incomeString}
+              <strong>Annual Income</strong>: ${this.incomeString}
               </li>
             </ul>
           </div>
@@ -110,7 +111,7 @@ export class ProfileInfoBox extends React.Component {
                     <use xlinkHref='#i-care' />
                   </svg>
                 </span>
-                Medical History: {medicalHistory}
+                <strong>Medical History</strong>: {medicalHistory}
               </li>
             </ul>
           </div>

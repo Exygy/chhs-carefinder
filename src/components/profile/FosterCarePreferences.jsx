@@ -17,13 +17,13 @@ export class FosterCarePreferences extends React.Component {
         </header>
         <ul className='meta-list tall'>
           <li className='meta-list-item'>
-            Age of Children: {age}
+            <strong>Age of Children</strong>: {age}
           </li>
           <li className='meta-list-item'>
-            Gender of Children: {gender}
+            <strong>Gender of Children</strong>: {gender}
           </li>
           <li className='meta-list-item'>
-            Type of Children: {ability}
+            <strong>Type of Children</strong>: {ability}
           </li>
         </ul>
       </section>
