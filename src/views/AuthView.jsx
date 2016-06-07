@@ -60,6 +60,11 @@ export class AuthView extends React.Component {
             </form>
           </div>
         </section>
+        <section className='row bg-primary'>
+          <p>
+            Your personal information is visible only to you and California Health & Human Services Agency
+          </p>
+        </section>
       </div>
     )
   }
