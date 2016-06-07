@@ -1,5 +1,6 @@
 import _ from 'utils/lodash'
 import { createAction, handleActions } from 'redux-actions'
+let moment = require('moment')
 
 // ------------------------------------
 // Actions
@@ -60,7 +61,7 @@ export const sendMessage = (text) => {
         name: getState().user.loggedInUser.firstName
       },
       text: text,
-      time: '2:00PM'
+      time: moment().format('h:mmA')
     }
 
     // locate the active messages and add the new message to them
