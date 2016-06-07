@@ -26,12 +26,11 @@ export class ConversationHeader extends React.Component {
           aria-controls='panel1v'
           role='tab'
           aria-selected={this.props.selected}>
+          <h3 className='messages-from t-base'>
+            From: {sender} <span className='message-date'>{mostRecentMessageDate}</span>
+          </h3>
           <p>
-            <strong>From:</strong> {sender}
-            <span className='float-right'>{mostRecentMessageDate}</span>
-          </p>
-          <p>
-            <strong>Re:</strong> {subject}
+            Re: {subject}
             {this.unreadLabel}
           </p>
         </a>

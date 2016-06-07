@@ -18,10 +18,10 @@ export class ConversationView extends React.Component {
       if (_.isEmpty(stub)) {
         return <p>No conversation selected</p>
       } else {
-        return <div className='message-object media-object'>
-          <div className='media-object-section'>
-            <div className='message-bubble right'>
-              You can start a message here about {stub.subject}.
+        return <div className='row'>
+          <div className='small-11 medium-7 small-centered column'>
+            <div className='message-placeholder'>
+              <p>You can start a message here with Robert Stevens about Stephanie Lang</p>
             </div>
           </div>
         </div>
