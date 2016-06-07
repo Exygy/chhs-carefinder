@@ -3,7 +3,8 @@ CHHS CareFinder Prototype
 
 Instructions
 ------------
-To access the live prototype visit: http://1m786l-chhs-carefinder-staging-exygy.runnableapp.com/
+To access the live prototype visit: http://1m786l-chhs-carefinder-staging-exygy.runnableapp.com/  
+_For the purposes of the prototype, you may sign-in to view additional features such as profile and messages by simply clicking "Log In" without any credentials. Additionally, the user profile and messages will be refreshed to its original data set once you sign out._
 
 To clone the repo and install the necessary node modules:
 
