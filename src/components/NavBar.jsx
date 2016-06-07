@@ -3,7 +3,8 @@ import React, { PropTypes } from 'react'
 import { IndexLink } from 'react-router'
 import activeComponent from 'react-router-active-component'
 import { connect } from 'react-redux'
-import { actions } from 'redux/modules/user'
+import { userLoad } from 'redux/modules/user'
+import { resetUnreadConversationStubs } from 'redux/modules/messages'
 
 const mapStateToProps = (state) => ({
   loggedInUser: state.user.loggedInUser,
@@ -14,7 +15,8 @@ export class NavBar extends React.Component {
   static propTypes = {
     loggedInUser: PropTypes.object.isRequired,
     userLoad: PropTypes.func.isRequired,
-    conversationStubs: PropTypes.array.isRequired
+    conversationStubs: PropTypes.array.isRequired,
+    resetUnreadConversationStubs: PropTypes.func.isRequired
   }
 
   get notifications () {
@@ -66,6 +68,7 @@ export class NavBar extends React.Component {
 
   logOut = () => {
     this.props.userLoad({})
+    this.props.resetUnreadConversationStubs()
   }
 
   render () {
@@ -93,4 +96,4 @@ export class NavBar extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, actions)(NavBar)
+export default connect(mapStateToProps, {userLoad, resetUnreadConversationStubs})(NavBar)

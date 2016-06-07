@@ -48,7 +48,6 @@ export const getMessages = () => {
     }
   }
 }
-
 export const sendMessage = (text) => {
   return (dispatch, getState) => {
     // create the message
@@ -92,12 +91,26 @@ export const sendMessage = (text) => {
     }
   }
 }
+export const resetUnreadConversationStubs = () => {
+  return (dispatch, getState) => {
+    // for demo purposes, reset the stub unread values to their starting states
+    _.forEach(exampleConversationStubs, function (stub) {
+      // our current starting state is that all stubs are unread except for the one with id 5
+      if (stub.id === 5) {
+        stub.unread = false
+      } else {
+        stub.unread = true
+      }
+    })
+  }
+}
 
 export const actions = {
   getConversationStubs,
   getMessages,
   selectConversationStub,
-  sendMessage
+  sendMessage,
+  resetUnreadConversationStubs
 }
 
 const INITIAL_STATE = {
