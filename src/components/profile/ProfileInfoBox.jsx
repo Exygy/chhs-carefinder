@@ -108,7 +108,7 @@ export class ProfileInfoBox extends React.Component {
               <li className='meta-list-item'>
                 <span className='ui-icon i-base i-primary'>
                   <svg>
-                    <use xlinkHref='#i-care' />
+                    <use xlinkHref='#i-health' />
                   </svg>
                 </span>
                 <strong>Medical History</strong>: {medicalHistory}
