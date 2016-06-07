@@ -11,10 +11,18 @@ export const login = () => {
     dispatch(getConversationStubs())
   }
 }
+export const updateUser = (user) => {
+  return (dispatch, getState) => {
+    // would go update a user on API and then...
+    dispatch(userLoad(user))
+    dispatch(getConversationStubs())
+  }
+}
 
 export const actions = {
-  userLoad,
-  login
+  login,
+  updateUser,
+  userLoad
 }
 
 // ------------------------------------

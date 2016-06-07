@@ -20,7 +20,6 @@ export class ProfileView extends React.Component {
   }
 
   get notificationBox () {
-    console.log(this.props.loggedInUser.status)
     if (this.props.loggedInUser.status === 'approved') {
       return <div />
     } else {
@@ -44,7 +43,7 @@ export class ProfileView extends React.Component {
 
             {this.notificationBox}
 
-            <ContactInfoBox user={user} />
+            <ContactInfoBox updateUser={this.props.updateUser} user={user} />
 
             <ProfileInfoBox user={user} />
 
