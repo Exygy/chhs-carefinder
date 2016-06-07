@@ -14,52 +14,78 @@ export class AuthView extends React.Component {
       <div className='content with-sticky-header'>
         <section className='row margin-top--2x margin-bottom--2x'>
           <div className='large-6 columns'>
-            <form lpformnum='1'>
-              <div className='row column log-in-form padding--2x'>
-                <h4 className='text-center'>Sign into your account</h4>
-                <label>Email
-                  <input type='text' placeholder='somebody@example.com' />
-                </label>
-                <label>Password
-                  <input type='text' placeholder='Password' />
-                </label>
-                <p>
-                  <Link onClick={this.props.login} to='/' type='submit' className='button expanded'>Log in</Link>
-                </p>
+            <form>
+              <div className='row column log-in-form'>
+                <header className='form-header'>
+                  <h1 className='form-title t-epsilon'>Sign in to Your Account</h1>
+                </header>
+                <div className='form-group'>
+                  <div className='inline-form'>
+                    <label className='inline-form-label'>Email</label>
+                    <input className='inline-form-input' type='text' placeholder='somebody@example.com' />
+                  </div>
+                  <div className='inline-form'>
+                    <label className='inline-form-label'>Password</label>
+                    <input className='inline-form-input' type='password' placeholder='Password' />
+                  </div>
+                  <div className='row'>
+                    <div className='large-10 large-centered columns text-center'>
+                      <p className='form-submit '>
+                        <Link
+                          onClick={this.props.login}
+                          to='/'
+                          type='submit'
+                          className='button t-base attention large expanded'>Log In</Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </form>
           </div>
           <div className='large-6 columns'>
-            <form lpformnum='2'>
-              <div className='row column log-in-form padding--2x'>
-                <h4 className='text-center'>Create new account</h4>
-                <label>
-                  Foster Home ID #
-                  <input type='text' placeholder='xxxxxxxx' />
-                </label>
-                <label>
-                  Social Security #
-                  <input type='text' placeholder='xxx-xx-xxxx' />
-                </label>
-                <label>
-                  Password
-                  <input type='text' placeholder='Password' />
-                </label>
-                <label>
-                  Re-enter Password
-                  <input type='text' placeholder='Password' />
-                </label>
-                <p>
-                  <Link onClick={this.props.login} to='/' type='submit' className='button expanded'>Register</Link>
-                </p>
+            <form>
+              <div className='row column log-in-form'>
+                <header className='form-header'>
+                  <h1 className='form-title t-epsilon'>Create New Account</h1>
+                </header>
+                <div className='form-group'>
+                  <div className='inline-form'>
+                    <label className='inline-form-label'>Parent ID</label>
+                    <input className='inline-form-input' type='text' placeholder='' />
+                  </div>
+                  <div className='inline-form'>
+                    <label className='inline-form-label'>Social Security #</label>
+                    <input className='inline-form-input' type='text' placeholder='' />
+                  </div>
+                  <div className='inline-form'>
+                    <label className='inline-form-label'>Password</label>
+                    <input className='inline-form-input' type='password' placeholder='' />
+                  </div>
+                  <div className='inline-form'>
+                    <label className='inline-form-label'>Re-enter Password</label>
+                    <input className='inline-form-input' type='password' placeholder='' />
+                  </div>
+                  <div className='row'>
+                    <div className='large-10 large-centered columns text-center'>
+                      <p className='form-submit '>
+                        <Link
+                          onClick={this.props.login}
+                          to='/'
+                          type='submit'
+                          className='button attention large expanded'>Register</Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </form>
           </div>
         </section>
-        <section className='row bg-primary'>
-          <p>
-            Your personal information is visible only to you and California Health & Human Services Agency
-          </p>
+        <section className='row margin-bottom--2x'>
+          <div className='block primary text-center'>
+            <p>Your personal information is visible only to you and California Health &amp; Human Services Agency</p>
+          </div>
         </section>
       </div>
     )
