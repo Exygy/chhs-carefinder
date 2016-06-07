@@ -9,7 +9,10 @@ export class ContactInfoBox extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isEditingProfile : false
+      email: this.props.user.email,
+      isEditingProfile: false,
+      phone: this.props.user.phone,
+      preferredModeOfContact: this.props.user.preferredModeOfContact
     }
   }
 
@@ -22,7 +25,32 @@ export class ContactInfoBox extends React.Component {
   }
 
   save = () => {
-    this.props.updateUser(this.props.user)
+    let user = this.props.user
+    user.email = this.state.email
+    user.phone = this.state.phone
+    user.preferredModeOfContact = this.state.preferredModeOfContact
+    this.props.updateUser(user)
+    this.setState({ isEditingProfile : false })
+  }
+
+  updateEmail = (event) => {
+    this.setState({ email : event.target.value })
+  }
+
+  updatePhone = (event) => {
+    this.setState({ phone : event.target.value })
+  }
+
+  updateEmailPreferred = (event) => {
+    if (event.target.checked) {
+      this.setState({ preferredModeOfContact : 'Email' })
+    }
+  }
+
+  updatePhonePreferred = (event) => {
+    if (event.target.checked) {
+      this.setState({ preferredModeOfContact : 'Phone' })
+    }
   }
 
   render () {
@@ -45,7 +73,11 @@ export class ContactInfoBox extends React.Component {
                       </svg>
                     </span>
                     <label htmlFor='textInput' className='inline-form-label'>Email</label>
-                    <input id='textInput' className='inline-form-input' type='text' defaultValue={email} />
+                    <input id='textInput'
+                      className='inline-form-input'
+                      type='text'
+                      defaultValue={email}
+                      onChange={this.updateEmail} />
                   </div>
                 </li>
                 <li className='meta-list-item'>
@@ -56,7 +88,11 @@ export class ContactInfoBox extends React.Component {
                       </svg>
                     </span>
                     <label htmlFor='textInput' className='inline-form-label'>Phone</label>
-                    <input id='textInput' className='inline-form-input' type='text' defaultValue={phone} />
+                    <input id='textInput'
+                      className='inline-form-input'
+                      type='text'
+                      defaultValue={phone}
+                      onChange={this.updatePhone} />
                   </div>
                 </li>
                 <li className='meta-list-item'>
@@ -64,11 +100,19 @@ export class ContactInfoBox extends React.Component {
                     <label htmlFor='textInput' className='inline-form-label a-white'>Preferred Mode of Contact:</label>
                     <div className='inline-form-group radio-group-inline'>
                       <div className='radio radio-inline'>
-                        <input name='contact' id='email' type='radio' defaultChecked={preferredModeOfContact === 'Email'} />
+                        <input name='contact'
+                          id='email'
+                          type='radio'
+                          defaultChecked={preferredModeOfContact === 'Email'}
+                          onChange={this.updateEmailPreferred} />
                         <label htmlFor='email' className='a-white'>Email</label>
                       </div>
                       <div className='radio radio-inline'>
-                        <input name='contact' id='phone' type='radio' defaultChecked={preferredModeOfContact === 'Phone'} />
+                        <input name='contact'
+                          id='phone'
+                          type='radio'
+                          defaultChecked={preferredModeOfContact === 'Phone'}
+                          onChange={this.updatePhonePreferred} />
                         <label htmlFor='phone' className='a-white'>Phone</label>
                       </div>
                     </div>
