@@ -71,7 +71,7 @@ export class AuthView extends React.Component {
                       <p className='form-submit '>
                         <Link
                           onClick={this.props.login}
-                          to='/'
+                          to='/profile'
                           type='submit'
                           className='button attention large expanded'>Register</Link>
                       </p>
