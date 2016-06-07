@@ -26,6 +26,11 @@ export class HouseholdDetailsBox extends React.Component {
           <div className='medium-4 columns'>
             <ul className='meta-list tall'>
               <li className='meta-list-item'>
+                <span className='ui-icon i-base i-primary'>
+                  <svg>
+                    <use xlinkHref='#i-address' />
+                  </svg>
+                </span>
                 <strong>Address</strong>:
               </li>
               <li className='meta-list-item'>
