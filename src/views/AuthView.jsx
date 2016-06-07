@@ -51,7 +51,7 @@ export class AuthView extends React.Component {
                 </header>
                 <div className='form-group'>
                   <div className='inline-form'>
-                    <label className='inline-form-label'>Parent ID</label>
+                    <label className='inline-form-label'>Foster Home ID #</label>
                     <input className='inline-form-input' type='text' placeholder='' />
                   </div>
                   <div className='inline-form'>
