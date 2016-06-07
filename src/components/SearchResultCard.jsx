@@ -63,6 +63,11 @@ export class SearchResultCard extends React.Component {
             {this.license}
           </p>
         </div>
+        <div className='search-card-meta'>
+          <div className='search-card-detail'>
+            {this.distance}
+          </div>
+        </div>
       </div>
     )
   }
