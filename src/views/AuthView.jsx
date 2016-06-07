@@ -23,11 +23,9 @@ export class AuthView extends React.Component {
                 <label>Password
                   <input type='text' placeholder='Password' />
                 </label>
-                <input id='show-password' type='checkbox' /><label htmlFor='show-password'>Show password</label>
                 <p>
                   <Link onClick={this.props.login} to='/' type='submit' className='button expanded'>Log in</Link>
                 </p>
-                <p className='text-center'><a href='#'>Forgot your password?</a></p>
               </div>
             </form>
           </div>
@@ -51,11 +49,9 @@ export class AuthView extends React.Component {
                   Re-enter Password
                   <input type='text' placeholder='Password' />
                 </label>
-                <input id='show-password' type='checkbox' /><label htmlFor='show-password'>Show password</label>
                 <p>
                   <Link onClick={this.props.login} to='/' type='submit' className='button expanded'>Register</Link>
                 </p>
-                <p className='text-center'><a href='#'>Forgot your password?</a></p>
               </div>
             </form>
           </div>
