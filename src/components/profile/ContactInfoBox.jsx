@@ -64,17 +64,22 @@ export class ContactInfoBox extends React.Component {
                     <label htmlFor='textInput' className='inline-form-label a-white'>Preferred Mode of Contact:</label>
                     <div className='inline-form-group radio-group-inline'>
                       <div className='radio radio-inline'>
-                        <input name='contact' id='email' type='radio' />
+                        <input name='contact' id='email' type='radio' defaultChecked={preferredModeOfContact === 'Email'} />
                         <label htmlFor='email' className='a-white'>Email</label>
                       </div>
                       <div className='radio radio-inline'>
-                        <input name='contact' id='phone' type='radio' />
+                        <input name='contact' id='phone' type='radio' defaultChecked={preferredModeOfContact === 'Phone'} />
                         <label htmlFor='phone' className='a-white'>Phone</label>
                       </div>
                     </div>
                   </div>
                 </li>
               </ul>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='large-6 large-centered columns'>
+              <button className='button large attention expanded' onClick={this.save}>Save</button>
             </div>
           </div>
         </section>
