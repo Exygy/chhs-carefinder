@@ -63,18 +63,6 @@ export class SearchResultCard extends React.Component {
             {this.license}
           </p>
         </div>
-        <div className='search-card-meta'>
-          <a href='#' className='search-card-fave'>
-            <span className='ui-icon i-medium i-warn'>
-              <svg>
-                <use xlinkHref='#i-star' />
-              </svg>
-            </span>
-          </a>
-          <div className='search-card-detail'>
-            {this.distance}
-          </div>
-        </div>
       </div>
     )
   }
