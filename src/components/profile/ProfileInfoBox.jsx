@@ -31,7 +31,7 @@ export class ProfileInfoBox extends React.Component {
   }
 
   save = () => {
-    let user = this.props.user
+    let user = Object.assign({}, this.props.user)
 
     user.medicalHistory = this.state.medicalHistory
     user.annualIncome = this.state.annualIncome

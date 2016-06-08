@@ -41,7 +41,7 @@ export class ProfileView extends React.Component {
 
             <HouseholdDetailsBox updateUser={this.props.updateUser} user={user} />
 
-            <FosterCarePreferences fosterCarePreferences={user.fosterCarePreferences} />
+            <FosterCarePreferences updateUser={this.props.updateUser} user={user} />
 
           </div>
         </section>

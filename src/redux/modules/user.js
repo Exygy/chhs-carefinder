@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions'
 import { getConversationStubs, resetConversations } from 'redux/modules/messages'
-
+import { store } from 'main'
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -21,6 +21,10 @@ export const updateUser = (user) => {
     dispatch(userLoad(user))
     dispatch(getConversationStubs())
   }
+}
+
+export function isLoggedIn (user = store.getState().user.loggedInUser) {
+  return !!(user && user.id)
 }
 
 export const resetUserInfo = () => {
@@ -66,7 +70,7 @@ let exampleUser = {
   firstName: 'Mark',
   fosterCarePreferences: {
   	ability: 'Ambulatory',
-  	age: '10 to 17 years',
+  	age: '9 years to 17 years',
   	gender: 'No Preference'
   },
   fosterChildren: [
@@ -74,8 +78,9 @@ let exampleUser = {
   	birthday: 'February 11, 2001',
   	caseId: 50096,
   	fosterStartDate: 'April 3, 2015',
-	fosterEndDate: '',
+    fosterEndDate: '',
   	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/james.jpg',
+    imageAlt: 'A 15-year-old boy',
   	firstName: 'James',
 	lastName: 'Middleton'
 	},
@@ -85,6 +90,7 @@ let exampleUser = {
   	fosterStartDate: 'May 2, 2014',
 	fosterEndDate: '',
   	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/gloria.jpg',
+    imageAlt: 'A 10-year-old girl',
   	firstName: 'Gloria',
 	  lastName: 'Luke'
 	},
@@ -94,6 +100,7 @@ let exampleUser = {
   	fosterStartDate: 'June 1, 2013',
 	  fosterEndDate: 'November 16, 2013',
   	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/stephanie.jpg',
+    imageAlt: 'A 6-year-old girl',
   	firstName: 'Stephanie',
 	lastName: 'Lang'
 	}

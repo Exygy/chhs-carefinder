@@ -78,7 +78,9 @@ export class NavBar extends React.Component {
           <div className='medium-4 columns'>
             <IndexLink to='/'>
               <div className='top-bar-logo'>
-                <svg className='logo-svg'>
+                <svg className='logo-svg' role='img' aria-label='Care Finder logo'>
+                  <title>Care Finder logo</title>
+                  <desc>Care Finder logo</desc>
                   <use xlinkHref='#i-care' />
                 </svg>
                 <span className='logo-name'>

@@ -9,18 +9,18 @@ export class FosterChildBox extends React.Component {
     let { fosterEndDate, fosterStartDate } = this.props.fosterChild
 
     if (fosterEndDate.length > 0) {
-      return <li className='meta-list-item'><strong>Fostered Until</strong>: {fosterEndDate}</li>
+      return <li className='meta-list-item'><strong>Fostered From</strong>: {fosterStartDate} - {fosterEndDate}</li>
     } else {
       return <li className='meta-list-item'><strong>Fostering Since</strong>: {fosterStartDate}</li>
     }
   }
 
   render () {
-    let { birthday, caseId, firstName, image, lastName } = this.props.fosterChild
+    let { birthday, caseId, firstName, image, imageAlt, lastName } = this.props.fosterChild
     return (
       <div className='media-object'>
         <div className='media-object-section'>
-          <img src={image} />
+          <img src={image} alt={imageAlt} />
         </div>
 
         <div className='media-object-section'>

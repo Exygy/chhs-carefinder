@@ -9,7 +9,7 @@ export class ProfilePhotoBox extends React.Component {
     let { dateOfBirth, firstName, id, image, lastName, ssn } = this.props.user
     return (
       <figure className='caption-overlay image-block'>
-        <img src={image} className='full-image' />
+        <img src={image} className='full-image' alt='My photo: A smiling 40-year-old man' />
         <figcaption className='caption-overlay-text'>
           <ul className='meta-list icon-list no-bullet'>
             <li className='meta-list-item t-caps'><strong>{firstName} {lastName}</strong></li>
