@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions'
-import { getConversationStubs } from 'redux/modules/messages'
+import { getConversationStubs, resetConversations } from 'redux/modules/messages'
 
 // ------------------------------------
 // Actions
@@ -7,6 +7,10 @@ import { getConversationStubs } from 'redux/modules/messages'
 export const userLoad = createAction('USER_LOAD')
 export const login = () => {
   return (dispatch, getState) => {
+    // for demo purpose, data gets reset upon login
+    resetUserInfo()
+    dispatch(resetConversations())
+
     dispatch(userLoad(exampleUser))
     dispatch(getConversationStubs())
   }
@@ -17,6 +21,12 @@ export const updateUser = (user) => {
     dispatch(userLoad(user))
     dispatch(getConversationStubs())
   }
+}
+
+export const resetUserInfo = () => {
+  exampleUser.email = 'mark.oberin@mail.com'
+  exampleUser.phone = '415-555-1234'
+  exampleUser.preferredModeOfContact = 'Email'
 }
 
 export const actions = {

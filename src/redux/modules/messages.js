@@ -104,13 +104,24 @@ export const resetUnreadConversationStubs = () => {
     })
   }
 }
+export const resetConversations = () => {
+  return (dispatch, getState) => {
+    exampleMessages1 = exampleMessages1.slice(0, 2)
+    exampleMessages2 = exampleMessages2.slice(0, 2)
+    exampleMessages3 = exampleMessages3.slice(0, 2)
+    exampleMessages4 = exampleMessages4.slice(0, 2)
+    exampleMessages5 = []
+    dispatch(getMessages())
+  }
+}
 
 export const actions = {
   getConversationStubs,
   getMessages,
   selectConversationStub,
   sendMessage,
-  resetUnreadConversationStubs
+  resetUnreadConversationStubs,
+  resetConversations
 }
 
 const INITIAL_STATE = {
@@ -131,6 +142,8 @@ export default handleActions({
 }, INITIAL_STATE)
 
 // example data
+
+
 
 let exampleConversationStubs = [
   {
