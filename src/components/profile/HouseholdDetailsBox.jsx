@@ -32,7 +32,7 @@ export class HouseholdDetailsBox extends React.Component {
   }
 
   save = () => {
-    let user = this.props.user
+    let user = Object.assign({}, this.props.user)
 
     user.address.city = this.state.city
     user.address.state = this.state.state

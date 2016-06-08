@@ -27,7 +27,7 @@ export class FosterCarePreferences extends React.Component {
   }
 
   save = () => {
-    let user = this.props.user
+    let user = Object.assign({}, this.props.user)
 
     user.fosterCarePreferences.ability = this.state.ability
     user.fosterCarePreferences.age = this.state.age

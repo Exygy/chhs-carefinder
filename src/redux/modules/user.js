@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions'
 import { getConversationStubs, resetConversations } from 'redux/modules/messages'
-
+import { store } from 'main'
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -21,6 +21,10 @@ export const updateUser = (user) => {
     dispatch(userLoad(user))
     dispatch(getConversationStubs())
   }
+}
+
+export function isLoggedIn (user = store.getState().user.loggedInUser) {
+  return !!(user && user.id)
 }
 
 export const resetUserInfo = () => {
