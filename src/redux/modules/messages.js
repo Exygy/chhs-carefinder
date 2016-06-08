@@ -104,7 +104,7 @@ export const resetUnreadConversationStubs = () => {
 export const resetConversations = () => {
   return (dispatch, getState) => {
     exampleMessages1 = exampleMessages1.slice(0, 2)
-    exampleMessages2 = exampleMessages2.slice(0, 2)
+    exampleMessages2 = exampleMessages2.slice(0, 3)
     exampleMessages3 = []
     exampleMessages4 = exampleMessages4.slice(0, 2)
     dispatch(getMessages())
