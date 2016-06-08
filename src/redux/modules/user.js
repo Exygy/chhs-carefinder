@@ -66,7 +66,7 @@ let exampleUser = {
   firstName: 'Mark',
   fosterCarePreferences: {
   	ability: 'Ambulatory',
-  	age: '10 to 17 years',
+  	age: '9 years to 17 years',
   	gender: 'No Preference'
   },
   fosterChildren: [
