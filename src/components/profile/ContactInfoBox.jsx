@@ -27,10 +27,12 @@ export class ContactInfoBox extends React.Component {
   }
 
   save = () => {
-    let user = this.props.user
+    let user = Object.assign({}, this.props.user)
+
     user.email = this.state.email
     user.phone = this.state.phone
     user.preferredModeOfContact = this.state.preferredModeOfContact
+    
     this.props.updateUser(user)
     this.setState({ isEditingProfile : false })
   }
