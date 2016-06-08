@@ -23,9 +23,6 @@ export class FosterChildrenContainer extends React.Component {
       <section className='content-block block bg-white'>
         <header className='block-header'>
           <h3 className='block-title t-base'>Foster Children</h3>
-          <span className='block-edit'>
-            <a href='#' className='a-alert'>Edit</a>
-          </span>
         </header>
 
         {this.fosterChildrenList}
