@@ -8,7 +8,7 @@ export class SentMessageView extends React.Component {
   render () {
     let { sender, text, time } = this.props.message
     return (
-      <div className='message-object media-object right'>
+      <div className='message-object media-object right float-right'>
         <div className='media-object-section'>
           <div className='message-bubble right'>
             {text}
