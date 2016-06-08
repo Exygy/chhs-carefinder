@@ -20,11 +20,13 @@ export class ProfileInfoBox extends React.Component {
     }
   }
 
-  isEditingOn = () => {
+  isEditingOn = (event) => {
+    event.preventDefault()
     this.setState({ isEditingProfile : true })
   }
 
-  isEditingOff = () => {
+  isEditingOff = (event) => {
+    event.preventDefault()
     this.setState({ isEditingProfile : false })
   }
 
