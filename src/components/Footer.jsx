@@ -11,7 +11,7 @@ export class Footer extends React.Component {
           <div className='medium-4 columns'>
             <div className='row'>
               <div className='medium-2 columns'>
-                <p>Logo</p>
+                <img src='https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/california_seal.jpg' alt='California Seal' />
               </div>
               <div className='medium-10 columns'>
                 <p className='footer-copywrite'>
