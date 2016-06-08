@@ -23,7 +23,7 @@ export const getFacilities = () => thunkAPI(API_URL, '/resource/mffa-c6z5.json',
     let search = {
       $where: 'facility_status != "CLOSED" AND facility_type != "ADOPTION AGENCY"',
       $select: '*',
-      $limit: 100
+      $limit: 150
     }
     let geo = state.facilities.geoSearch
     let query = state.facilities.searchQuery
