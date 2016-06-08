@@ -27,7 +27,7 @@ export class FacilitySearchBox extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {geoSearch: {}, searchQuery: ''}
+    this.state = {geoSearch: {}, searchQuery: '', errorMsg: ''}
   }
 
   onSubmit = (e) => {
@@ -40,8 +40,9 @@ export class FacilitySearchBox extends React.Component {
       // reset local state
       this.setState({geoSearch: {}})
       this.setState({searchQuery: ''})
+      this.setState({errorMsg: ''})
     } else {
-      alert('Please select a location from the dropdown list.')
+      this.setState({errorMsg: 'Please select a location from the dropdown list.'})
     }
   }
 
@@ -78,6 +79,10 @@ export class FacilitySearchBox extends React.Component {
     )
   }
 
+  get error () {
+    return <p className='form-error is-visible margin-top'>{this.state.errorMsg}</p>
+  }
+
   render () {
     return (
       <div className='callout large'>
@@ -111,6 +116,7 @@ export class FacilitySearchBox extends React.Component {
           </div>
         </form>
         {this.props.resultCount}
+        {this.error}
       </div>
     )
   }
