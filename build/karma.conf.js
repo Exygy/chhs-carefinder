@@ -69,7 +69,7 @@ if (config.coverage_enabled) {
     test: /\.(js|jsx)$/,
     include: new RegExp(config.dir_client),
     loader: 'isparta',
-    exclude: /node_modules/
+    exclude: /node_modules|components\/vendor/
   }]
 }
 

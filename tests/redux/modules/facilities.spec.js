@@ -71,34 +71,6 @@ describe('(Redux Module) Facilities', function () {
       expect(getFacilities()).to.be.a('function')
     })
 
-    // it('Should return a promise from that thunk that gets fulfilled.', function () {
-    //   return getFacilities()(_dispatchSpy, _getStateSpy).should.eventually.be.fulfilled
-    // })
-    //
-    // it('Should call dispatch and getState exactly once.', function () {
-    //   return getFacilities()(_dispatchSpy, _getStateSpy)
-    //     .then(() => {
-    //       _dispatchSpy.should.have.been.calledOnce
-    //       _getStateSpy.should.have.been.calledOnce
-    //     })
-    // })
-    //
-    // it('Should produce a state that is double the previous state.', function () {
-    //   _globalState = { counter: 2 }
-    //
-    //   return doubleAsync()(_dispatchSpy, _getStateSpy)
-    //     .then(() => {
-    //       _dispatchSpy.should.have.been.calledOnce
-    //       _getStateSpy.should.have.been.calledOnce
-    //       expect(_globalState.counter).to.equal(4)
-    //       return doubleAsync()(_dispatchSpy, _getStateSpy)
-    //     })
-    //     .then(() => {
-    //       _dispatchSpy.should.have.been.calledTwice
-    //       _getStateSpy.should.have.been.calledTwice
-    //       expect(_globalState.counter).to.equal(8)
-    //     })
-    // })
   })
 
 })
