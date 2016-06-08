@@ -5,7 +5,6 @@ export class Hero extends React.Component {
   }
 
   render () {
-    let img = 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png'
     return (
       <div className='hero tb-table'>
         <div className='hero-inner tb-vert-align'>
