@@ -53,7 +53,7 @@ export const sendMessage = (text) => {
       sender: {
         id: getState().user.loggedInUser.id,
         // not using image directly from user because that image is too big
-        image: 'http://placehold.it/83x111',
+        image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/mark-small.png',
         name: getState().user.loggedInUser.firstName
       },
       text: text,
