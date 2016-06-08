@@ -57,7 +57,7 @@ export const sendMessage = (text) => {
         name: getState().user.loggedInUser.firstName
       },
       text: text,
-      time: moment().format('h:mmA')
+      time: moment().format('MMM Do h:mmA')
     }
 
     // locate the active messages and add the new message to them
@@ -176,7 +176,7 @@ let exampleMessages1 = [
       name: 'Mark'
     },
     text: 'Hi Ben, I need some advice regarding James. He’s been diagnosed with ADHD. What do I need to do?',
-    time: '10:23AM'
+    time: 'MAY 23 10:23AM'
   },
   {
     id: 11,
@@ -187,7 +187,7 @@ let exampleMessages1 = [
       name: 'Benjamin'
     },
     text: 'Thanks for keeping us informed, Mark. We schedule a number of classes to train parents on how to support children with ADHD. In fact, we have one this upcoming Tuesday at 7pm in the local office. I encourage you to come by to learn more.  Additionally, feel free to search for foster family agencies in your area using the search feature on the portal.  Please let me know if there’s anything else I can help with.',
-    time: '2:39PM'
+    time: 'MAY 23 2:39PM'
   }
 ]
 
@@ -201,7 +201,7 @@ let exampleMessages2 = [
       name: 'Sam'
     },
     text: 'Good Morning, Mark. I’d like to check in to see how Gloria is doing. I know the last time I visited the house, Gloria was struggling in a few classes at school.',
-    time: '11:20AM'
+    time: 'JUN 2 11:10AM'
   },
  {
     id: 21,
@@ -212,7 +212,7 @@ let exampleMessages2 = [
       name: 'Mark'
     },
     text: 'Gloria has been improving significantly. She is graduating from 5th grade next month! Her teachers have been seeing noticeable improvements and she has been making great friends. She will switching schools next year and is very excited.',
-    time: '11:20AM'
+    time: 'JUN 2 11:20AM'
   },
   {
     id: 22,
@@ -223,7 +223,7 @@ let exampleMessages2 = [
       name: 'Sam'
     },
     text: 'That’s amazing! I’m so proud of her. It sounds like you guys are getting along very well. Super pleased to hear. Please keep me up to date on how she transitions to the new school.',
-    time: '8:17AM'
+    time: 'JUN 3 8:17AM'
   }
 ]
 
@@ -239,6 +239,6 @@ let exampleMessages4 = [
       name: 'Mark'
     },
     text: 'I have scheduled for respite care this upcoming Saturday and would like to know if I can reschedule to Sunday. Please let me know if this is possible.',
-    time: '11:20AM'
+    time: 'MAY 23 11:20AM'
   }
 ]
