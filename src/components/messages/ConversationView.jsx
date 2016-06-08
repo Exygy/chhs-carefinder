@@ -30,9 +30,9 @@ export class ConversationView extends React.Component {
       return <section className='message-feed'>
         {messages.map(function (message, _) {
           if (message.sender.id === this.props.loggedInUser.id) {
-            return <SentMessageView key={message.id} message={message} />
+            return <div className='row margin'><SentMessageView key={message.id} message={message} /></div>
           } else {
-            return <ReceivedMessageView key={message.id} message={message} />
+            return <div className='row margin'><ReceivedMessageView key={message.id} message={message} /></div>
           }
         }.bind(this))}
       </section>
