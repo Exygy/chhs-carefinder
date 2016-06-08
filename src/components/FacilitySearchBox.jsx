@@ -1,3 +1,4 @@
+import _ from 'utils/lodash'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/facilities'
@@ -5,7 +6,8 @@ import Geosuggest from 'react-geosuggest'
 
 const mapStateToProps = (state) => ({
   searchQuery: state.facilities.searchQuery,
-  licensed: state.facilities.licensed
+  licensed: state.facilities.licensed,
+  geoSearch: state.facilities.geoSearch
 })
 
 export class FacilitySearchBox extends React.Component {
@@ -19,17 +21,28 @@ export class FacilitySearchBox extends React.Component {
     setFacilitySearchQuery: PropTypes.func.isRequired,
     setFacilityLicensed: PropTypes.func.isRequired,
     searchQuery: PropTypes.string.isRequired,
-    licensed: PropTypes.bool.isRequired
+    licensed: PropTypes.bool.isRequired,
+    geoSearch: PropTypes.object.isRequired
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {geoSearch: {}, searchQuery: ''}
   }
 
   onSubmit = (e) => {
     e.preventDefault()
-    // check if searchQuery has changed
-    if (this.props.searchQuery !== this.refs.geosuggest.state.userInput) {
-      this.props.setFacilityGeoSearch({})
-      this.props.setFacilitySearchQuery(this.refs.geosuggest.state.userInput)
+    // only allow submit if user has selected a location from the geosuggest dropdown
+    if (!_.isEmpty(this.state.geoSearch)) {
+      this.props.setFacilityGeoSearch(this.state.geoSearch)
+      this.props.setFacilitySearchQuery(this.state.searchQuery)
+      this.props.onSubmit()
+      // reset local state
+      this.setState({geoSearch: {}})
+      this.setState({searchQuery: ''})
+    } else {
+      alert('Please select a location from the dropdown list.')
     }
-    this.props.onSubmit()
   }
 
   updateLicensed = (e) => {
@@ -38,13 +51,15 @@ export class FacilitySearchBox extends React.Component {
   }
 
   handleSuggestSelect = (suggest) => {
-    let location = {
+    let coords = {
       lat: suggest.location.lat,
       lng: suggest.location.lng
     }
-    this.props.setFacilityGeoSearch(location)
-    this.props.setFacilitySearchQuery(suggest.label)
-    this.props.onSubmit()
+    this.setState({geoSearch: coords})
+    this.setState({searchQuery: suggest.label})
+    // this.props.setFacilityGeoSearch(location)
+    // this.props.setFacilitySearchQuery(suggest.label)
+    // this.props.onSubmit()
   }
 
   get licensedCheckbox () {

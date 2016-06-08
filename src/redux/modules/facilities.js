@@ -28,7 +28,7 @@ export const getFacilities = () => thunkAPI(API_URL, '/resource/mffa-c6z5.json',
     let geo = state.facilities.geoSearch
     let query = state.facilities.searchQuery
     if (!_.isEmpty(geo)) {
-      geo.distance = geo.distance || (20 / metersToMiles) // 20 miles
+      geo.distance = geo.distance || (100 / metersToMiles) // 100 miles
       search.$where += ` AND within_circle(location, ${geo.lat}, ${geo.lng}, ${geo.distance})`
       let distance = `distance_in_meters(location, 'POINT (${geo.lng} ${geo.lat})')`
       search.$order = distance
