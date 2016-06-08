@@ -21,7 +21,7 @@ export class ConversationView extends React.Component {
         return <div className='row'>
           <div className='small-11 medium-7 small-centered column'>
             <div className='message-placeholder'>
-              <p>You can start a message here with Robert Stevens about Stephanie Lang</p>
+              <p>You can start a message here with {stub.sender} about Stephanie Lang</p>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ export class ConversationView extends React.Component {
   }
 
   render () {
-    let { mostRecentMessageDate, subject } = this.props.selectedConversationStub
+    let { mostRecentMessageDate, subject, sender } = this.props.selectedConversationStub
     return (
       <div className='medium-8 columns p-relative'>
         <div className='message-content tabs-content vertical block-margins' data-tabs-content='example-vert-tabs'>
@@ -50,6 +50,8 @@ export class ConversationView extends React.Component {
             className='message-panel tabs-panel is-active'
             id='panel1v'>
             <header className='message-subect'>
+              <h1 className='message-title'>From: {sender}</h1>
+              <br />
               <h1 className='message-title'>{subject}</h1>
               <span className='message-date'>{mostRecentMessageDate}</span>
             </header>

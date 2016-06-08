@@ -16,7 +16,7 @@ export class SentMessageView extends React.Component {
         </div>
         <div className='media-object-section'>
           <figure className='message-thumb'>
-            <img src={sender.image} />
+            <img src={sender.image} alt={sender.imageAlt} />
             <figcaption className='message-time'>{time}</figcaption>
           </figure>
         </div>
