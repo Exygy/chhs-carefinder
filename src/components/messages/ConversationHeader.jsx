@@ -30,7 +30,7 @@ export class ConversationHeader extends React.Component {
             From: {sender} <span className='message-date'>{mostRecentMessageDate}</span>
           </h3>
           <p>
-            Re: {subject}
+            {subject}
             {this.unreadLabel}
           </p>
         </a>

@@ -39,9 +39,6 @@ export const getMessages = () => {
       case 4:
         dispatch(messagesLoad(exampleMessages4))
         break
-      case 5:
-        dispatch(messagesLoad(exampleMessages5))
-        break
       default:
         dispatch(messagesLoad([]))
         break
@@ -95,11 +92,11 @@ export const resetUnreadConversationStubs = () => {
   return (dispatch, getState) => {
     // for demo purposes, reset the stub unread values to their starting states
     _.forEach(exampleConversationStubs, function (stub) {
-      // our current starting state is that all stubs are unread except for the one with id 5
-      if (stub.id === 5) {
-        stub.unread = false
-      } else {
+      // our current starting state is that all stubs are read except for the one with id 2
+      if (stub.id === 2) {
         stub.unread = true
+      } else {
+        stub.unread = false
       }
     })
   }
@@ -108,9 +105,8 @@ export const resetConversations = () => {
   return (dispatch, getState) => {
     exampleMessages1 = exampleMessages1.slice(0, 2)
     exampleMessages2 = exampleMessages2.slice(0, 2)
-    exampleMessages3 = exampleMessages3.slice(0, 2)
+    exampleMessages3 = []
     exampleMessages4 = exampleMessages4.slice(0, 2)
-    exampleMessages5 = []
     dispatch(getMessages())
   }
 }
@@ -143,42 +139,33 @@ export default handleActions({
 
 // example data
 
-
-
 let exampleConversationStubs = [
   {
     id: 1,
-    mostRecentMessageDate: 'Jan 1',
-    sender: 'Mateosh',
-    subject: 'Foster Parent Liaison',
-    unread: true
+    mostRecentMessageDate: 'May 23, 2016 10:00AM',
+    sender: 'Benjamin Barnes',
+    subject: 'Re: James Middleton',
+    unread: false
   },
   {
     id: 2,
-    mostRecentMessageDate: 'Jun 1',
-    sender: 'Mateo',
-    subject: 'Current Child 1',
+    mostRecentMessageDate: 'June 3, 2016 10:00AM',
+    sender: 'Sam Torres',
+    subject: 'Re: Gloria Luke',
     unread: true
   },
   {
     id: 3,
-    mostRecentMessageDate: 'Jan 1',
-    sender: 'Mateosh',
-    subject: 'Upcoming Child 2',
-    unread: true
+    mostRecentMessageDate: '',
+    sender: 'Peter Flemmings',
+    subject: 'Re: Stephanie Lang',
+    unread: false
   },
   {
     id: 4,
-    mostRecentMessageDate: 'Jan 1',
-    sender: 'Mateosh',
-    subject: 'Past Child 3',
-    unread: true
-  },
-  {
-    id: 5,
-    mostRecentMessageDate: 'Jun 5',
-    sender: 'You',
-    subject: 'Stephanie Lang',
+    mostRecentMessageDate: 'May 23, 2016 10:00AM',
+    sender: 'Foster Parent Liaison',
+    subject: 'General Support',
     unread: false
   }
 ]
@@ -188,21 +175,21 @@ let exampleMessages1 = [
     id: 10,
     sender: {
       id: 1083597,
-      image: 'http://placehold.it/83x111',
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/mark-small.png',
       name: 'Mark'
     },
-    text: 'my message!',
-    time: '7:00PM'
+    text: 'Hi Ben, I need some advice regarding James. He’s been diagnosed with ADHD. What do I need to do?',
+    time: 'May 22, 2016 10:23AM'
   },
   {
     id: 11,
     sender: {
-      id: 2,
-      image: 'http://placehold.it/83x111',
-      name: 'little mateo'
+      id: 101,
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/caseworker1.png',
+      name: 'Benjamin'
     },
-    text: 'my reply! I\'m going to improvise. Listen, there\'s something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.',
-    time: '8:00PM'
+    text: 'Thanks for keeping us informed, Mark. We schedule a number of classes to train parents on how to support children with ADHD. In fact, we have one this upcoming Tuesday at 7pm in the local office. I encourage you to come by to learn more.  Additionally, feel free to search for foster family agencies in your area using the search feature on the portal.  Please let me know if there’s anything else I can help with.',
+    time: 'May 22, 2016 2:39PM'
   }
 ]
 
@@ -210,66 +197,46 @@ let exampleMessages2 = [
   {
     id: 20,
     sender: {
-      id: 3,
-      image: 'http://placehold.it/83x111',
-      name: 'big mateosh'
+      id: 102,
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/caseworker4.png',
+      name: 'Sam'
     },
-    text: 'my message, hi!',
-    time: '7:00PM'
+    text: 'Good Morning, Mark. I’d like to check in to see how Gloria is doing. I know the last time I visited the house, Gloria was struggling in a few classes at school.',
+    time: 'June 2, 2016 11:20AM'
   },
-  {
+ {
     id: 21,
     sender: {
       id: 1083597,
-      image: 'http://placehold.it/83x111',
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/mark-small.png',
       name: 'Mark'
     },
-    text: 'my reply, hi!',
-    time: '8:00PM'
-  }
-]
-let exampleMessages3 = [
-  {
-    id: 30,
-    sender: {
-      id: 3,
-      image: 'http://placehold.it/83x111',
-      name: 'little mateosh'
-    },
-    text: 'my message, hola!',
-    time: '7:00PM'
+    text: 'Gloria has been improving significantly. She is graduating from 5th grade next month! Her teachers have been seeing noticeable improvements and she has been making great friends. She will switching schools next year and is very excited.',
+    time: 'June 2, 2016 11:20AM'
   },
   {
-    id: 21,
+    id: 22,
     sender: {
-      id: 1083597,
-      image: 'http://placehold.it/83x111',
-      name: 'Mark'
+      id: 102,
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/caseworker4.png',
+      name: 'Sam'
     },
-    text: 'my reply, hi!',
-    time: '8:00PM'
+    text: 'That’s amazing! I’m so proud of her. It sounds like you guys are getting along very well. Super pleased to hear. Please keep me up to date on how she transitions to the new school.',
+    time: 'June 4, 2016 8:17AM'
   }
 ]
+
+let exampleMessages3 = []
+
 let exampleMessages4 = [
   {
     id: 40,
     sender: {
-      id: 3,
-      image: 'http://placehold.it/83x111',
-      name: 'dude'
-    },
-    text: 'nice to meet you!',
-    time: '7:00PM'
-  },
-  {
-    id: 21,
-    sender: {
       id: 1083597,
-      image: 'http://placehold.it/83x111',
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/mark-small.png',
       name: 'Mark'
     },
-    text: 'my reply, hi!',
-    time: '8:00PM'
+    text: 'I have scheduled for respite care this upcoming Saturday and would like to know if I can reschedule to Sunday. Please let me know if this is possible.',
+    time: 'May 21, 2016 11:20AM'
   }
 ]
-let exampleMessages5 = []

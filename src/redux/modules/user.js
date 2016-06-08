@@ -65,49 +65,49 @@ let exampleUser = {
   employmentStatus: 'Full Time',
   firstName: 'Mark',
   fosterCarePreferences: {
-    ability: 'Ambulatory',
-    age: '10 to 17 years',
-    gender: 'No Preference'
+  	ability: 'Ambulatory',
+  	age: '10 to 17 years',
+  	gender: 'No Preference'
   },
   fosterChildren: [
-    {
-      birthday: 'February 11, 2001',
-      caseId: 50096,
-      fosterStartDate: 'April 3, 2015',
-      fosterEndDate: '',
-      image: 'http://placehold.it/81x111',
-      firstName: 'James',
-      lastName: 'Middleton'
-    },
-    {
-      birthday: 'March 8, 2005',
-      caseId: 51720,
-      fosterStartDate: 'May 2, 2014',
-      fosterEndDate: '',
-      image: 'http://placehold.it/81x111',
-      firstName: 'Gloria',
-      lastName: 'Luke'
-    },
-    {
-      birthday: 'October 21, 2009',
-      caseId: 59636,
-      fosterStartDate: 'June 1, 2013',
-      fosterEndDate: 'November 16, 2013',
-      image: 'http://placehold.it/81x111',
-      firstName: 'Stephanie',
-      lastName: 'Lang'
-    }
+	{
+  	birthday: 'February 11, 2001',
+  	caseId: 50096,
+  	fosterStartDate: 'April 3, 2015',
+	fosterEndDate: '',
+  	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/james.jpg',
+  	firstName: 'James',
+	lastName: 'Middleton'
+	},
+	{
+  	birthday: 'March 8, 2005',
+  	caseId: 51720,
+  	fosterStartDate: 'May 2, 2014',
+	fosterEndDate: '',
+  	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/gloria.jpg',
+  	firstName: 'Gloria',
+	  lastName: 'Luke'
+	},
+	{
+  	birthday: 'October 21, 2009',
+  	caseId: 59636,
+  	fosterStartDate: 'June 1, 2013',
+	  fosterEndDate: 'November 16, 2013',
+  	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/stephanie.jpg',
+  	firstName: 'Stephanie',
+	lastName: 'Lang'
+	}
   ],
   gender: 'Male',
-  image: 'http://placehold.it/358x440',
+  image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/mark-large.png',
   household: {
-    adultsAtHome: 2,
-    childrenAtHome: 3,
-    bedrooms: 2,
-    homeSize: {
-      value: 949,
-      unit: 'sq. ft.'
-    }
+	adultsAtHome: 2,
+	childrenAtHome: 3,
+	bedrooms: 2,
+  homeSize: {
+    value: 949,
+    unit: 'sq. ft.'
+  }
   },
   lastName: 'Oberin',
   maritalStatus: 'Widower',
