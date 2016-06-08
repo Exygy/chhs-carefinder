@@ -3,7 +3,7 @@ CHHS CareFinder Prototype
 
 Instructions
 ------------
-To access the live prototype visit: http://1m786l-chhs-carefinder-staging-exygy.runnableapp.com/  
+To access the live prototype visit: http://carefinder.exygy.com/  
 _For the purposes of the prototype, you may sign-in to view additional features such as profile and messages by simply clicking "Log In" without any credentials. Additionally, the user profile and messages will be refreshed to its original data set once you sign out._
 
 To clone the repo and install the necessary node modules:
@@ -45,4 +45,3 @@ Over the course of the prototype, we tracked the scrum team and product developm
 The team also used a number of collaboration tools in addition to Pivotal Tracker, which include InVision, Slack, Zoom and Google Drive. See more details on the tools used [here](https://github.com/Exygy/chhs-carefinder/wiki/01.-Project-Management#tools).
 
 You may visit the GitHub wiki page for a thorough documentation on the approach followed for the implementation of this prototype https://github.com/Exygy/chhs-carefinder/wiki.
-
