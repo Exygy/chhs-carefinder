@@ -41,6 +41,8 @@ export class HouseholdDetailsBox extends React.Component {
     user.household.bedrooms = this.state.bedrooms
     user.household.homeSize.value = this.state.sizeOfHome
 
+    user.status = 'pending'
+
     this.props.updateUser(user)
     this.setState({ isEditingProfile : false })
   }

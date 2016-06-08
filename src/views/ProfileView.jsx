@@ -19,14 +19,6 @@ export class ProfileView extends React.Component {
     loggedInUser: PropTypes.object.isRequired
   }
 
-  get notificationBox () {
-    if (this.props.loggedInUser.status === 'approved') {
-      return <div />
-    } else {
-      return <ProfileNotification />
-    }
-  }
-
   render () {
     let user = this.props.loggedInUser
     return (
@@ -41,7 +33,7 @@ export class ProfileView extends React.Component {
           </div>
           <div className='medium-8 columns'>
 
-            {this.notificationBox}
+            <ProfileNotification status={user.status} />
 
             <ContactInfoBox updateUser={this.props.updateUser} user={user} />
 
