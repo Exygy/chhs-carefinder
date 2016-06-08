@@ -10,7 +10,7 @@ export class Hero extends React.Component {
       <div className='hero tb-table'>
         <div className='hero-inner tb-vert-align'>
           <a className='hero-logo'>
-            <img src={img} alt='Logo Image' />
+            <img src={img} alt='A happy multi-ethnic family sitting on the grass' />
           </a>
           <div className='hero-copy'>
             <h1 className='hero-header'>

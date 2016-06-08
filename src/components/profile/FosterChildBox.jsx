@@ -16,11 +16,11 @@ export class FosterChildBox extends React.Component {
   }
 
   render () {
-    let { birthday, caseId, firstName, image, lastName } = this.props.fosterChild
+    let { birthday, caseId, firstName, image, imageAlt, lastName } = this.props.fosterChild
     return (
       <div className='media-object'>
         <div className='media-object-section'>
-          <img src={image} />
+          <img src={image} alt={imageAlt} />
         </div>
 
         <div className='media-object-section'>
