@@ -110,7 +110,7 @@ let exampleUser = {
   }
   },
   lastName: 'Oberin',
-  maritalStatus: 'Widower',
+  maritalStatus: 'Widowed',
   medicalHistory: 'Migraines, Shoulder Surgery (2000), Allergies',
   occupation: 'Software Engineer',
   phone: '415-555-1234',

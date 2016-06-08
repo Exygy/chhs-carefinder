@@ -45,7 +45,7 @@ export class ProfileView extends React.Component {
 
             <ContactInfoBox updateUser={this.props.updateUser} user={user} />
 
-            <ProfileInfoBox user={user} />
+            <ProfileInfoBox updateUser={this.props.updateUser} user={user} />
 
             <HouseholdDetailsBox user={user} />
 
