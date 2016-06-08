@@ -42,7 +42,9 @@ export class FacilitySearchBox extends React.Component {
       this.setState({searchQuery: ''})
       this.setState({errorMsg: ''})
     } else {
-      this.setState({errorMsg: 'Please select a location from the dropdown list.'})
+      if (this.props.searchQuery !== this.refs.geosuggest.refs.input.refs.input.value) {
+        this.setState({errorMsg: 'Please select a location from the dropdown list.'})
+      }
     }
   }
 
