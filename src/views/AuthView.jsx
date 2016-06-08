@@ -52,19 +52,19 @@ export class AuthView extends React.Component {
                 <div className='form-group'>
                   <div className='inline-form'>
                     <label className='inline-form-label'>Foster Home ID #</label>
-                    <input className='inline-form-input' type='text' placeholder='' />
+                    <input className='inline-form-input' type='text' placeholder='xxxxxxxxxx' />
                   </div>
                   <div className='inline-form'>
                     <label className='inline-form-label'>Social Security #</label>
-                    <input className='inline-form-input' type='text' placeholder='' />
+                    <input className='inline-form-input' type='text' placeholder='xxx-xx-xxxx' />
                   </div>
                   <div className='inline-form'>
                     <label className='inline-form-label'>Password</label>
-                    <input className='inline-form-input' type='password' placeholder='' />
+                    <input className='inline-form-input' type='password' placeholder='Password' />
                   </div>
                   <div className='inline-form'>
                     <label className='inline-form-label'>Re-enter Password</label>
-                    <input className='inline-form-input' type='password' placeholder='' />
+                    <input className='inline-form-input' type='password' placeholder='Password' />
                   </div>
                   <div className='row'>
                     <div className='large-10 large-centered columns text-center'>
