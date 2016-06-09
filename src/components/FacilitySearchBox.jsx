@@ -7,6 +7,7 @@ import Geosuggest from 'react-geosuggest'
 const mapStateToProps = (state) => ({
   searchQuery: state.facilities.searchQuery,
   licensed: state.facilities.licensed,
+  loading: state.facilities.loading,
   geoSearch: state.facilities.geoSearch
 })
 
@@ -21,6 +22,7 @@ export class FacilitySearchBox extends React.Component {
     setFacilitySearchQuery: PropTypes.func.isRequired,
     setFacilityLicensed: PropTypes.func.isRequired,
     searchQuery: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
     licensed: PropTypes.bool.isRequired,
     geoSearch: PropTypes.object.isRequired
   }
@@ -92,6 +94,18 @@ export class FacilitySearchBox extends React.Component {
     return <p className='form-error is-visible margin-top'>{this.state.errorMsg}</p>
   }
 
+  get resultCount () {
+    if (this.props.loading) {
+      return (
+        <img
+          style={{height: '21px', marginLeft: '10px', display: 'inline-block'}}
+          src={require('images/loading-animation.svg')} />
+      )
+    } else {
+      return this.props.resultCount
+    }
+  }
+
   formatSuggestLabel = (suggest) => {
     return _.replace(suggest.description, ', United States', '')
   }
@@ -130,7 +144,7 @@ export class FacilitySearchBox extends React.Component {
             {this.licensedCheckbox}
           </div>
         </form>
-        {this.props.resultCount}
+        {this.resultCount}
         {this.error}
       </div>
     )

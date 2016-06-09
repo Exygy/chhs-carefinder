@@ -7,13 +7,14 @@ export class Hero extends React.Component {
   render () {
     return (
       <div className='hero tb-table'>
-        <div className='hero-inner tb-vert-align'>
-          <a className='hero-logo'>
-          </a>
-          <div className='hero-copy'>
-            <h1 className='hero-header'>
-              Find the Support You Need as a Foster Parent
-            </h1>
+        <div className='hero-inner'>
+          <div className='row'>
+            <div className='hero-copy'>
+              <h1 className='hero-header'>
+                Find the Support<br />
+                You Need as a Foster Parent
+              </h1>
+            </div>
           </div>
         </div>
       </div>

@@ -65,7 +65,7 @@ export class SearchView extends React.Component {
       component='div'
       ref={ref}
       transitionName='fade'
-      transitionEnterTimeout={200}
+      transitionEnterTimeout={350}
       transitionLeaveTimeout={200}>
       {items}
     </ReactCSSTransitionGroup>

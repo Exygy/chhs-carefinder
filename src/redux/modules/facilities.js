@@ -8,6 +8,8 @@ const API_URL = 'https://chhs.data.ca.gov'
 // ------------------------------------
 // Actions
 // ------------------------------------
+export const facilitiesLoading = createAction('FACILITIES_LOADING')
+export const facilitiesDoneLoading = createAction('FACILITIES_DONE_LOADING')
 export const facilitiesLoad = createAction('FACILITIES_LOAD')
 export const setFacilityGeoSearch = createAction('SET_FACILITY_GEO_SEARCH')
 export const setFacilitySearchQuery = createAction('SET_FACILITY_SEARCH_QUERY')
@@ -18,6 +20,8 @@ const facilityZipParamKey = 'facility_zip'
 const metersToMiles = 0.000621371
 
 export const getFacilities = () => thunkAPI(API_URL, '/resource/mffa-c6z5.json', {
+  onLoad: facilitiesLoading,
+  onComplete: facilitiesDoneLoading,
   onSuccess: facilitiesLoad,
   queryData: (state) => {
     let search = {
@@ -59,6 +63,7 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 export const INITIAL_STATE = {
+  loading: false,
   filterByFavorites: false,
   geoSearch: {},
   results: [],
@@ -66,6 +71,12 @@ export const INITIAL_STATE = {
   licensed: true
 }
 export default handleActions({
+  FACILITIES_LOADING: (state, action) => {
+    return Object.assign({}, state, { loading: true })
+  },
+  FACILITIES_DONE_LOADING: (state, action) => {
+    return Object.assign({}, state, { loading: false })
+  },
   FACILITIES_LOAD: (state, action) => {
     return Object.assign({}, state, { results: action.payload })
   },
