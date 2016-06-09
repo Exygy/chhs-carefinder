@@ -1,12 +1,6 @@
-# Check it out: http://humanstxt.org/
-
 # TEAM
 
     Exygy
     Site: http://exygy.com
     Twitter: https://twitter.com/exygy
     Location: San Francisco, CA
-
-# THANKS
-
-    David Zukowski: https://github.com/davezuko/react-redux-starter-kit

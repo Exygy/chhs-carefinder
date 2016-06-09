@@ -14,6 +14,10 @@ export class ConversationView extends React.Component {
   componentDidUpdate = () => {
     let node = this.refs['feed']
     node.scrollTop = node.offsetHeight
+
+    setTimeout(() => {
+      node.scrollTop = node.offsetHeight
+    }, 1)
   }
 
   get messageList () {
