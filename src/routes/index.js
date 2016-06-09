@@ -8,21 +8,26 @@ import MessagesView from 'views/MessagesView'
 import ProfileView from 'views/ProfileView'
 import SearchView from 'views/SearchView'
 import { isLoggedIn } from 'redux/modules/user'
+import { toggleMenu } from 'redux/modules/menu'
+import { store } from 'main'
 
-function authenticate (nextState, replace) {
+function authenticateAndCloseMenu (nextState, replace) {
+  closeMenu(nextState, replace)
   if (!isLoggedIn()) {
     replace('/signin')
   }
 }
 
+function closeMenu (nextState, replace) {
+  store.dispatch(toggleMenu('close'))
+}
+
 export default (store) => (
   <Route path='/' component={CoreLayout}>
-    <IndexRoute components={{content: HomeView, navbar: NavBar}} />
-    <Route path='messages' onEnter={authenticate} components={{content: MessagesView, navbar: NavBar}} />
-    <Route path='profile' onEnter={authenticate} components={{content: ProfileView, navbar: NavBar}} />
-    <Route path='/search' components={{content: SearchView, navbar: NavBar}}>
-      <Route path='favorites' />
-    </Route>
-    <Route path='signin' components={{content: AuthView, navbar: NavBar}} />
+    <IndexRoute onEnter={closeMenu} components={{content: HomeView, navbar: NavBar}} />
+    <Route path='messages' onEnter={authenticateAndCloseMenu} components={{content: MessagesView, navbar: NavBar}} />
+    <Route path='profile' onEnter={authenticateAndCloseMenu} components={{content: ProfileView, navbar: NavBar}} />
+    <Route path='search' onEnter={closeMenu} components={{content: SearchView, navbar: NavBar}} />
+    <Route path='signin' onEnter={closeMenu} components={{content: AuthView, navbar: NavBar}} />
   </Route>
 )

@@ -5,23 +5,22 @@ import activeComponent from 'react-router-active-component'
 import { connect } from 'react-redux'
 import { userLoad } from 'redux/modules/user'
 import { resetUnreadConversationStubs } from 'redux/modules/messages'
+import { toggleMenu } from 'redux/modules/menu'
 
 const mapStateToProps = (state) => ({
   loggedInUser: state.user.loggedInUser,
-  conversationStubs: state.messages.conversationStubs
+  conversationStubs: state.messages.conversationStubs,
+  menuClass: state.menu.menuClass
 })
 
 export class NavBar extends React.Component {
   static propTypes = {
     loggedInUser: PropTypes.object.isRequired,
     userLoad: PropTypes.func.isRequired,
+    menuClass: PropTypes.string.isRequired,
+    toggleMenu: PropTypes.func.isRequired,
     conversationStubs: PropTypes.array.isRequired,
     resetUnreadConversationStubs: PropTypes.func.isRequired
-  }
-
-  constructor (props) {
-    super(props)
-    this.state = {menuClass: 'toggle-menu'}
   }
 
   get notifications () {
@@ -81,14 +80,6 @@ export class NavBar extends React.Component {
     this.props.resetUnreadConversationStubs()
   }
 
-  toggleMenu = () => {
-    var menuClassName = 'toggle-menu'
-    if (!_.includes(this.state.menuClass, 'show-menu')) {
-      menuClassName += ' show-menu'
-    }
-    this.setState({menuClass: menuClassName})
-  }
-
   render () {
     return (
       <nav className='top-bar sticky is-stuck is-at-top column'>
@@ -100,7 +91,7 @@ export class NavBar extends React.Component {
                   className='menu-icon dark'
                   type='button'
                   data-toggle='responsive-menu'
-                  onClick={this.toggleMenu}></button>
+                  onClick={this.props.toggleMenu}></button>
               </span>
               <IndexLink to='/'>
                 <svg className='logo-svg' role='img' aria-label='Care Finder logo'>
@@ -114,7 +105,7 @@ export class NavBar extends React.Component {
               </IndexLink>
             </div>
           </div>
-          <div id='responsive-menu' className={this.state.menuClass} data-toggler='show-menu'>
+          <div id='responsive-menu' className={this.props.menuClass} data-toggler='show-menu'>
             {this.menuBar}
           </div>
         </div>
@@ -123,4 +114,4 @@ export class NavBar extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, {userLoad, resetUnreadConversationStubs})(NavBar)
+export default connect(mapStateToProps, {userLoad, resetUnreadConversationStubs, toggleMenu})(NavBar)
