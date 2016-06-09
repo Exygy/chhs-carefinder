@@ -77,11 +77,11 @@ export class NavBar extends React.Component {
   }
 
   toggleMenu = () => {
-    var menuName = 'toggle-menu'
+    var menuClassName = 'toggle-menu'
     if (!_.includes(this.state.menuClass, 'show-menu')) {
-      menuName += ' show-menu'
+      menuClassName += ' show-menu'
     }
-    this.setState({menuClass: menuName})
+    this.setState({menuClass: menuClassName})
   }
 
   render () {
