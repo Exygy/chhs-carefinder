@@ -112,7 +112,7 @@ export class FacilitySearchBox extends React.Component {
 
   render () {
     return (
-      <div className='callout large'>
+      <div className='callout large bg-light-gray'>
         <h2 className='t-serif t-delta'>
           Find Foster Family Agencies In Your Area
         </h2>
