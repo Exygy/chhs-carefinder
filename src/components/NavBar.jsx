@@ -30,8 +30,12 @@ export class NavBar extends React.Component {
     if (unreadCount > 0) {
       return <span className='top-bar-badge badge alert'>{unreadCount}</span>
     } else {
-      return ''
+      return this.spacer
     }
+  }
+
+  get spacer () {
+    return <span style={{background: 'transparent', height: '15px', display: 'inline-block'}} />
   }
 
   get menuBar () {
@@ -47,6 +51,7 @@ export class NavBar extends React.Component {
         {searchFacilitiesLink}
         <NavItem to='/signin' className='top-bar-menu-item' activeClassName='active'>
           Sign In or Sign Up
+          {this.spacer}
         </NavItem>
       </ul>
     )

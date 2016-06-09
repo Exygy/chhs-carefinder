@@ -1,9 +1,6 @@
-# Check it out: http://humanstxt.org/
-
 # TEAM
 
-    <name> -- <role> -- <twitter>
-
-# THANKS
-
-    <name>
+    Exygy
+    Site: http://exygy.com
+    Twitter: https://twitter.com/exygy
+    Location: San Francisco, CA
