@@ -71,13 +71,15 @@ export class ContactInfoBox extends React.Component {
             <div className='large-8 large-centered columns'>
               <ul className='meta-list tall'>
                 <li className='meta-list-item'>
-                  <div className='inline-form'>
+                  <div className='inline-form inline-form-left-padding'>
                     <span className='ui-icon i-base i-white inline-form-icon'>
                       <svg>
                         <use xlinkHref='#i-mail'></use>
                       </svg>
                     </span>
-                    <label htmlFor='textInput' className='inline-form-label'>Email</label>
+                    <label htmlFor='textInput' className='inline-form-label inline-form-label-left-padding'>
+                      Email
+                    </label>
                     <input id='textInput'
                       className='inline-form-input'
                       type='text'
@@ -86,13 +88,13 @@ export class ContactInfoBox extends React.Component {
                   </div>
                 </li>
                 <li className='meta-list-item'>
-                  <div className='inline-form'>
+                  <div className='inline-form inline-form-left-padding'>
                     <span className='ui-icon i-base i-white inline-form-icon'>
                       <svg>
                         <use xlinkHref='#i-phone'></use>
                       </svg>
                     </span>
-                    <label htmlFor='textInput' className='inline-form-label'>Phone</label>
+                    <label htmlFor='textInput' className='inline-form-label inline-form-label-left-padding'>Phone</label>
                     <input id='textInput'
                       className='inline-form-input'
                       type='text'
