@@ -34,8 +34,6 @@ export class FacilitySearchBox extends React.Component {
 
   onSubmit = (e) => {
     if (e) e.preventDefault()
-    // skip if they're searching the same thing again
-    if (this.state.searchQuery === this.props.searchQuery) return false
     // only allow submit if user has selected a location from the geosuggest dropdown
     if (!_.isEmpty(this.state.geoSearch)) {
       this.props.setFacilityGeoSearch(this.state.geoSearch)
