@@ -3,7 +3,8 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'redux/modules/facilities'
 import { StickyContainer, Sticky } from 'react-sticky'
-import Equalizer from 'components/vendor/Equalizer'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactList from 'react-list'
 import FacilitySearchBox from 'components/FacilitySearchBox'
 import SearchResultCard from 'components/SearchResultCard'
 
@@ -25,6 +26,10 @@ export class SearchView extends React.Component {
     this.props.getFacilities()
   }
 
+  componentWillReceiveProps (nextProps) {
+    window.scrollTo(0, 40)
+  }
+
   get message () {
     if (_.last(this.props.routes).path === 'favorites') {
       return 'Search Favorites'
@@ -38,29 +43,43 @@ export class SearchView extends React.Component {
     if (facilityCount) {
       let resultCount = facilityCount + ' agencies'
       if (!_.isEmpty(this.props.searchQuery)) {
-        resultCount += ` near "${this.props.searchQuery}"`
+        resultCount += ` within 100 miles of "${this.props.searchQuery}"`
       }
       return resultCount
-    } else {
+    } else if (this.props.searchQuery) {
       return `No results matching "${this.props.searchQuery}"`
     }
   }
 
+  renderItem = (index, key) => {
+    let facility = this.props.facilities[index]
+    return (
+      <div className='large-6 columns end' key={`${key}-${facility.facility_number}`}>
+        <SearchResultCard facility={facility} />
+      </div>
+    )
+  }
+
+  renderItems = (items, ref) =>
+    <ReactCSSTransitionGroup
+      component='div'
+      ref={ref}
+      transitionName='fade'
+      transitionEnterTimeout={200}
+      transitionLeaveTimeout={200}>
+      {items}
+    </ReactCSSTransitionGroup>
+
   get facilityList () {
-    let facilities = this.props.facilities
-    let list = <div />
-    if (this.props.facilities.length) {
-      let i = 0
-      list = facilities.map((facility) => {
-        i++
-        return (
-          <div className='large-6 columns end' key={i}>
-            <SearchResultCard facility={facility} />
-          </div>
-        )
-      })
-    }
-    return <Equalizer>{list}</Equalizer>
+    return (
+      <ReactList
+        ref={'reactList'}
+        itemRenderer={this.renderItem}
+        itemsRenderer={this.renderItems}
+        length={this.props.facilities.length}
+        pageSize={35}
+      />
+    )
   }
 
   render () {
