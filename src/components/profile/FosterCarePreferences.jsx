@@ -64,11 +64,11 @@ export class FosterCarePreferences extends React.Component {
             </span>
           </header>
           <div className='row padding-bottom--2x'>
-            <div className='large-8 medium-10 medium-centered columns'>
+            <div className='large-10 medium-10 medium-centered columns'>
               <ul className='meta-list tall'>
                 <li className='meta-list-item'>
                   <div className='inline-form border-bottom'>
-                    <label className='inline-form-label'>Preferred Age of Children</label>
+                    <label className='inline-form-label'>Age of Children</label>
                     <select name='age'
                       id='age'
                       className='inline-form-input'
@@ -82,7 +82,7 @@ export class FosterCarePreferences extends React.Component {
                 </li>
                 <li className='meta-list-item'>
                   <div className='inline-form border-bottom'>
-                    <label className='inline-form-label'>Preferred Gender of Children</label>
+                    <label className='inline-form-label'>Gender of Children</label>
                     <select name='gender'
                       id='gender'
                       className='inline-form-input'
@@ -97,7 +97,7 @@ export class FosterCarePreferences extends React.Component {
                 </li>
                 <li className='meta-list-item'>
                   <div className='inline-form border-bottom'>
-                    <label className='inline-form-label'>Preferred Type of Children</label>
+                    <label className='inline-form-label'>Type of Children</label>
                     <select name='ability'
                       id='ability'
                       className='inline-form-input'
