@@ -92,6 +92,10 @@ export class FacilitySearchBox extends React.Component {
     return <p className='form-error is-visible margin-top'>{this.state.errorMsg}</p>
   }
 
+  formatSuggestLabel = (suggest) => {
+    return _.replace(suggest.description, ', United States', '')
+  }
+
   render () {
     return (
       <div className='callout large'>
@@ -112,6 +116,7 @@ export class FacilitySearchBox extends React.Component {
                   placeholder='Enter a city or zipcode'
                   onSuggestSelect={this.handleSuggestSelect}
                   onKeyPressEnter={this.onKeyPressEnter}
+                  getSuggestLabel={this.formatSuggestLabel}
                   ref='geosuggest'
                 />
                 <div className='input-group-button'>

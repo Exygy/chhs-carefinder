@@ -19,6 +19,11 @@ export class NavBar extends React.Component {
     resetUnreadConversationStubs: PropTypes.func.isRequired
   }
 
+  constructor (props) {
+    super(props)
+    this.state = {menuClass: 'toggle-menu'}
+  }
+
   get notifications () {
     let unread = _.filter(this.props.conversationStubs, (stub) => stub.unread)
     let unreadCount = unread.length
@@ -38,7 +43,7 @@ export class NavBar extends React.Component {
       </NavItem>
     )
     let loggedOutNavLinks = (
-      <ul className='top-bar-menu menu' role='menubar'>
+      <ul className='top-bar-menu menu' data-dropdown-menu>
         {searchFacilitiesLink}
         <NavItem to='/signin' className='top-bar-menu-item' activeClassName='active'>
           Sign In or Sign Up
@@ -46,7 +51,7 @@ export class NavBar extends React.Component {
       </ul>
     )
     let loggedInNavLinks = (
-      <ul className='top-bar-menu menu' role='menubar'>
+      <ul className='top-bar-menu menu' data-dropdown-menu>
         {searchFacilitiesLink}
         <NavItem to='/profile' className='top-bar-menu-item' activeClassName='active'>
           My Profile
@@ -71,13 +76,28 @@ export class NavBar extends React.Component {
     this.props.resetUnreadConversationStubs()
   }
 
+  toggleMenu = () => {
+    var menuClassName = 'toggle-menu'
+    if (!_.includes(this.state.menuClass, 'show-menu')) {
+      menuClassName += ' show-menu'
+    }
+    this.setState({menuClass: menuClassName})
+  }
+
   render () {
     return (
       <nav className='top-bar sticky is-stuck is-at-top column'>
         <div className='row'>
           <div className='medium-4 columns'>
-            <IndexLink to='/'>
-              <div className='top-bar-logo'>
+            <div className='top-bar-logo'>
+              <span className='hide-for-medium'>
+                <button
+                  className='menu-icon dark'
+                  type='button'
+                  data-toggle='responsive-menu'
+                  onClick={this.toggleMenu}></button>
+              </span>
+              <IndexLink to='/'>
                 <svg className='logo-svg' role='img' aria-label='Care Finder logo'>
                   <title>Care Finder logo</title>
                   <desc>Care Finder logo</desc>
@@ -86,10 +106,10 @@ export class NavBar extends React.Component {
                 <span className='logo-name'>
                   Care Finder
                 </span>
-              </div>
-            </IndexLink>
+              </IndexLink>
+            </div>
           </div>
-          <div className='top-bar-right'>
+          <div id='responsive-menu' className={this.state.menuClass} data-toggler='show-menu'>
             {this.menuBar}
           </div>
         </div>

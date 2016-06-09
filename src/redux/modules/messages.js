@@ -57,7 +57,7 @@ export const sendMessage = (text) => {
         name: getState().user.loggedInUser.firstName
       },
       text: text,
-      time: moment().format('MMM Do h:mmA')
+      time: moment().format('MMM D h:mmA')
     }
 
     // locate the active messages and add the new message to them
