@@ -133,7 +133,7 @@ export default handleActions({
   }
 }, INITIAL_STATE)
 
-// example data
+// example data - replace with link to API documentation when available
 
 let exampleConversationStubs = [
   {
@@ -203,7 +203,7 @@ let exampleMessages2 = [
     text: 'Good Morning, Mark. I’d like to check in to see how Gloria is doing. I know the last time I visited the house, Gloria was struggling in a few classes at school.',
     time: 'JUN 2 11:10AM'
   },
- {
+  {
     id: 21,
     sender: {
       id: 1083597,

@@ -53,7 +53,7 @@ export default handleActions({
   }
 }, INITIAL_STATE)
 
-// Sample data
+// sample data - replace with link to API documentation when available
 
 let exampleUser = {
   id: 1083597,
@@ -69,52 +69,52 @@ let exampleUser = {
   employmentStatus: 'Full Time',
   firstName: 'Mark',
   fosterCarePreferences: {
-  	ability: 'Ambulatory',
-  	age: '9 years to 17 years',
-  	gender: 'No Preference'
+    ability: 'Ambulatory',
+    age: '9 years to 17 years',
+    gender: 'No Preference'
   },
   fosterChildren: [
-	{
-  	birthday: 'February 11, 2001',
-  	caseId: 50096,
-  	fosterStartDate: 'April 3, 2015',
-    fosterEndDate: '',
-  	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/james.jpg',
-    imageAlt: 'A 15-year-old boy',
-  	firstName: 'James',
-	lastName: 'Middleton'
-	},
-	{
-  	birthday: 'March 8, 2005',
-  	caseId: 51720,
-  	fosterStartDate: 'May 2, 2014',
-	fosterEndDate: '',
-  	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/gloria.jpg',
-    imageAlt: 'A 10-year-old girl',
-  	firstName: 'Gloria',
-	  lastName: 'Luke'
-	},
-	{
-  	birthday: 'October 21, 2009',
-  	caseId: 59636,
-  	fosterStartDate: 'June 1, 2013',
-	  fosterEndDate: 'November 16, 2013',
-  	image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/stephanie.jpg',
-    imageAlt: 'A 6-year-old girl',
-  	firstName: 'Stephanie',
-	lastName: 'Lang'
-	}
+    {
+      birthday: 'February 11, 2001',
+      caseId: 50096,
+      fosterStartDate: 'April 3, 2015',
+      fosterEndDate: '',
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/james.jpg',
+      imageAlt: 'A 15-year-old boy',
+      firstName: 'James',
+      lastName: 'Middleton'
+    },
+    {
+      birthday: 'March 8, 2005',
+      caseId: 51720,
+      fosterStartDate: 'May 2, 2014',
+      fosterEndDate: '',
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/gloria.jpg',
+      imageAlt: 'A 10-year-old girl',
+      firstName: 'Gloria',
+      lastName: 'Luke'
+    },
+    {
+      birthday: 'October 21, 2009',
+      caseId: 59636,
+      fosterStartDate: 'June 1, 2013',
+      fosterEndDate: 'November 16, 2013',
+      image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/stephanie.jpg',
+      imageAlt: 'A 6-year-old girl',
+      firstName: 'Stephanie',
+      lastName: 'Lang'
+    }
   ],
   gender: 'Male',
   image: 'https://raw.githubusercontent.com/Exygy/chhs-carefinder/master/src/images/mark-large.png',
   household: {
-	adultsAtHome: 2,
-	childrenAtHome: 3,
-	bedrooms: 2,
-  homeSize: {
-    value: 949,
-    unit: 'sq. ft.'
-  }
+    adultsAtHome: 2,
+    childrenAtHome: 3,
+    bedrooms: 2,
+    homeSize: {
+      value: 949,
+      unit: 'sq. ft.'
+    }
   },
   lastName: 'Oberin',
   maritalStatus: 'Widowed',

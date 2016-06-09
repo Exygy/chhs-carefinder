@@ -11,10 +11,12 @@ export class ConversationView extends React.Component {
     messages: PropTypes.array.isRequired
   }
 
+  // always scroll conversation to the bottom to show last message
   componentDidUpdate = () => {
     let node = this.refs['feed']
     node.scrollTop = node.offsetHeight
 
+    // needs to be slightly delayed so node contains all data and height is accurate
     setTimeout(() => {
       node.scrollTop = node.offsetHeight
     }, 1)

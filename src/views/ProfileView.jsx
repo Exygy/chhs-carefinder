@@ -16,7 +16,8 @@ const mapStateToProps = (state) => ({
 export class ProfileView extends React.Component {
 
   static propTypes = {
-    loggedInUser: PropTypes.object.isRequired
+    loggedInUser: PropTypes.object.isRequired,
+    updateUser: PropTypes.func.isRequired
   }
 
   render () {
