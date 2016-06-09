@@ -6,7 +6,7 @@ export class HouseholdDetailsBox extends React.Component {
     user: PropTypes.object.isRequired
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       city: this.props.user.address.city,
@@ -23,12 +23,12 @@ export class HouseholdDetailsBox extends React.Component {
 
   isEditingOn = (event) => {
     event.preventDefault()
-    this.setState({ isEditingProfile : true })
+    this.setState({ isEditingProfile: true })
   }
 
   isEditingOff = (event) => {
     event.preventDefault()
-    this.setState({ isEditingProfile : false })
+    this.setState({ isEditingProfile: false })
   }
 
   save = () => {
@@ -46,47 +46,47 @@ export class HouseholdDetailsBox extends React.Component {
     user.status = 'pending'
 
     this.props.updateUser(user)
-    this.setState({ isEditingProfile : false })
+    this.setState({ isEditingProfile: false })
   }
 
   updateAdultsAtHome = (event) => {
-    this.setState({ adultsAtHome : event.target.value })
+    this.setState({ adultsAtHome: event.target.value })
   }
 
   updateChildrenAtHome = (event) => {
-    this.setState({ childrenAtHome : event.target.value })
+    this.setState({ childrenAtHome: event.target.value })
   }
 
   updateCity = (event) => {
-    this.setState({ city : event.target.value })
+    this.setState({ city: event.target.value })
   }
 
   updateBedrooms = (event) => {
-    this.setState({ bedrooms : event.target.value })
+    this.setState({ bedrooms: event.target.value })
   }
 
   updateSizeOfHome = (event) => {
     let maxLength = 8
     if (event.target.value.toString().length > maxLength) {
-      event.target.value = event.target.value.slice(0,maxLength);
+      event.target.value = event.target.value.slice(0, maxLength)
     }
-    this.setState({ sizeOfHome : event.target.value })
+    this.setState({ sizeOfHome: event.target.value })
   }
 
   updateState = (event) => {
-    this.setState({ state : event.target.value })
+    this.setState({ state: event.target.value })
   }
 
   updateStreet = (event) => {
-    this.setState({ street : event.target.value })
+    this.setState({ street: event.target.value })
   }
 
   updateZipcode = (event) => {
     let maxLength = 5
     if (event.target.value.toString().length > maxLength) {
-      event.target.value = event.target.value.slice(0,maxLength);
+      event.target.value = event.target.value.slice(0, maxLength)
     }
-    this.setState({ zipcode : event.target.value })
+    this.setState({ zipcode: event.target.value })
   }
 
   render () {

@@ -6,7 +6,7 @@ export class ContactInfoBox extends React.Component {
     user: PropTypes.object.isRequired
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       email: this.props.user.email,
@@ -18,12 +18,12 @@ export class ContactInfoBox extends React.Component {
 
   isEditingOn = (event) => {
     event.preventDefault()
-    this.setState({ isEditingProfile : true })
+    this.setState({ isEditingProfile: true })
   }
 
   isEditingOff = (event) => {
     event.preventDefault()
-    this.setState({ isEditingProfile : false })
+    this.setState({ isEditingProfile: false })
   }
 
   save = () => {
@@ -32,28 +32,28 @@ export class ContactInfoBox extends React.Component {
     user.email = this.state.email
     user.phone = this.state.phone
     user.preferredModeOfContact = this.state.preferredModeOfContact
-    
+
     this.props.updateUser(user)
-    this.setState({ isEditingProfile : false })
+    this.setState({ isEditingProfile: false })
   }
 
   updateEmail = (event) => {
-    this.setState({ email : event.target.value })
+    this.setState({ email: event.target.value })
   }
 
   updatePhone = (event) => {
-    this.setState({ phone : event.target.value })
+    this.setState({ phone: event.target.value })
   }
 
   updateEmailPreferred = (event) => {
     if (event.target.checked) {
-      this.setState({ preferredModeOfContact : 'Email' })
+      this.setState({ preferredModeOfContact: 'Email' })
     }
   }
 
   updatePhonePreferred = (event) => {
     if (event.target.checked) {
-      this.setState({ preferredModeOfContact : 'Phone' })
+      this.setState({ preferredModeOfContact: 'Phone' })
     }
   }
 
