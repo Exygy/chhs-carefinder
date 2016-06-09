@@ -57,7 +57,7 @@ export class FosterCarePreferences extends React.Component {
         <section className='content-block block bg-white'>
           <header className='block-header'>
             <h3 className='block-title t-base'>Foster Care Preferences</h3>
-            <span className='block-edit'>
+            <span className='block-cancel'>
               <a href='#'
                 className='a-alert'
                 onClick={this.isEditingOff}>Cancel</a>

@@ -64,7 +64,7 @@ export class ContactInfoBox extends React.Component {
       return (
         <section className='block primary'>
           <header className='block-header'>
-            <a href='#' onClick={this.isEditingOff} className='block-edit'>Cancel</a>
+            <a href='#' onClick={this.isEditingOff} className='block-cancel'>Cancel</a>
           </header>
           <div className='row padding-bottom--2x'>
             <div className='large-8 large-centered columns'>
