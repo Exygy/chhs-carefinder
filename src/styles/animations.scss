@@ -1,0 +1,17 @@
+.fade-appear, .fade-enter {
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+  opacity: 0.01;
+
+  &.fade-appear-active, &.fade-enter-active {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      transition: none;
+    }
+  }
+}
