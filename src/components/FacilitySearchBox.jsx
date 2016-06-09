@@ -27,20 +27,20 @@ export class FacilitySearchBox extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {geoSearch: {}, searchQuery: '', errorMsg: ''}
+    this.state = {geoSearch: {}, searchQuery: '', errorMsg: '', waitForSelection: true}
   }
 
   onSubmit = (e) => {
-    e.preventDefault()
+    if (e) e.preventDefault()
+    // skip if they're searching the same thing again
+    if (this.state.searchQuery === this.props.searchQuery) return false
     // only allow submit if user has selected a location from the geosuggest dropdown
     if (!_.isEmpty(this.state.geoSearch)) {
       this.props.setFacilityGeoSearch(this.state.geoSearch)
       this.props.setFacilitySearchQuery(this.state.searchQuery)
       this.props.onSubmit()
       // reset local state
-      this.setState({geoSearch: {}})
-      this.setState({searchQuery: ''})
-      this.setState({errorMsg: ''})
+      this.setState({geoSearch: {}, searchQuery: '', errorMsg: ''})
     } else {
       if (this.props.searchQuery !== this.refs.geosuggest.refs.input.refs.input.value) {
         this.setState({errorMsg: 'Please select a location from the dropdown list.'})
@@ -54,15 +54,22 @@ export class FacilitySearchBox extends React.Component {
   }
 
   handleSuggestSelect = (suggest) => {
+    // if there's no placeId it could be a false positive e.g. we just typed in some gibberish
+    if (!suggest.placeId) {
+      this.setState({errorMsg: 'Please select a location from the dropdown list.'})
+      return false
+    }
     let coords = {
       lat: suggest.location.lat,
       lng: suggest.location.lng
     }
-    this.setState({geoSearch: coords})
-    this.setState({searchQuery: suggest.label})
-    // this.props.setFacilityGeoSearch(location)
-    // this.props.setFacilitySearchQuery(suggest.label)
-    // this.props.onSubmit()
+    this.setState({geoSearch: coords, searchQuery: suggest.label})
+  }
+
+  onKeyPressEnter = () => {
+    if (this.state.searchQuery) {
+      this.onSubmit()
+    }
   }
 
   get licensedCheckbox () {
@@ -101,13 +108,14 @@ export class FacilitySearchBox extends React.Component {
             <div className='large-8 columns'>
               <div className='search-input-group input-group large-9'>
                 <Geosuggest
-                  inputClassName='search-input input-group-field'
+                  autoActivateFirstSuggest
                   country='us'
+                  inputClassName='search-input input-group-field'
                   types={['(regions)']}
                   initialValue={this.props.searchQuery}
                   placeholder='Enter a city or zipcode'
                   onSuggestSelect={this.handleSuggestSelect}
-                  autoActivateFirstSuggest
+                  onKeyPressEnter={this.onKeyPressEnter}
                   getSuggestLabel={this.formatSuggestLabel}
                   ref='geosuggest'
                 />

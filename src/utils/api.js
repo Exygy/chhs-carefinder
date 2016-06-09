@@ -26,13 +26,13 @@ export const thunkAPI = (url, path, opts = {}) => {
     }
     fetchAPI(url, path, {})
     .then((data) => {
-      console.log(`API: ${path}`)
+      // console.log(`API: ${path}`)
       if (onSuccess) dispatch(onSuccess(data))
       if (onComplete) dispatch(onComplete())
     })
     .catch((error) => {
-      console.warn(`couldn't get ${path} : ${error.toString()}`)
-      if (onError) dispatch(onError())
+      // console.warn(`couldn't get ${path} : ${error.toString()}`)
+      if (onError) dispatch(onError(error))
       if (onComplete) dispatch(onComplete())
     })
   }
