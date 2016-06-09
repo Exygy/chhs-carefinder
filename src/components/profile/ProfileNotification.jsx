@@ -14,7 +14,7 @@ export class ProfileNotification extends React.Component {
           <p className='has-icon'>
             <span className='ui-icon i-base i-white'>
               <svg>
-                <use xlinkHref='#i-star' />
+                <use xlinkHref='#i-warn' />
               </svg>
             </span>
           Due to changes to your details, your foster status is pending review.
