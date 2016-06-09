@@ -6,7 +6,7 @@ export class FosterCarePreferences extends React.Component {
     user: PropTypes.object.isRequired
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       ability: this.props.user.fosterCarePreferences.ability,
@@ -18,12 +18,12 @@ export class FosterCarePreferences extends React.Component {
 
   isEditingOn = (event) => {
     event.preventDefault()
-    this.setState({ isEditingProfile : true })
+    this.setState({ isEditingProfile: true })
   }
 
   isEditingOff = (event) => {
     event.preventDefault()
-    this.setState({ isEditingProfile : false })
+    this.setState({ isEditingProfile: false })
   }
 
   save = () => {
@@ -34,19 +34,19 @@ export class FosterCarePreferences extends React.Component {
     user.fosterCarePreferences.gender = this.state.gender
 
     this.props.updateUser(user)
-    this.setState({ isEditingProfile : false })
+    this.setState({ isEditingProfile: false })
   }
 
   updateAbility = (event) => {
-    this.setState({ ability : event.target.value })
+    this.setState({ ability: event.target.value })
   }
 
   updateAge = (event) => {
-    this.setState({ age : event.target.value })
+    this.setState({ age: event.target.value })
   }
 
   updateGender = (event) => {
-    this.setState({ gender : event.target.value })
+    this.setState({ gender: event.target.value })
   }
 
   render () {
