@@ -27,13 +27,15 @@ export class ConversationView extends React.Component {
       if (_.isEmpty(stub)) {
         return <p>No conversation selected</p>
       } else {
-        return <div className='row'>
-          <div className='small-11 medium-7 small-centered column'>
-            <div className='message-placeholder'>
-              <p>You can start a message here with {stub.sender} about Stephanie Lang</p>
+        return <section className='message-feed'>
+          <div className='row'>
+            <div className='small-11 medium-7 small-centered column'>
+              <div className='message-placeholder'>
+                <p>You can start a message here with {stub.sender} about Stephanie Lang</p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       }
     } else {
       return <section className='message-feed'>
