@@ -59,10 +59,12 @@ export class SearchView extends React.Component {
     // in some browsers we seem to get 0 for width
     if (w === 0 && screen && screen.availWidth) w = screen.availWidth
     if (w >= 640) {
+      // enable the sticky FacilitySearchBox if we're on tablet/desktop
       this.setState({
         stickyActive: true
       })
     } else {
+      // disable the sticky FacilitySearchBox if we're on mobile
       this.setState({
         stickyActive: false
       })
