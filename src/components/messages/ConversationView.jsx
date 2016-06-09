@@ -11,6 +11,11 @@ export class ConversationView extends React.Component {
     messages: PropTypes.array.isRequired
   }
 
+  componentDidUpdate = () => {
+    let node = this.refs['feed']
+    node.scrollTop = node.offsetHeight
+  }
+
   get messageList () {
     let messages = this.props.messages
     let stub = this.props.selectedConversationStub
@@ -48,7 +53,8 @@ export class ConversationView extends React.Component {
             aria-hidden='false'
             role='tabpanel'
             className='message-panel tabs-panel is-active'
-            id='panel1v'>
+            id='panel1v'
+            ref='feed'>
             <header className='message-subect'>
               <h1 className='message-title'>From: {sender}</h1>
               <br />
