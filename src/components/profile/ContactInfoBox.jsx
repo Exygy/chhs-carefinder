@@ -61,6 +61,7 @@ export class ContactInfoBox extends React.Component {
     let { email, phone, preferredModeOfContact } = this.props.user
 
     if (this.state.isEditingProfile) {
+      // return editing mode
       return (
         <section className='block primary'>
           <header className='block-header'>
@@ -133,6 +134,7 @@ export class ContactInfoBox extends React.Component {
         </section>
       )
     } else {
+      // return non-editing mode
       return (
         <section className='block primary'>
           <a href='#' onClick={this.isEditingOn} className='block-edit'>Edit</a>
