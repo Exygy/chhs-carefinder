@@ -28,6 +28,7 @@ export class HomeView extends React.Component {
           <div className='large-12 columns'>
             <FacilitySearchBox
               showLicensedCheckbox={false}
+              forceOnSubmit
               onSubmit={this.goToSearchView}>
               <p>
                 Foster Family Agencies offer services to support foster children,

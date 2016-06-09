@@ -14,7 +14,9 @@ const mapStateToProps = (state) => ({
 export class FacilitySearchBox extends React.Component {
   static propTypes = {
     children: PropTypes.object,
+    className: PropTypes.string,
     showLicensedCheckbox: PropTypes.bool,
+    forceOnSubmit: PropTypes.bool,
     resultCount: PropTypes.string,
     onSubmit: PropTypes.func.isRequired,
     getFacilities: PropTypes.func.isRequired,
@@ -41,7 +43,12 @@ export class FacilitySearchBox extends React.Component {
       this.props.onSubmit()
       // reset local state
       this.setState({geoSearch: {}, searchQuery: '', errorMsg: ''})
+    } else if (this.props.forceOnSubmit) {
+      // if we're coming from the homepage we want to force the form submission
+      // so that it always takes us to the SearchView page
+      this.props.onSubmit()
     } else {
+      // check if the user typed in something random in the search box
       if (this.props.searchQuery !== this.refs.geosuggest.refs.input.refs.input.value) {
         this.setState({errorMsg: 'Please select a location from the dropdown list.'})
       }
@@ -110,7 +117,7 @@ export class FacilitySearchBox extends React.Component {
 
   render () {
     return (
-      <div className='callout large bg-light-gray'>
+      <div className={`callout large bg-light-gray ${this.props.className}`}>
         <h2 className='t-serif t-delta'>
           Find Foster Family Agencies In Your Area
         </h2>
@@ -149,6 +156,10 @@ export class FacilitySearchBox extends React.Component {
   }
 }
 
-FacilitySearchBox.defaultProps = { showLicensedCheckbox: true }
+FacilitySearchBox.defaultProps = {
+  showLicensedCheckbox: true,
+  forceOnSubmit: false,
+  className: ''
+}
 
 export default connect(mapStateToProps, actions)(FacilitySearchBox)

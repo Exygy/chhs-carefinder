@@ -22,12 +22,51 @@ export class SearchView extends React.Component {
     searchQuery: PropTypes.string.isRequired
   }
 
+  constructor (props) {
+    super(props)
+    this.state = {
+      stickyActive: true
+    }
+  }
+
   componentWillMount () {
     this.props.getFacilities()
   }
 
   componentWillReceiveProps (nextProps) {
-    window.scrollTo(0, 40)
+    window.scrollTo(0, 35)
+  }
+
+  componentDidMount () {
+    if (window.addEventListener) {
+      window.addEventListener('resize', this.onWindowResized)
+    } else {
+      window.attachEvent('onresize', this.onWindowResized)
+    }
+    this.onWindowResized()
+  }
+
+  componentWillUnmount () {
+    if (window.addEventListener) {
+      window.removeEventListener('resize', this.onWindowResized)
+    } else {
+      window.detachEvent('onresize', this.onWindowResized)
+    }
+  }
+
+  onWindowResized = () => {
+    let w = window.innerWidth
+    // in some browsers we seem to get 0 for width
+    if (w === 0 && screen && screen.availWidth) w = screen.availWidth
+    if (w >= 640) {
+      this.setState({
+        stickyActive: true
+      })
+    } else {
+      this.setState({
+        stickyActive: false
+      })
+    }
   }
 
   get message () {
@@ -85,10 +124,11 @@ export class SearchView extends React.Component {
   render () {
     return (
       <StickyContainer className='content with-sticky-header'>
-        <Sticky style={{paddingTop: '10px', zIndex: 1}}>
+        <Sticky isActive={this.state.stickyActive} style={{paddingTop: '10px', zIndex: 1}}>
           <section className='row padding-top--2x padding-bottom'>
             <div className='large-12 columns'>
               <FacilitySearchBox
+                className='search'
                 showLicensedCheckbox
                 resultCount={this.resultCount}
                 onSubmit={this.props.getFacilities} />
