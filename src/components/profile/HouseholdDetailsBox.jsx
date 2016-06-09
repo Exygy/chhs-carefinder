@@ -94,6 +94,7 @@ export class HouseholdDetailsBox extends React.Component {
 
     if (this.state.isEditingProfile) {
       return (
+        // return editing mode
         <section className='content-block block bg-white'>
           <header className='block-header'>
             <h3 className='block-title t-base'>Household Details</h3>
@@ -233,6 +234,7 @@ export class HouseholdDetailsBox extends React.Component {
         </section>
       )
     } else {
+      // return non-editing mode
       return (
         <section className='content-block block bg-white'>
           <header className='block-header'>

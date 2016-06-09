@@ -6,7 +6,7 @@ export class ProfileInfoBox extends React.Component {
     user: PropTypes.object.isRequired
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       annualIncome: this.props.user.annualIncome,
@@ -22,12 +22,12 @@ export class ProfileInfoBox extends React.Component {
 
   isEditingOn = (event) => {
     event.preventDefault()
-    this.setState({ isEditingProfile : true })
+    this.setState({ isEditingProfile: true })
   }
 
   isEditingOff = (event) => {
     event.preventDefault()
-    this.setState({ isEditingProfile : false })
+    this.setState({ isEditingProfile: false })
   }
 
   save = () => {
@@ -42,39 +42,39 @@ export class ProfileInfoBox extends React.Component {
     user.occupation = this.state.occupation
 
     this.props.updateUser(user)
-    this.setState({ isEditingProfile : false })
+    this.setState({ isEditingProfile: false })
   }
 
   updateGender = (event) => {
-    this.setState({ gender : event.target.value })
+    this.setState({ gender: event.target.value })
   }
 
   updateMaritalStatus = (event) => {
-    this.setState({ maritalStatus : event.target.value })
+    this.setState({ maritalStatus: event.target.value })
   }
 
   updateReligion = (event) => {
-    this.setState({ religion : event.target.value })
+    this.setState({ religion: event.target.value })
   }
 
   updateEmploymentStatus = (event) => {
-    this.setState({ employmentStatus : event.target.value })
+    this.setState({ employmentStatus: event.target.value })
   }
 
   updateOccupation = (event) => {
-    this.setState({ occupation : event.target.value })
+    this.setState({ occupation: event.target.value })
   }
 
   updateIncome = (event) => {
     let maxLength = 15
     if (event.target.value.toString().length > maxLength) {
-      event.target.value = event.target.value.slice(0,maxLength);
+      event.target.value = event.target.value.slice(0, maxLength)
     }
-    this.setState({ annualIncome : event.target.value })
+    this.setState({ annualIncome: event.target.value })
   }
 
   updateMedicalHistory = (event) => {
-    this.setState({ medicalHistory : event.target.value })
+    this.setState({ medicalHistory: event.target.value })
   }
 
   get incomeString () {
@@ -108,6 +108,7 @@ export class ProfileInfoBox extends React.Component {
     } = this.props.user
 
     if (this.state.isEditingProfile) {
+      // return editing mode
       return (
         <section className='content-block block bg-white'>
           <header className='block-header'>
@@ -276,6 +277,7 @@ export class ProfileInfoBox extends React.Component {
         </section>
       )
     } else {
+      // return non-editing mode
       return (
         <section className='block'>
           <header className='block-header'>
@@ -295,7 +297,7 @@ export class ProfileInfoBox extends React.Component {
                       <use xlinkHref='#i-gender' />
                     </svg>
                   </span>
-                <strong>Gender</strong>: {gender}
+                  <strong>Gender</strong>: {gender}
                 </li>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
@@ -303,7 +305,7 @@ export class ProfileInfoBox extends React.Component {
                       <use xlinkHref='#i-love' />
                     </svg>
                   </span>
-                <strong>Marital Status</strong>: {maritalStatus}
+                  <strong>Marital Status</strong>: {maritalStatus}
                 </li>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
@@ -311,7 +313,7 @@ export class ProfileInfoBox extends React.Component {
                       <use xlinkHref='#i-love' />
                     </svg>
                   </span>
-                <strong>Religion</strong>: {religion}
+                  <strong>Religion</strong>: {religion}
                 </li>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
@@ -319,7 +321,7 @@ export class ProfileInfoBox extends React.Component {
                       <use xlinkHref='#i-religion' />
                     </svg>
                   </span>
-                <strong>Race</strong>: {race}
+                  <strong>Race</strong>: {race}
                 </li>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
@@ -327,7 +329,7 @@ export class ProfileInfoBox extends React.Component {
                       <use xlinkHref='#i-job' />
                     </svg>
                   </span>
-                <strong>Employment Status</strong>: {employmentStatus}
+                  <strong>Employment Status</strong>: {employmentStatus}
                 </li>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
@@ -335,7 +337,7 @@ export class ProfileInfoBox extends React.Component {
                       <use xlinkHref='#i-time' />
                     </svg>
                   </span>
-                <strong>Occupation</strong>: {occupation}
+                  <strong>Occupation</strong>: {occupation}
                 </li>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
@@ -343,7 +345,7 @@ export class ProfileInfoBox extends React.Component {
                       <use xlinkHref='#i-money' />
                     </svg>
                   </span>
-                <strong>Annual Income</strong>: {this.incomeString}
+                  <strong>Annual Income</strong>: {this.incomeString}
                 </li>
               </ul>
             </div>

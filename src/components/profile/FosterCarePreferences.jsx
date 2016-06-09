@@ -53,6 +53,7 @@ export class FosterCarePreferences extends React.Component {
     let { ability, age, gender } = this.props.user.fosterCarePreferences
 
     if (this.state.isEditingProfile) {
+      // return editing mode
       return (
         <section className='content-block block bg-white'>
           <header className='block-header'>
@@ -120,6 +121,7 @@ export class FosterCarePreferences extends React.Component {
         </section>
       )
     } else {
+      // return non-editing mode
       return (
         <section className='content-block block bg-white'>
           <header className='block-header'>
