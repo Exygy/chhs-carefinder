@@ -41,14 +41,22 @@ export class NavBar extends React.Component {
     var NavItem = activeComponent('li', { linkClassName: 'top-bar-menu-link' })
 
     let searchFacilitiesLink = (
-      <NavItem to='/search' className='top-bar-menu-item' activeClassName='active'>
+      <NavItem
+        to='/search'
+        className='top-bar-menu-item'
+        activeClassName='active'
+        onClick={this.closeMenu}>
         Search Facilities
       </NavItem>
     )
     let loggedOutNavLinks = (
       <ul className='top-bar-menu menu' data-dropdown-menu>
         {searchFacilitiesLink}
-        <NavItem to='/signin' className='top-bar-menu-item' activeClassName='active'>
+        <NavItem
+          to='/signin'
+          className='top-bar-menu-item'
+          activeClassName='active'
+          onClick={this.closeMenu}>
           Sign In or Sign Up
           {this.spacer}
         </NavItem>
@@ -57,13 +65,25 @@ export class NavBar extends React.Component {
     let loggedInNavLinks = (
       <ul className='top-bar-menu menu' data-dropdown-menu>
         {searchFacilitiesLink}
-        <NavItem to='/profile' className='top-bar-menu-item' activeClassName='active'>
+        <NavItem
+          to='/profile'
+          className='top-bar-menu-item'
+          activeClassName='active'
+          onClick={this.closeMenu}>
           My Profile
         </NavItem>
-        <NavItem to='/messages' className='top-bar-menu-item' activeClassName='active'>
+        <NavItem
+          to='/messages'
+          className='top-bar-menu-item'
+          activeClassName='active'
+          onClick={this.closeMenu}>
           My Messages {this.notifications}
         </NavItem>
-        <NavItem onClick={this.logOut} to='/' className='top-bar-menu-item' activeClassName=''>
+        <NavItem
+          to='/'
+          className='top-bar-menu-item'
+          activeClassName=''
+          onClick={this.logOutAndCloseMenu}>
           Sign Out
         </NavItem>
       </ul>
@@ -75,7 +95,12 @@ export class NavBar extends React.Component {
     }
   }
 
-  logOut = () => {
+  closeMenu = () => {
+    this.props.toggleMenu('close')
+  }
+
+  logOutAndCloseMenu = () => {
+    this.closeMenu
     this.props.userLoad({})
     this.props.resetUnreadConversationStubs()
   }
