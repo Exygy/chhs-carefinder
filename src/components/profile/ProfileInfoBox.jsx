@@ -293,9 +293,7 @@ export class ProfileInfoBox extends React.Component {
               <ul className='meta-list tall'>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
-                    <svg>
-                      <use xlinkHref='#i-gender' />
-                    </svg>
+                    <img src={require('../../images/gender.png')} />
                   </span>
                   <strong>Gender</strong>: {gender}
                 </li>
@@ -310,7 +308,7 @@ export class ProfileInfoBox extends React.Component {
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
                     <svg>
-                      <use xlinkHref='#i-love' />
+                      <use xlinkHref='#i-religion' />
                     </svg>
                   </span>
                   <strong>Religion</strong>: {religion}
@@ -318,7 +316,7 @@ export class ProfileInfoBox extends React.Component {
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
                     <svg>
-                      <use xlinkHref='#i-religion' />
+                      <use xlinkHref='#i-gender' />
                     </svg>
                   </span>
                   <strong>Race</strong>: {race}
