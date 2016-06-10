@@ -125,9 +125,7 @@ export class ProfileInfoBox extends React.Component {
                 <li className='meta-list-item'>
                   <div className='inline-form border-bottom'>
                     <span className='ui-icon i-base i-primary inline-form-icon'>
-                      <svg>
-                        <use xlinkHref='#i-gender'></use>
-                      </svg>
+                      <img src={require('../../images/gender.png')} />
                     </span>
                     <label className='inline-form-label'>Gender</label>
                     <select name='gender'
