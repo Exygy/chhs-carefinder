@@ -22,7 +22,7 @@ export class AuthView extends React.Component {
                 <div className='form-group'>
                   <div className='inline-form'>
                     <label className='inline-form-label'>Email</label>
-                    <input className='inline-form-input' type='text' placeholder='somebody@example.com' />
+                    <input className='inline-form-input' type='text' placeholder='me@example.com' />
                   </div>
                   <div className='inline-form'>
                     <label className='inline-form-label'>Password</label>
