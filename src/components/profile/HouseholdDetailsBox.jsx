@@ -308,7 +308,7 @@ export class HouseholdDetailsBox extends React.Component {
           </div>
 
           <section className='row collapse padding-top--2x padding-bottom'>
-            <div className='medium-4 columns'>
+            <div className='medium-6 columns'>
               <ul className='meta-list tall'>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
@@ -329,7 +329,7 @@ export class HouseholdDetailsBox extends React.Component {
                 </li>
               </ul>
             </div>
-            <div className='medium-4 columns'>
+            <div className='medium-6 columns'>
               <ul className='meta-list tall'>
                 <li className='meta-list-item'>
                   <strong>Home Size</strong>: {household.homeSize.value} {household.homeSize.unit}
