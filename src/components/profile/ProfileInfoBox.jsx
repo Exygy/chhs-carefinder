@@ -289,7 +289,7 @@ export class ProfileInfoBox extends React.Component {
             </span>
           </header>
           <div className='row collapse'>
-            <div className='medium-4 columns'>
+            <div className='medium-6 columns'>
               <ul className='meta-list tall'>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
@@ -347,7 +347,7 @@ export class ProfileInfoBox extends React.Component {
                 </li>
               </ul>
             </div>
-            <div className='medium-4 columns'>
+            <div className='medium-6 columns'>
               <ul className='meta-list tall'>
                 <li className='meta-list-item'>
                   <span className='ui-icon i-base i-primary'>
